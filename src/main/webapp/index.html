@@ -1,5 +1,89 @@
-<html>
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{{'APP_TITLE' | translate}}</title>
+        <meta name="description" content="{{'APP_DESCRIPTION' | translate}}">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+
+        <link rel="stylesheet" href="styles/normalize.css">
+        <link rel="stylesheet" href="webjars/bootstrap/3.0.3/css/bootstrap.css">
+        <link rel="stylesheet" href="styles/main.css">
+        <script src="vendor/modernizr/modernizr.js"></script>
+        <script src="http://maps.googleapis.com/maps/api/js?v=3.14&sensor=false&language=en"></script>
+    </head>
     <body>
-    <h2>Hello World!</h2>
+        <!--[if lt IE 8]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <div id="wrap">
+            <!-- Fixed navbar -->
+            <div id="navbar" ng-include="'templates/navbar.html'"></div>
+
+            <!-- Begin page content -->
+            <div id="container" class="" style="position: absolute; top: 50px; bottom: 0; width: 100%;">
+                <section id="content" ng-include="'templates/content.html'" style="height: 100%"></section>
+                <aside id="popups" ng-include="'templates/popups.html'"></aside>
+            </div>
+
+            <!-- Fixed footer -->
+            <div id="footer" ng-include="'templates/footer.html'"></div>
+        </div>
+
+        <script src="vendor/LABjs/LAB.src.js"></script>
+        <script>
+            $LAB.setOptions({
+                'BasePath': '',
+                'Debug': true
+            })
+            .script('scripts/console.js')
+            .script([
+                'webjars/jquery/2.0.3/jquery.js',
+                'webjars/angularjs/1.2.9/angular.js',
+                'webjars/underscorejs/1.5.2/underscore.js'
+            ]).wait()
+            .script(function() {
+                var locale = (navigator.language).toLowerCase();
+                var url = 'webjars/angularjs/1.2.9/i18n/angular-locale_' + locale + '.js';
+                return url;
+            })
+            .script([
+                'webjars/angular-translate/1.1.1/angular-translate.js',
+                'webjars/angular-translate-loader-static-files/0.1.6/angular-translate-loader-static-files.js',
+                'webjars/angular-translate-storage-cookie/0.1.3/angular-translate-storage-cookie.js',
+                'webjars/angular-translate-storage-local/0.1.3/angular-translate-storage-local.js'
+            ])
+            .script([
+                'webjars/jquery-ui/1.10.3/ui/jquery-ui.js',
+                'webjars/bootstrap/3.0.3/js/bootstrap.js',
+                'webjars/angular-ui/0.4.0/angular-ui.js',
+                'webjars/angular-ui-utils/0.1.0/ui-utils.js',
+                'webjars/angular-ui-bootstrap/0.9.0/ui-bootstrap-tpls.js'
+            ]).wait()
+            .script('scripts/main.js').wait()
+            .script('scripts/app.js').wait()
+            .script('scripts/config.js').wait()
+            .script([
+                //'scripts/directives/directives.js'
+            ])
+            .script([
+                'scripts/filters/filters.js'
+            ])
+            .script([
+                'scripts/services/channel.js',
+                'scripts/services/dataStorage.js'
+            ])
+            .script([
+                'scripts/controllers/debugboxCtrl.js',
+                'scripts/controllers/contentCtrl.js'
+            ]).wait(function() {
+                angular.bootstrap(document, ['app']);
+            });
+        </script>
     </body>
 </html>

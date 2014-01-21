@@ -1,3 +1,23 @@
+# Typically *NIX text editors, by default, append '~' to files on saving to make backups
+*~
+
+# Gradle
+.gradle
+
+# Build output directies
+/target
+*/target
+*/**/target
+/build
+*/build
+
+# Eclipse specific files/directories
+.classpath
+.project
+.settings
+.metadata
+bin
+
 # Java Class
 *.class
 
@@ -6,18 +26,9 @@
 *.war
 *.ear
 
-# Maven
-target/
-
-# Eclipse Project Files
-.settings
-.project
-.classpath
-
-# Log, Backup, Executable Files
+# Miscellaneous
 Thumbs.db
 *.exe
 *.bak
 *.orig
 *.log
-*.un~

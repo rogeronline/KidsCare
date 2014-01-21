@@ -7,7 +7,7 @@ KidsCare
 
 1. Install [Git Extensions](https://code.google.com/p/gitextensions/)
 2. Choose "OpenSSH" as your SSH client.
-2. Generate SSH keys
+3. Generate SSH keys
 
 ```
     $ cd ~/.ssh
@@ -24,7 +24,7 @@ KidsCare
 
 Copy the public key `~/.ssh/id_rsa.pub` to the Git repository administrator.
 
-3. Clone Git repository
+4. Clone Git repository
 
 ```
     $ cd ~/workspace

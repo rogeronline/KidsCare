@@ -1,0 +1,9 @@
+.modal-body {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+input.ng-invalid,
+select.ng-invalid {
+    border-color: #FA787E;
+}

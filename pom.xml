@@ -55,6 +55,177 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- MVC -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>angularjs</artifactId>
+            <version>1.2.9</version>
+        </dependency>
+
+        <!-- i18n -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>angular-translate</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>angular-translate-interpolation-messageformat</artifactId>
+            <version>0.1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>angular-translate-loader-static-files</artifactId>
+            <version>0.1.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>angular-translate-loader-url</artifactId>
+            <version>0.1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>angular-translate-storage-cookie</artifactId>
+            <version>0.1.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>angular-translate-storage-local</artifactId>
+            <version>0.1.3</version>
+        </dependency>
+
+        <!-- AngularJS Plugin -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>angular-ui</artifactId>
+            <version>0.4.0-1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>angular-ui-bootstrap</artifactId>
+            <version>0.9.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>angular-ui-utils</artifactId>
+            <version>0.1.0</version>
+        </dependency>
+
+        <!-- Module Loader -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>requirejs</artifactId>
+            <version>2.1.10</version>
+        </dependency>
+
+        <!-- DOM Query -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery</artifactId>
+            <version>2.0.3-1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>zeptojs</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <!-- Utility Functions -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>underscorejs</artifactId>
+            <version>1.5.2-2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>lodash</artifactId>
+            <version>2.4.1-1</version>
+        </dependency>
+
+        <!-- Template Engine -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>mustachejs</artifactId>
+            <version>0.7.0</version>
+        </dependency>
+
+        <!-- UI Control -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery-ui</artifactId>
+            <version>1.10.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>3.0.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>select2</artifactId>
+            <version>3.4.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap-switch</artifactId>
+            <version>1.8</version>
+        </dependency>
+
+        <!-- Test Framework -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>qunit</artifactId>
+            <version>1.11.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jasmine</artifactId>
+            <version>1.3.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>sinonjs</artifactId>
+            <version>1.7.3</version>
+        </dependency>
+
+        <!-- Visualization -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>d3js</artifactId>
+            <version>3.3.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>nvd3</artifactId>
+            <version>8415ee55d3-1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>raphaeljs</artifactId>
+            <version>2.1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>highcharts</artifactId>
+            <version>3.0.7</version>
+        </dependency>
     </dependencies>
 
 
@@ -71,11 +242,11 @@
         <finalName>${project.artifactId}</finalName>
 
         <plugins>
-            <!-- Jetty 8 for JVM 1.6 -->
+            <!-- Jetty 9 for JVM 1.7 and Servlet 3.0-->
             <plugin>
-                <groupId>org.mortbay.jetty</groupId>
+                <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
-                <version>${jetty8.version}</version>
+                <version>${jetty.version}</version>
                 <executions>
                     <execution>
                         <id>start-jetty</id>
@@ -84,7 +255,7 @@
                             <goal>run</goal>
                         </goals>
                         <configuration>
-                            <scanIntervalSeconds>0</scanIntervalSeconds>
+                            <scanIntervalSeconds>10</scanIntervalSeconds>
                             <daemon>true</daemon>
                         </configuration>
                     </execution>
@@ -98,12 +269,12 @@
                 </executions>
                 <configuration>
                     <scanIntervalSeconds>10</scanIntervalSeconds>
-                    <stopPort>8005</stopPort>
-                    <stopKey>STOP</stopKey>
+                    <stopPort>9999</stopPort>
+                    <stopKey>foo</stopKey>
                     <webAppSourceDirectory>${web.src.dir}</webAppSourceDirectory>
                     <webApp>
                         <contextPath>/${web.context.name}</contextPath>
-                        <defaultsDescriptor>${basedir}/src/main/config/jetty-8/webdefault.xml</defaultsDescriptor>
+                        <defaultsDescriptor>${basedir}/src/main/config/jetty-9/webdefault.xml</defaultsDescriptor>
                     </webApp>
                 </configuration>
             </plugin>
@@ -125,13 +296,13 @@
 
         <pluginManagement>
             <plugins>
-                <!-- Use JDK 1.6 -->
+                <!-- Use JDK 1.7 -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <configuration>
-                        <source>1.6</source>
-                        <target>1.6</target>
+                        <source>1.7</source>
+                        <target>1.7</target>
                         <!--
                         <includes>
                             <include>**</include>

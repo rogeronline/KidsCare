@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.sap.cdsp</groupId>
+    <artifactId>kidscare</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <name>kidscare Maven Webapp</name>
+    <description>Kids Care Demo</description>
+    <url>https://github.com/rogeronline/KidsCare.git</url>
+
+
+    <!-- ============================================================== -->
+    <!-- POM SECTION: Properties Settings                               -->
+    <!-- ============================================================== -->
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!-- Eclipse WTP: context name -->
+        <web.context.name>${project.artifactId}</web.context.name>
+        <web.src.dir>src/main/webapp</web.src.dir>
+
+        <servlet.version>3.0.1</servlet.version>
+        <junit.version>4.11</junit.version>
+        <jetty.version>9.1.1.v20140108</jetty.version>
+        <jetty8.version>8.1.14.v20131031</jetty8.version>
+        <jetty.port>8080</jetty.port>
+    </properties>
+
+
+    <!-- ============================================================== -->
+    <!-- POM SECTION: Dependency Settings                               -->
+    <!-- ============================================================== -->
+
+    <dependencies>
+        <!-- Servlet -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${servlet.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- JUnit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+
+    <!-- ============================================================== -->
+    <!-- POM SECTION: Build Settings                                    -->
+    <!-- ============================================================== -->
+
+    <build>
+        <!--
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <testSourceDirectory>src/test/java</testSourceDirectory>
+        -->
+
+        <finalName>${project.artifactId}</finalName>
+
+        <plugins>
+            <!-- Jetty 8 for JVM 1.6 -->
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>${jetty8.version}</version>
+                <executions>
+                    <execution>
+                        <id>start-jetty</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <scanIntervalSeconds>0</scanIntervalSeconds>
+                            <daemon>true</daemon>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>stop-jetty</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>stop</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <scanIntervalSeconds>10</scanIntervalSeconds>
+                    <stopPort>8005</stopPort>
+                    <stopKey>STOP</stopKey>
+                    <webAppSourceDirectory>${web.src.dir}</webAppSourceDirectory>
+                    <webApp>
+                        <contextPath>/${web.context.name}</contextPath>
+                        <defaultsDescriptor>${basedir}/src/main/config/jetty-8/webdefault.xml</defaultsDescriptor>
+                    </webApp>
+                </configuration>
+            </plugin>
+
+            <!-- enable the failsafe plugin for the integration-test phase -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>2.16</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+
+        <pluginManagement>
+            <plugins>
+                <!-- Use JDK 1.6 -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <source>1.6</source>
+                        <target>1.6</target>
+                        <!--
+                        <includes>
+                            <include>**</include>
+                        </includes>
+                        -->
+                    </configuration>
+                </plugin>
+
+                <!-- Change war source directory -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <configuration>
+                        <warSourceDirectory>${web.src.dir}</warSourceDirectory>
+                        <!-- <warSourceExcludes>WEB-INF/lib/**,*backup*/**</warSourceExcludes> -->
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>

@@ -1,0 +1,23 @@
+# Java Class
+*.class
+
+# Package Files
+*.jar
+*.war
+*.ear
+
+# Maven
+target/
+
+# Eclipse Project Files
+.settings
+.project
+.classpath
+
+# Log, Backup, Executable Files
+Thumbs.db
+*.exe
+*.bak
+*.orig
+*.log
+*.un~

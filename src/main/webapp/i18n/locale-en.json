@@ -1,0 +1,18 @@
+{
+    "APP_TITLE": "Kids Care",
+    "APP_DESCRIPTION": "This is a demo for Kids Care",
+    "APP_WELCOME": "Welcome!",
+    "APP_LOGOUT": "Logout",
+    "COMMON_OK": "OK",
+    "COMMON_CANCEL": "Cancel",
+    "COMMON_SAVE": "Save",
+    "COMMON_SEARCH": "Search",
+    "COMMON_CREATE": "Create",
+    "COMMON_EDIT": "Edit",
+    "COMMON_DELETE": "Delete",
+    "COMMON_MORE": "More",
+    "COMMON_SELECT_ALL": "Select All",
+    "FILTER_LOCATION": "Location",
+    "FILTER_CATEGORY": "Category",
+    "TAB_MAP": "Map"
+}

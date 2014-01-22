@@ -26,13 +26,13 @@
             <div id="navbar" ng-include="'templates/navbar.html'"></div>
 
             <!-- Begin page content -->
-            <div id="container" class="" style="position: absolute; top: 50px; bottom: 0; width: 100%;">
+            <div id="container" class="" style="position: absolute; top: 50px; bottom: 30px; width: 100%;">
                 <section id="content" ng-include="'templates/content.html'" style="height: 100%"></section>
                 <aside id="popups" ng-include="'templates/popups.html'"></aside>
             </div>
 
             <!-- Fixed footer -->
-            <div id="footer" ng-include="'templates/footer.html'"></div>
+            <div id="footer" ng-include="'templates/footer.html'" style="position: absolute; bottom: 0;"></div>
         </div>
 
         <script src="vendor/LABjs/LAB.src.js"></script>

@@ -54,7 +54,7 @@ public class CrawlerConfig
 			propIn = new FileInputStream("./config.properties");
 		}
 		props.load(propIn);
-		System.out.println(getValue("log4j_tianya_config_file"));
+		
 	}
 	
 

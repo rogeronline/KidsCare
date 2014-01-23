@@ -1,6 +1,18 @@
 package com.sap.cdsp.kidscare.crawl.dao;
 
-public class WangYiDAO {
+import java.sql.PreparedStatement;
+
+import org.apache.log4j.Logger;
+
+public class WangYiDAO extends AppDAO {
+	
+	private static Logger logger = Logger.getLogger(WangYiDAO.class);
+	
+	private PreparedStatement pstmt_insertTopic;
+	
+	protected void PrepareSql() {
+		
+	}
 
 	/**
 	 * @param args

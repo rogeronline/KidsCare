@@ -1,7 +1,7 @@
 KidsCare
 ========
 
-KidsCare
+# Kids Care
 
 ## Git
 
@@ -52,7 +52,7 @@ Import > Existing Maven Projects
 
 1. Download [Maven 3](http://maven.apache.org/download.cgi)
 2. Set `M2_HOME=C:\maven-3.x.x` and add `%M2_HOME%\bin` to your `PATH` variable.
-3. Download `settings.xml` and put the file into your `%USERPROFILE%\.m2` folder (e.g. `C:\Users\I068400\.m2` for Windows 7).
+3. Copy `settings.xml` and put the file into your `%USERPROFILE%\.m2` folder (e.g. `C:\Users\I068400\.m2` for Windows 7).
 
 ### Build
 
@@ -60,9 +60,13 @@ Build to WAR package
 
     $ mvn clean package
 
-Run local development Jetty server.
+Run local Jetty server.
 
     $ mvn jetty:run
+
+Run local Jetty server with specific port.
+
+    $ mvn jetty:run -Djetty.port=9080
 
 Visit in browser:
 

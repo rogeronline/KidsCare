@@ -63,7 +63,8 @@
                 'webjars/bootstrap/3.0.3/js/bootstrap.js',
                 'webjars/angular-ui/0.4.0/angular-ui.js',
                 'webjars/angular-ui-utils/0.1.0/ui-utils.js',
-                'webjars/angular-ui-bootstrap/0.9.0/ui-bootstrap-tpls.js'
+                'webjars/angular-ui-bootstrap/0.9.0/ui-bootstrap-tpls.js',
+                'vendor/datajs/datajs-1.1.1.js'
             ]).wait()
             .script('scripts/main.js').wait()
             .script('scripts/app.js').wait()
@@ -76,7 +77,8 @@
             ])
             .script([
                 'scripts/services/channel.js',
-                'scripts/services/dataStorage.js'
+                'scripts/services/dataStorage.js',
+                'scripts/services/dataService.js'
             ])
             .script([
                 'scripts/controllers/debugboxCtrl.js',

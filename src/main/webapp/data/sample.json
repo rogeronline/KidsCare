@@ -1,0 +1,16 @@
+{
+    "results": [
+        {
+            "ID": "1",
+            "NAME": "Name 1"
+        },
+        {
+            "ID": "2",
+            "NAME": "Name 2"
+        },
+        {
+            "ID": "3",
+            "NAME": "Name 3"
+        }
+    ]
+}

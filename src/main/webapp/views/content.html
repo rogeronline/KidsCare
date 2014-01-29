@@ -2,12 +2,14 @@
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">Hello</h3>
+            <h3 class="panel-title">Welcome</h3>
         </div>
         <div class="panel-body">
-            <p>Have a nice day!</p>
             <ul class="list-group" ng-cloak>
-              <li class="list-group-item" ng-repeat="item in items track by item.ID">{{item.NAME}}</li>
+                <a href="#" class="list-group-item" ng-repeat="item in items track by item.id">
+                    <h4 class="list-group-item-heading">{{item.name}}</h4>
+                    <p class="list-group-item-text">{{item.description}}</p>
+                </a>
             </ul>
         </div>
     </div>

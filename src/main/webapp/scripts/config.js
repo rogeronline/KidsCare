@@ -1,12 +1,17 @@
 'use strict';
 
+function getContextPath() {
+    var contextPath = "/" + window.location.pathname.split("/")[1]; // "/demo"
+    return contextPath;
+}
+
 var _config = {
     contextPath: '/kidscare', // "http://localhost:8080/kidscare"
     service: {
         offline: true,
         proxy: {
             enabled: true,
-            path: 'proxy', // "http://localhost:8080/kidscare/proxy"
+            path: 'proxy', // "http://localhost:8080/demo/proxy"
         },
         metadata: {
             online: {
@@ -19,13 +24,13 @@ var _config = {
             }
         },
         api: {
-            'sample': {
+            'items': {
                 online: {
-                    path: 'odata.xsodata/EquipmentCategories',
+                    path: 'odata.xsodata/Items',
                     type: 'odata'
                 },
                 offline: {
-                    path: 'sample.json',
+                    path: 'items.json',
                     type: 'json'
                 }
             }

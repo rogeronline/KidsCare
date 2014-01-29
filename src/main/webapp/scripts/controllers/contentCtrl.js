@@ -5,7 +5,7 @@ function($scope, dataStorage, channel, dataService) {
 
     function updateItems() {
         var params = {};
-        dataService.getSample(params, function(data) {
+        dataService.getItems(params, function(data) {
             $scope.items = data.results;
         });
     }

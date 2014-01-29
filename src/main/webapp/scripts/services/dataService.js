@@ -125,8 +125,8 @@ app.factory('dataService', ['$http', 'config', 'formatFilter', function($http, c
     // Service
     // =========================================================================
 
-    function getSample(params, callback) {
-        var serviceKey = 'sample';
+    function getItems(params, callback) {
+        var serviceKey = 'items';
         var options = {
             method: 'GET',
             params: params,
@@ -186,7 +186,7 @@ app.factory('dataService', ['$http', 'config', 'formatFilter', function($http, c
     }
 
     exports = {
-        getSample: getSample
+        getItems: getItems
     };
 
     return exports;

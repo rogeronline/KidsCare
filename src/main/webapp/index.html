@@ -23,16 +23,16 @@
         <!-- Add your site or application content here -->
         <div id="wrap">
             <!-- Fixed navbar -->
-            <div id="navbar" ng-include="'templates/navbar.html'"></div>
+            <div id="navbar" ng-include="'views/navbar.html'"></div>
 
             <!-- Begin page content -->
             <div id="container" class="" style="position: absolute; top: 50px; bottom: 30px; width: 100%;">
-                <section id="content" ng-include="'templates/content.html'" style="height: 100%"></section>
-                <aside id="popups" ng-include="'templates/popups.html'"></aside>
+                <section id="content" ng-include="'views/content.html'" style="height: 100%"></section>
+                <aside id="popups" ng-include="'views/popups.html'"></aside>
             </div>
 
             <!-- Fixed footer -->
-            <div id="footer" ng-include="'templates/footer.html'" style="position: absolute; bottom: 0;"></div>
+            <div id="footer" ng-include="'views/footer.html'" style="position: absolute; bottom: 0;"></div>
         </div>
 
         <script src="vendor/LABjs/LAB.src.js"></script>
@@ -44,12 +44,12 @@
             .script('scripts/console.js')
             .script([
                 'webjars/jquery/2.0.3/jquery.js',
-                'webjars/angularjs/1.2.9/angular.js',
+                'webjars/angularjs/1.2.10/angular.js',
                 'webjars/underscorejs/1.5.2/underscore.js'
             ]).wait()
             .script(function() {
                 var locale = (navigator.language).toLowerCase();
-                var url = 'webjars/angularjs/1.2.9/i18n/angular-locale_' + locale + '.js';
+                var url = 'webjars/angularjs/1.2.10/i18n/angular-locale_' + locale + '.js';
                 return url;
             })
             .script([

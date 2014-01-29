@@ -3,17 +3,16 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title ng-bind="'APP_TITLE' | translate"></title>
-        <meta name="description" content="{{'APP_DESCRIPTION' | translate}}">
+        <title>Version</title>
+        <meta name="description" content="version information">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
 
-        <link rel="stylesheet" href="styles/normalize.css">
-        <link rel="stylesheet" href="webjars/bootstrap/3.0.3/css/bootstrap.css">
-        <link rel="stylesheet" href="styles/main.css">
-        <script src="vendor/modernizr/modernizr.js"></script>
-        <script src="http://maps.googleapis.com/maps/api/js?v=3.14&sensor=false&language=en"></script>
+        <link rel="stylesheet" href="../styles/normalize.css">
+        <link rel="stylesheet" href="../webjars/bootstrap/3.0.3/css/bootstrap.css">
+        <link rel="stylesheet" href="../styles/main.css">
+        <script src="../vendor/modernizr/modernizr.js"></script>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -21,24 +20,26 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        <div id="wrap">
-            <!-- Fixed navbar -->
-            <div id="navbar" ng-include="'views/navbar.html'"></div>
-
-            <!-- Begin page content -->
-            <div id="container" class="" style="position: absolute; top: 50px; bottom: 30px; width: 100%;">
-                <section id="content" ng-include="'views/content.html'" style="height: 100%"></section>
-                <aside id="popups" ng-include="'views/popups.html'"></aside>
+        <div id="content" class="container" ng-controller="MainCtrl">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Versions</h3>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group" ng-cloak>
+                        <li class="list-group-item" ng-repeat="(library, version) in versionInfo">
+                            <span class="badge">{{version}}</span>
+                            {{library}}
+                        </li>
+                    </ul>
+                </div>
             </div>
-
-            <!-- Fixed footer -->
-            <div id="footer" ng-include="'views/footer.html'" style="position: absolute; bottom: 0;"></div>
         </div>
 
-        <script src="vendor/LABjs/LAB.src.js"></script>
+        <script src="../vendor/LABjs/LAB.src.js"></script>
         <script>
             $LAB.setOptions({
-                'BasePath': '',
+                'BasePath': '../',
                 'Debug': true
             })
             .script('scripts/console.js')
@@ -81,9 +82,17 @@
                 'scripts/services/dataService.js'
             ])
             .script([
-                'scripts/controllers/debugboxCtrl.js',
-                'scripts/controllers/contentCtrl.js'
+                'scripts/controllers/debugboxCtrl.js'
             ]).wait(function() {
+                var app = angular.module('app');
+                app.controller('MainCtrl', ['$scope', function($scope) {
+                    $scope.versionInfo = {
+                        'AngularJS': angular.version.full,
+                        'jQuery': jQuery.fn.jquery,
+                        'Underscore': _.VERSION
+                    };
+                }]);
+            }).wait(function() {
                 angular.bootstrap(document, ['app']);
             });
         </script>

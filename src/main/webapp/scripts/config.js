@@ -43,10 +43,12 @@ var _config = {
 app.constant('config', _config);
 
 // Configuring $translateProvider
-app.config(['$translateProvider', function($translateProvider) {
+app.config(['$translateProvider', 'config', function($translateProvider, config) {
+    var i18nPath = config.contextPath + '/i18n';
+
     // configures staticFilesLoader
     $translateProvider.useStaticFilesLoader({
-        prefix: 'i18n/locale-',
+        prefix: i18nPath + '/locale-',
         suffix: '.json'
     });
 

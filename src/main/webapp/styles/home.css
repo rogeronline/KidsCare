@@ -1,0 +1,42 @@
+/** home tree **/
+#tree {
+    position: absolute;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    background: url("images/bg.png") no-repeat;
+    background-size: 100%;
+}
+#tree > div {
+    position: absolute;
+}
+#tree > #treeBody {
+    width: 684px;
+    height: 684px;
+    left: 24%;
+    bottom: 3%;
+    background: url("images/tree.png") no-repeat;
+    background-size: contain;
+}
+#tree > #treeTrunk {
+    width: 260px;
+    height: 129px;
+    left: 36%;
+    bottom: 0px;
+    background: url("images/tree-trunk.png") no-repeat 42% 100%;
+}
+#tree > #days {
+    width: 75px;
+    height: 61px;
+    bottom: 3%;
+    left: 42%;
+    background: url("images/day-number.png") no-repeat;
+}
+#timeAxis {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    width: 10%;
+    background-color: rgba(255, 0, 0, 0.2);
+}

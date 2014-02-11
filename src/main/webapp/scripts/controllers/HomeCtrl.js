@@ -3,11 +3,8 @@
 app.controller('HomeCtrl', ['$scope', 'dataStorage', 'channel', 'dataService',
 function($scope, dataStorage, channel, dataService) {
 
-    function updateItems() {
-        var params = {};
-        dataService.getItems(params, function(data) {
-            $scope.items = data.results;
-        });
+    function update() {
+        console.log('update view');
     }
 
     //--------------------------------------------------------------------------
@@ -18,7 +15,7 @@ function($scope, dataStorage, channel, dataService) {
     }
 
     function refresh() {
-        updateItems();
+        update();
     }
 
     init();

@@ -1,14 +1,8 @@
 'use strict';
 
-app.controller('contentCtrl', ['$scope', 'dataStorage', 'channel', 'dataService',
+app.controller('IntelligenceCtrl', ['$scope', 'dataStorage', 'channel', 'dataService',
 function($scope, dataStorage, channel, dataService) {
 
-    function updateItems() {
-        var params = {};
-        dataService.getItems(params, function(data) {
-            $scope.items = data.results;
-        });
-    }
 
     //--------------------------------------------------------------------------
     // bootstrap
@@ -18,7 +12,6 @@ function($scope, dataStorage, channel, dataService) {
     }
 
     function refresh() {
-        updateItems();
     }
 
     init();

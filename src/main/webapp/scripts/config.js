@@ -47,6 +47,40 @@ var _config = {
 
 app.constant('config', _config);
 
+
+// Configuring $routeProvider
+app.config(['$routeProvider', function($routeProvider) {
+    $routeProvider
+        .when('/', {
+            templateUrl: 'views/home.html',
+            controller: 'HomeCtrl'
+        })
+        .when('/diet', {
+            templateUrl: 'views/diet.html',
+            controller: 'DietCtrl'
+        })
+        .when('/growth', {
+            templateUrl: 'views/growth.html',
+            controller: 'GrowthCtrl'
+        })
+        .when('/intelligence', {
+            templateUrl: 'views/intelligence.html',
+            controller: 'IntelligenceCtrl'
+        })
+        .when('/disease', {
+            templateUrl: 'views/disease.html',
+            controller: 'DiseaseCtrl'
+        })
+        .when('/record', {
+            templateUrl: 'views/record.html',
+            controller: 'RecordCtrl'
+        })
+        .otherwise({
+            redirectTo: '/'
+        })
+}]);
+
+
 // Configuring $translateProvider
 app.config(['$translateProvider', 'config', function($translateProvider, config) {
     var i18nPath = config.contextPath + '/i18n';

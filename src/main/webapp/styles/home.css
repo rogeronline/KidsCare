@@ -4,7 +4,7 @@
     top: 0px;
     height: 100%;
     width: 100%;
-    background: url("images/bg.png") no-repeat;
+    background: url("../images/bg.png") no-repeat;
     background-size: 100%;
 }
 #tree > div {
@@ -15,22 +15,44 @@
     height: 684px;
     left: 24%;
     bottom: 3%;
-    background: url("images/tree.png") no-repeat;
+    background: url("../images/tree.png") no-repeat;
     background-size: contain;
 }
+#treeBody > #pic {
+    width: 120px;
+    height: 120px;
+    background: url("../images/tree.png");
+    background-size: contain;
+    border-radius: 60px;
+    -webkit-transform-origin: 60px;
+}
+#pic.rotate {
+    -webkit-transform: rotateY(0deg);
+    -webkit-animation: rotate 800ms ease 2s 1;
+}
+@-webkit-keyframes rotate {
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: rotateY(180deg);
+    } 
+}
+
 #tree > #treeTrunk {
     width: 260px;
     height: 129px;
     left: 36%;
     bottom: 0px;
-    background: url("images/tree-trunk.png") no-repeat 42% 100%;
+    background: url("../images/tree-trunk.png") no-repeat 42% 100%;
 }
 #tree > #days {
     width: 75px;
     height: 61px;
     bottom: 3%;
     left: 42%;
-    background: url("images/day-number.png") no-repeat;
+    background: url("../images/day-number.png") no-repeat;
 }
 #timeAxis {
     position: absolute;

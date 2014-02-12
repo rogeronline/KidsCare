@@ -1,7 +1,9 @@
 'use strict';
 
+var app = angular.module('app');
+
 function getContextPath() {
-    var contextPath = "/" + window.location.pathname.split("/")[1]; // "/demo"
+    var contextPath = '/' + window.location.pathname.split('/')[1]; // "/demo"
     return contextPath;
 }
 
@@ -11,7 +13,7 @@ var _config = {
         offline: true,
         proxy: {
             enabled: true,
-            path: 'proxy', // "http://localhost:8080/demo/proxy"
+            path: 'proxy' // "http://localhost:8080/demo/proxy"
         },
         metadata: {
             online: {

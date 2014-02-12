@@ -7,6 +7,11 @@
             <div id="treeTrunk"></div>
             <div id="days"></div>
         </div>
-        <div id="timeAxis">Time Axis</div>
+        <div id="timeAxis" class="row">
+        <div class="col-xs-12" id="timeList">
+            <ul class="nav nav-pills nav-stacked">
+                <li ng-class="{active: $index == 0}" ng-repeat="item in timeList"><a href="#" data-toggle="tab">{{item}}</a></li>
+            </ul>
+        </div>
     </div>
 </div>

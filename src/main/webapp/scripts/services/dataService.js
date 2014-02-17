@@ -66,7 +66,7 @@ app.factory('dataService', ['$http', 'config', 'formatFilter', function($http, c
 
                 result = OData.request(odataRequest, function(data) {
                     // workaround, make $scope refresh
-                    $http.get('data/dummy.txt');
+                    $http.get(config.contextPath + '/data/dummy.txt');
 
                     var callback = options.callback;
                     callback && callback(data);

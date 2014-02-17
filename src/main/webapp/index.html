@@ -11,6 +11,8 @@
 
         <link rel="stylesheet" href="styles/normalize.css">
         <link rel="stylesheet" href="webjars/bootstrap/3.0.3/css/bootstrap.css">
+        <link rel="stylesheet" href="webjars/select2/3.4.5/select2.css">
+        <link rel="stylesheet" href="webjars/select2/3.4.5/select2-bootstrap.css">
         <link rel="stylesheet" href="styles/main.css">
         <link rel="stylesheet" href="styles/home.css">
         <script src="vendor/modernizr/modernizr.js"></script>
@@ -44,16 +46,16 @@
             .script('scripts/console.js')
             .script([
                 'webjars/jquery/2.0.3/jquery.js',
-                'webjars/angularjs/1.2.10/angular.js',
+                'webjars/angularjs/1.2.13/angular.js',
                 'webjars/underscorejs/1.5.2/underscore.js'
             ]).wait()
             .script(function() {
                 var locale = (navigator.language).toLowerCase();
-                var url = 'webjars/angularjs/1.2.10/i18n/angular-locale_' + locale + '.js';
+                var url = 'webjars/angularjs/1.2.13/i18n/angular-locale_' + locale + '.js';
                 return url;
             })
             .script([
-                'webjars/angularjs/1.2.10/angular-route.js'
+                'webjars/angularjs/1.2.13/angular-route.js'
             ])
             .script([
                 'webjars/angular-translate/1.1.1/angular-translate.js',
@@ -67,7 +69,9 @@
                 'webjars/angular-ui/0.4.0/angular-ui.js',
                 'webjars/angular-ui-utils/0.1.0/ui-utils.js',
                 'webjars/angular-ui-bootstrap/0.9.0/ui-bootstrap-tpls.js',
-                'vendor/datajs/datajs-1.1.1.js'
+                'vendor/datajs/datajs-1.1.1.js',
+                'webjars/select2/3.4.5/select2.js',
+                'webjars/ui-select2/0.0.5/ui-select2.js'
             ]).wait()
             .script('scripts/main.js').wait()
             .script('scripts/app.js').wait()

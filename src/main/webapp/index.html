@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="styles/main.css">
         <link rel="stylesheet" href="styles/home.css">
         <link rel="stylesheet" href="styles/diet.css">
+        <link rel="stylesheet" href="styles/milkDetail.css">
         <script src="vendor/modernizr/modernizr.js"></script>
     </head>
     <body>
@@ -72,7 +73,8 @@
                 'webjars/angular-ui-bootstrap/0.9.0/ui-bootstrap-tpls.js',
                 'vendor/datajs/datajs-1.1.1.js',
                 'webjars/select2/3.4.5/select2.js',
-                'webjars/ui-select2/0.0.5/ui-select2.js'
+                'webjars/ui-select2/0.0.5/ui-select2.js',
+                'webjars/raphaeljs/2.1.2/raphael.js'
             ]).wait()
             .script('scripts/main.js').wait()
             .script('scripts/app.js').wait()
@@ -96,7 +98,8 @@
                 'scripts/controllers/GrowthCtrl.js',
                 'scripts/controllers/IntelligenceCtrl.js',
                 'scripts/controllers/DiseaseCtrl.js',
-                'scripts/controllers/RecordCtrl.js'
+                'scripts/controllers/RecordCtrl.js',
+                'scripts/controllers/MilkDetailCtrl.js'
             ]).wait(function() {
                 angular.bootstrap(document, ['app']);
             });

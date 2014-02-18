@@ -1,0 +1,29 @@
+@CHARSET "UTF-8";
+
+/* Milk Powder Detail Popup */
+.blue-line {
+    border-bottom-color: #59cfb9;
+    padding: 10px;
+}
+
+#milk_modal {
+    width: 1100px;
+    margin: 120px auto;
+}
+
+.milk-name {
+    text-align: center;
+}
+
+.milk-graph-info {
+    width: 500px;
+    height: 500px;
+}
+
+#good {
+    margin-left: 30px;
+}
+
+#bad {
+    margin-right: 30px;
+}

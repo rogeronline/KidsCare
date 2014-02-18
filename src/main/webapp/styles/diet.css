@@ -1,12 +1,1 @@
 @CHARSET "UTF-8";
-
-/* Milk Powder Detail Popup */
-.blueLine {
-    border-bottom-color: #59cfb9;
-    padding: 10px;
-}
-
-#myModal {
-    width: 900px;
-    margin: 120px auto;
-}

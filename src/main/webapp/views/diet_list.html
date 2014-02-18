@@ -4,7 +4,15 @@
     </div>
     <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-5">
-            brand list
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-default active" ng-click="refreshBrands(1)">
+                    <input type="radio" name="order" id="most_liked"> Most Liked
+                </label>
+                <label class="btn btn-default" ng-click="refreshBrands(-1)">
+                    <input type="radio" name="order" id="least_liked"> Least Liked
+                </label>
+            </div>
+
             <div class="row">
                 <div class="col-xs-6 col-md-4" ng-repeat="brand in brands">
                     <div class="thumbnail" ng-click="showBrand(brand)">

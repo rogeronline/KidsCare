@@ -77,23 +77,23 @@ app.config(['$routeProvider', function($routeProvider) {
             templateUrl: 'views/home.html',
             controller: 'HomeCtrl'
         })
-        .when('/diet', {
+        .when('/food', {
             templateUrl: 'views/diet.html',
             controller: 'DietCtrl'
         })
-        .when('/growth', {
+        .when('/milestone', {
             templateUrl: 'views/growth.html',
             controller: 'GrowthCtrl'
         })
-        .when('/intelligence', {
+        .when('/play', {
             templateUrl: 'views/intelligence.html',
             controller: 'IntelligenceCtrl'
         })
-        .when('/disease', {
+        .when('/illness', {
             templateUrl: 'views/disease.html',
             controller: 'DiseaseCtrl'
         })
-        .when('/record', {
+        .when('/diary', {
             templateUrl: 'views/record.html',
             controller: 'RecordCtrl'
         })

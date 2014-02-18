@@ -14,21 +14,21 @@ Kids Care Service API
 
 ### 2.1. List brands
 
-    GET /brands?type=milk&filter=a,b&order=1&top=10
+    GET /brands?type=milk&sort=allergenic&order=1&top=10
 
 #### Parameters
 
 * type
 > _Required_ __string__ - The brand type. Can be one of "milk", "supplement", "water" or "nourishment".
 
-* filter
-> _Optional_ __Array<string>__ - The filters. For example, filter=a,b,c
+* sort
+> _Required_ __string__ - The sorting field. Can be one of "allergenic", "malnutrition" or "nutrition".
 
 * order
 > _Optional_ __integer__ - The sorting order. `1` means order by best, `-1` means order by worst. Default: `1`.
 
 * top
-> _Optional_ __integer__ - top N results.
+> _Optional_ __integer__ - top N results. Default: `10`.
 
 #### Response
 
@@ -60,7 +60,7 @@ Kids Care Service API
 ```
 var params = {
     'type': 'milk',
-    'filter': ['a', 'b'],
+    'sort': 'allergenic',
     'order': 1,
     'top': 10
 };
@@ -135,12 +135,15 @@ dataService.getRelatedPosts(params, function(data) {
 
 ### 2.4. Get posts
 
-    GET /posts?type=milk&top=10&skip=10
+    GET /posts?type=milk&sort=allergenic&top=10&skip=10
 
 #### Parameters
 
 * type
 > _Required_ __string__ - The brand type. Can be one of "milk", "supplement", "water" or "nourishment".
+
+* sort
+> _Required_ __string__ - The sorting field. Can be one of "allergenic", "malnutrition" or "nutrition".
 
 * top
 > _Optional_ __integer__ - top N results.
@@ -175,6 +178,7 @@ dataService.getRelatedPosts(params, function(data) {
 ```
 var params = {
     'type': 'milk',
+    'sort': 'allergenic',
     'top': 10,
     'skip': 10
 };

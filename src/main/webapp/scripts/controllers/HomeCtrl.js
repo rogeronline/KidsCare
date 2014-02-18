@@ -8,6 +8,10 @@ function($scope, dataStorage, channel, dataService) {
         timeListEventsHandler();
     });
 
+    $scope.dayChosen = function() {
+        $scope.now = this.$index;
+    };
+
     function picAnimate() {
         var pic = $("#pic")[0];
         var picUrls = ["bg", "day-number", "tree", "tree-trunk"];
@@ -35,9 +39,9 @@ function($scope, dataStorage, channel, dataService) {
         $("#timeList")[0].addEventListener("mousewheel", function(event) {
             var itemHeight = $("#timeList li").height();
             var totalHeight = $("#timeList").height();
-            var offsetY = parseInt($("#timeList").css("top"));
+            var offsetY = parseInt($("#timeList").css("bottom"));
             var delta = event.wheelDelta;
-            if (delta < 0) {
+            if (delta > 0) {
                 if ((wrapHeight - offsetY) > totalHeight) {
                     return;
                 }
@@ -46,7 +50,7 @@ function($scope, dataStorage, channel, dataService) {
                 offsetY += itemHeight;
                 offsetY = offsetY >= 0 ? 0 : offsetY;
             }
-            $("#timeList").css("top", offsetY + "px");
+            $("#timeList").css("bottom", offsetY + "px");
         }, false);
     }
 
@@ -59,9 +63,10 @@ function($scope, dataStorage, channel, dataService) {
     //--------------------------------------------------------------------------
 
     function init() {
-        $scope.timeList = [30, 60, 120, 180, 210, 240, 270, 300, 330, 360, 390,
-                           420, 450, 480, 510, 540, 570, 600, 630, 660, 690, 720,
-                           750, 780, 810, 840, 870, 900, 930, 960, 990, 1020, 1050];
+        $scope.timeList = [36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22,
+                           21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6,
+                           5, 4, 3, 2, 1];
+        $scope.now = 36 - 3;
     }
 
     function refresh() {

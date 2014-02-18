@@ -5,7 +5,7 @@ Kids Care Service API
 
 * Author: Roger Xu <roger.xu@sap.com>
 * Created: 2014-02-13
-* Last Modified: 2014-02-13
+* Last Modified: 2014-02-18
 
 
 ## 1. Home
@@ -14,12 +14,15 @@ Kids Care Service API
 
 ### 2.1. List brands
 
-    GET /brands
+    GET /brands?type=milk&filter=a,b&order=1&top=10
 
 #### Parameters
 
 * type
-> _Required_ __string__ - The brand type. Can be one of "milk", "supplyment", "water" or "nourishment".
+> _Required_ __string__ - The brand type. Can be one of "milk", "supplement", "water" or "nourishment".
+
+* filter
+> _Optional_ __Array<string>__ - The filters. For example, filter=a,b,c
 
 * order
 > _Optional_ __integer__ - The sorting order. `1` means order by best, `-1` means order by worst. Default: `1`.
@@ -38,15 +41,15 @@ Kids Care Service API
             "id": "047D7BADBC7E1ED389A3AC631909D505",
             "name": "牛栏",
             "rank": 1,
-            "vote_up": 1000,
-            "vote_down": 123
+            "vote_up": 70.4,
+            "vote_down": 21.4
         },
         {
             "id": "047D7BADBC7E1ED389A3AC631909D505",
             "name": "亨氏",
             "rank": 2,
-            "vote_up": 999,
-            "vote_down": 234
+            "vote_up": 70.4,
+            "vote_down": 21.4
         }
     ]
 }
@@ -57,6 +60,7 @@ Kids Care Service API
 ```
 var params = {
     'type': 'milk',
+    'filter': ['a', 'b'],
     'order': 1,
     'top': 10
 };
@@ -78,8 +82,8 @@ dataService.getBrands(params, function(data) {
     "id": "047D7BADBC7E1ED389A3AC631909D505",
     "name": "牛栏",
     "rank": 1,
-    "vote_up": 1000,
-    "vote_down": 123,
+    "vote_up": 70.4,
+    "vote_down": 21.4,
     "description ": "this is a dummy text"
 }
 ```
@@ -129,7 +133,57 @@ dataService.getRelatedPosts(params, function(data) {
 });
 ```
 
-### 2.4. Get a single post
+### 2.4. Get posts
+
+    GET /posts?type=milk&top=10&skip=10
+
+#### Parameters
+
+* type
+> _Required_ __string__ - The brand type. Can be one of "milk", "supplement", "water" or "nourishment".
+
+* top
+> _Optional_ __integer__ - top N results.
+
+* skip
+> _Optional_ __integer__ - Skip N results.
+
+
+#### Response
+
+> Status: 200 OK
+
+```
+{
+    "results": [
+        {
+            "id": "047D7BADBC7E1ED389A3AC631909D501",
+            "title": "post 1",
+            "rank": 1
+        },
+        {
+            "id": "047D7BADBC7E1ED389A3AC631909D502",
+            "title": "post 2",
+            "rank": 2
+        }
+    ]
+}
+```
+
+#### Example
+
+```
+var params = {
+    'type': 'milk',
+    'top': 10,
+    'skip': 10
+};
+dataService.getPosts(params, function(data) {
+    channel.publish('posts', 'loaded', data);
+});
+```
+
+### 2.5. Get a single post
 
     GET /posts/:post_id
 
@@ -141,7 +195,8 @@ dataService.getRelatedPosts(params, function(data) {
 {
     "id": "047D7BADBC7E1ED389A3AC631909D505",
     "title": "post 1",
-    "content ": "this is a dummy text"
+    "content ": "this is a dummy text",
+    "source": "http://www.baidu.com/"
 }
 ```
 

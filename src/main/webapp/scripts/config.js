@@ -35,6 +35,26 @@ var _config = {
                     path: 'items.json',
                     type: 'json'
                 }
+            },
+            'brands': {
+                online: {
+                    path: 'odata.xsodata/Items',
+                    type: 'odata'
+                },
+                offline: {
+                    path: 'items.json',
+                    type: 'json'
+                }
+            },
+            'posts': {
+                online: {
+                    path: 'odata.xsodata/Items',
+                    type: 'odata'
+                },
+                offline: {
+                    path: 'items.json',
+                    type: 'json'
+                }
             }
         }
     },

@@ -1,27 +1,24 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-xs-12 col-sm-4 col-md-3">
+            <ul class="nav nav-pills">
+                <li class="active"><a href="#diet_graph" data-toggle="tab">Graph</a></li>
+                <li><a href="#diet_list" data-toggle="tab">List</a></li>
+            </ul>
             <ul class="nav nav-pills nav-stacked">
                 <li class="active"><a href="#milk" data-toggle="tab">Milk</a></li>
                 <li><a href="#supplement" data-toggle="tab">Supplement</a></li>
                 <li><a href="#water" data-toggle="tab">Water</a></li>
                 <li><a href="#nourishment" data-toggle="tab">Nourishment</a></li>
-                <li><a href="#milkTree" data-toggle="tab">Milk Tree View</a></li>
             </ul>
         </div>
         <div class="col-xs-12 col-sm-8 col-md-9">
             <div class="tab-content">
-                <div class="tab-pane fade in active" id="milk">
-                    Milk
+                <div class="tab-pane fade in active" id="diet_graph" ng-include="'views/diet_graph.html'">
+                    diet_graph
                 </div>
-                <div class="tab-pane fade" id="supplement">
-                    Supplement
-                </div>
-                <div class="tab-pane fade" id="water">
-                    Water
-                </div>
-                <div class="tab-pane fade" id="nourishment">
-                    Nourishment
+                <div class="tab-pane fade" id="diet_list" ng-include="'views/diet_list.html'">
+                    diet_list
                 </div>
                 <div class="tab-pane fade" id="milkTree">
                     <div id="milkTreeView" ng-include="'views/milkTree.html'"></div>

@@ -6,10 +6,7 @@
                 <li><a href="#diet_list" data-toggle="tab">List</a></li>
             </ul>
             <ul class="nav nav-pills nav-stacked">
-                <li class="active"><a href="#milk" data-toggle="tab">Milk</a></li>
-                <li><a href="#supplement" data-toggle="tab">Supplement</a></li>
-                <li><a href="#water" data-toggle="tab">Water</a></li>
-                <li><a href="#nourishment" data-toggle="tab">Nourishment</a></li>
+                <li ng-repeat="item in navItems"><a ng-href="#{{item.id}}" data-toggle="tab">{{item.name}}</a></li>
             </ul>
         </div>
         <div class="col-xs-12 col-sm-8 col-md-9">

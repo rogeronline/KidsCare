@@ -4,6 +4,29 @@ app.controller('DietCtrl', ['$scope', 'dataStorage', 'channel', 'dataService',
 function($scope, dataStorage, channel, dataService) {
 
     //--------------------------------------------------------------------------
+    // Navigation
+    //--------------------------------------------------------------------------
+
+    $scope.navItems = [
+        {
+            id: 'formula',
+            name: 'Formulas'
+        },
+        {
+            id: 'solid_food',
+            name: 'Solid Foods'
+        },
+        {
+            id: 'organic',
+            name: 'Organic'
+        },
+        {
+            id: 'nutrition',
+            name: 'Nutrition'
+        }
+    ];
+
+    //--------------------------------------------------------------------------
     // Brand
     //--------------------------------------------------------------------------
 

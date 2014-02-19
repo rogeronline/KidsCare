@@ -1,15 +1,21 @@
 # Typically *NIX text editors, by default, append '~' to files on saving to make backups
 *~
 
+# Node.js
+node_modules
+bower_components
+
 # Gradle
 .gradle
 
-# Build output directies
-/target
-*/target
-*/**/target
-/build
-*/build
+# Build output directories
+target
+build
+dist
+
+# Temporary directories
+.tmp
+.sass-cache
 
 # Eclipse specific files/directories
 .classpath
@@ -17,6 +23,9 @@
 .settings
 .metadata
 bin
+
+# IDEA
+.idea
 
 # Java Class
 *.class

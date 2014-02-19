@@ -7,7 +7,7 @@
     background: url("../images/bg.png") no-repeat;
     background-size: 100%;
 }
-#tree > div {
+#tree > * {
     position: absolute;
 }
 #tree > #treeBody {
@@ -15,17 +15,24 @@
     height: 684px;
     left: 24%;
     bottom: 3%;
-    background: url("../images/tree.png") no-repeat;
+    /* background: url("../images/tree.png") no-repeat;
     background-size: contain;
-    -webkit-animation: zoom 2800ms ease 0s infinite;
+    -webkit-animation: zoom 2800ms ease 0s infinite; */
+    border-radius: 342px;
 }
-#treeBody > #pic {
+#tree > #treeBody > div {
+    position: absolute;
+}
+#pic {
     width: 120px;
     height: 120px;
     background: url("../images/tree.png");
     background-size: contain;
     border-radius: 60px;
     -webkit-transform-origin: 60px;
+    left: 40%;
+    top: 53%;
+    z-index: 1;
 }
 #pic.rotate {
     -webkit-transform: rotateY(0deg);

@@ -3,6 +3,7 @@
 /* Milk Powder Detail Popup */
 .blue-line {
     border-bottom-color: #59cfb9;
+    height: 50px;
     padding: 10px;
 }
 
@@ -11,8 +12,16 @@
     margin: 120px auto;
 }
 
+#milk_body {
+    max-height: 800px !important;
+}
+
 .milk-name {
     text-align: center;
+}
+
+.milk-graph {
+    height: 500px;
 }
 
 .milk-graph-info {
@@ -21,9 +30,48 @@
 }
 
 #good {
-    margin-left: 30px;
+    margin-left: 40px;
 }
 
 #bad {
-    margin-right: 30px;
+    margin-left: -60px;
+}
+
+.post-title {
+    border-top: 1px dotted;
+    text-indent: 40px;
+    padding-top: 10px;
+}
+
+.top-posts {
+    height: 120px;
+    padding: 0 50px;
+}
+
+.top-post-item {
+    height: 120px;
+    padding: 10px 10px;
+}
+
+.top-post-item a {
+    height: 100px;
+    padding: 0 !important;
+    border: 0;
+}
+
+.top-post-item a img {
+    width: 100%;
+    height: 100%;
+}
+
+.post-caption {
+    position: absolute;
+    left: 10px;
+    bottom: 0;
+    width: 227px;
+    height: 28px;
+    line-height: 28px;
+    text-indent: 10px;
+    background: rgba(0,0,0,0.6);
+    opacity: 0.5;
 }

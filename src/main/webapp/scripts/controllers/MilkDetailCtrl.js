@@ -109,6 +109,11 @@ function($scope, dataStorage, channel, dataService) {
         updateVal(27, 100, 80, fiv);
     }
 
+    $('#milk_powder').on('hidden.bs.modal', function (e) {
+        $('#good').text("");
+        $('#bad').text("");
+    });
+
     //--------------------------------------------------------------------------
     // bootstrap
     //--------------------------------------------------------------------------

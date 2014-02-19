@@ -5,8 +5,7 @@ Kids Care Service API
 
 * Author: Roger Xu <roger.xu@sap.com>
 * Created: 2014-02-13
-* Last Modified: 2014-02-18
-
+* Last Modified: 2014-02-19
 
 ## 1. Home
 
@@ -14,15 +13,15 @@ Kids Care Service API
 
 ### 2.1. List brands
 
-    GET /brands?type=milk&sort=allergenic&order=1&top=10
+    GET /brands?type=formula&sort=taste&order=1&top=10
 
 #### Parameters
 
 * type
-> _Required_ __string__ - The brand type. Can be one of "milk", "supplement", "water" or "nourishment".
+> _Required_ __string__ - The brand type. Can be one of "formula", "solid", "organic" or "nutrition".
 
 * sort
-> _Required_ __string__ - The sorting field. Can be one of "allergenic", "malnutrition" or "nutrition".
+> _Required_ __string__ - The sorting field ID.
 
 * order
 > _Optional_ __integer__ - The sorting order. `1` means order by best, `-1` means order by worst. Default: `1`.
@@ -59,8 +58,8 @@ Kids Care Service API
 
 ```
 var params = {
-    'type': 'milk',
-    'sort': 'allergenic',
+    'type': 'formula',
+    'sort': 'taste',
     'order': 1,
     'top': 10
 };
@@ -82,9 +81,29 @@ dataService.getBrands(params, function(data) {
     "id": "047D7BADBC7E1ED389A3AC631909D505",
     "name": "牛栏",
     "rank": 1,
+    "description ": "this is a dummy text",
     "vote_up": 70.4,
     "vote_down": 21.4,
-    "description ": "this is a dummy text"
+    "pros": [
+        {
+            "name": "keyword 1",
+            "value": 89
+        },
+        {
+            "name": "keyword 2",
+            "value": 67
+        }
+    ],
+    "cons": [
+        {
+            "name": "keyword 1",
+            "value": 89
+        },
+        {
+            "name": "keyword 2",
+            "value": 67
+        }
+    ]
 }
 ```
 
@@ -111,12 +130,14 @@ dataService.getBrand(params, function(data) {
 {
     "results": [
         {
-            "id": "047D7BADBC7E1ED389A3AC631909D505",
-            "title": "post 1"
+            "id": "047D7BADBC7E1ED389A3AC631909D501",
+            "title": "post 1",
+            "image_url": "images/logo.gif"
         },
         {
-            "id": "047D7BADBC7E1ED389A3AC631909D505",
-            "title": "post 2"
+            "id": "047D7BADBC7E1ED389A3AC631909D502",
+            "title": "post 2",
+            "image_url": "images/logo.gif"
         }
     ]
 }
@@ -128,22 +149,22 @@ dataService.getBrand(params, function(data) {
 var params = {
     'brand_id': '047D7BADBC7E1ED389A3AC631909D505'
 };
-dataService.getRelatedPosts(params, function(data) {
+dataService.getBrandRelatedPosts(params, function(data) {
     channel.publish('brand_related_posts', 'loaded', data);
 });
 ```
 
 ### 2.4. Get posts
 
-    GET /posts?type=milk&sort=allergenic&top=10&skip=10
+    GET /posts?type=formula&sort=taste&top=10&skip=10
 
 #### Parameters
 
 * type
-> _Required_ __string__ - The brand type. Can be one of "milk", "supplement", "water" or "nourishment".
+> _Required_ __string__ - The brand type. Can be one of "formula", "solid", "organic" or "nutrition".
 
 * sort
-> _Required_ __string__ - The sorting field. Can be one of "allergenic", "malnutrition" or "nutrition".
+> _Required_ __string__ - The sorting field ID.
 
 * top
 > _Optional_ __integer__ - top N results.
@@ -162,12 +183,14 @@ dataService.getRelatedPosts(params, function(data) {
         {
             "id": "047D7BADBC7E1ED389A3AC631909D501",
             "title": "post 1",
-            "rank": 1
+            "rank": 1,
+            "value": 34
         },
         {
             "id": "047D7BADBC7E1ED389A3AC631909D502",
             "title": "post 2",
-            "rank": 2
+            "rank": 2,
+            "value": 34
         }
     ]
 }
@@ -177,8 +200,8 @@ dataService.getRelatedPosts(params, function(data) {
 
 ```
 var params = {
-    'type': 'milk',
-    'sort': 'allergenic',
+    'type': 'formula',
+    'sort': 'taste',
     'top': 10,
     'skip': 10
 };
@@ -199,8 +222,17 @@ dataService.getPosts(params, function(data) {
 {
     "id": "047D7BADBC7E1ED389A3AC631909D505",
     "title": "post 1",
-    "content ": "this is a dummy text",
-    "source": "http://www.baidu.com/"
+    "replies": [
+        {
+            id: "047D7BADBC7E1ED389A3AC631909D501",
+            content: "answer 1"
+        },
+        {
+            id: "047D7BADBC7E1ED389A3AC631909D502",
+            content: "answer 2"
+        }
+    ],
+    reply_count: 10
 }
 ```
 
@@ -212,5 +244,41 @@ var params = {
 };
 dataService.getPost(params, function(data) {
     channel.publish('post', 'loaded', data);
+});
+```
+
+### 2.6. Get related posts of a post
+
+    GET /posts/:post_id/related_posts
+
+#### Response
+
+> Status: 200 OK
+
+```
+{
+    "results": [
+        {
+            "id": "047D7BADBC7E1ED389A3AC631909D501",
+            "title": "post 1",
+            "image_url": "images/logo.gif"
+        },
+        {
+            "id": "047D7BADBC7E1ED389A3AC631909D502",
+            "title": "post 2",
+            "image_url": "images/logo.gif"
+        }
+    ]
+}
+```
+
+#### Example
+
+```
+var params = {
+    'post_id': '047D7BADBC7E1ED389A3AC631909D505'
+};
+dataService.getRelatedPosts(params, function(data) {
+    channel.publish('related_posts', 'loaded', data);
 });
 ```

@@ -9,12 +9,14 @@
             <div id="leaves"></div>
         </div>
         <div id="timeAxis">
-            <div id="timeList" class="col-xs-12">
-                <ul>
-                    <li ng-class="{now: $index == now}" ng-repeat="item in timeList" ng-click="dayChosen()">
-                        <span>{{item}}</span>
-                    </li>
-                </ul>
+            <div>
+                <div id="timeList" class="col-xs-12">
+                    <ul>
+                        <li ng-class="{now: $index == now}" ng-repeat="item in timeList" ng-click="dayChosen()">
+                            <span>{{item}}</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

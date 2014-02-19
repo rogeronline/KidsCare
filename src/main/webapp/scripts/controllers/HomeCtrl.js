@@ -13,18 +13,18 @@ function($scope, dataStorage, channel, dataService) {
     };
 
     function picAnimate() {
-        var pic = $("#pic")[0];
-        var picUrls = ["bg", "day-number", "tree", "tree-trunk"];
+        var pic = $('#pic')[0];
+        var picUrls = ['bg', 'day-number', 'tree', 'tree-trunk'];
         var cursor = 0;
-        pic.addEventListener("webkitAnimationEnd", function(event) {
-            var bg = "url('images/" + picUrls[cursor++ % 4] + ".png') no-repeat";
+        pic.addEventListener('webkitAnimationEnd', function(event) {
+            var bg = 'url("images/' + picUrls[cursor++ % 4] + '.png") no-repeat';
             $(pic).css({
-                "background": bg,
-                "backgroundSize": "contain"
+                'background': bg,
+                'backgroundSize': 'contain'
             });
-            $(pic).removeClass("rotate").removeClass("normal");
+            $(pic).removeClass('rotate').removeClass('normal');
             setTimeout(function() {
-                $(pic).addClass("rotate").addClass("normal");
+                $(pic).addClass('rotate').addClass('normal');
             }, 1);
         });
     }
@@ -34,12 +34,12 @@ function($scope, dataStorage, channel, dataService) {
     }
 
     function mousewheelHandler() {
-        var wrapHeight = $("#timeAxis").height();
+        var wrapHeight = $('#timeAxis').height();
 
-        $("#timeList")[0].addEventListener("mousewheel", function(event) {
-            var itemHeight = $("#timeList li").height();
-            var totalHeight = $("#timeList").height();
-            var offsetY = parseInt($("#timeList").css("bottom"));
+        $('#timeList')[0].addEventListener('mousewheel', function(event) {
+            var itemHeight = $('#timeList li').height();
+            var totalHeight = $('#timeList').height();
+            var offsetY = parseInt($('#timeList').css('bottom'));
             var delta = event.wheelDelta;
             if (delta > 0) {
                 if ((wrapHeight - offsetY) > totalHeight) {
@@ -50,7 +50,7 @@ function($scope, dataStorage, channel, dataService) {
                 offsetY += itemHeight;
                 offsetY = offsetY >= 0 ? 0 : offsetY;
             }
-            $("#timeList").css("bottom", offsetY + "px");
+            $('#timeList').css('bottom', offsetY + 'px');
         }, false);
     }
 

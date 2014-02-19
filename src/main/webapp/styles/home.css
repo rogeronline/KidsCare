@@ -74,27 +74,43 @@
 #timeAxis {
     position: absolute;
     right: 0px;
-    top: 0px;
-    height: 100%;
+    top: 50px;
+    height: 96%;
     width: 10%;
-    background-color: rgba(255, 0, 0, 0.2);
     overflow: hidden;
+    background: url("../images/time-line-base.png") no-repeat 17px 6px;
+    background-size: 57% 94%;
 }
 #timeAxis > div:first-child {
     position: absolute;
+    bottom: 15%;
+    height: 79%;
+    width: 100%;
+    overflow: hidden;
+}
+#timeList {
+    position: absolute;
+    
     bottom: 0px;
 }
 #timeAxis ul {
     list-style: none;
-    color: blue;
+    color: #00aeef;
     padding: 0px;
+    text-indent: 1em;
 }
 #timeAxis ul > li {
     height: 40px;
     cursor: pointer;
+    background: url("../images/time-line-dot.png") no-repeat 16px 0px;
+    text-indent: 2em;
+    font-size: 16px;
 }
 #timeAxis ul > li.now {
-    color: red;
+    color: #00aeef;
+    background: url("../images/time-line-foot-print.png") no-repeat 1px 0;
+    height: 60px;
+    font-size: 20px;
 }
 #timeAxis ul > li:first-child:after {
     content: " month"

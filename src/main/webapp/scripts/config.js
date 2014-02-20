@@ -42,7 +42,17 @@ var _config = {
                     type: 'odata'
                 },
                 offline: {
-                    path: 'items.json',
+                    path: 'brands.json',
+                    type: 'json'
+                }
+            },
+            'brand': {
+                online: {
+                    path: 'odata.xsodata/Items',
+                    type: 'odata'
+                },
+                offline: {
+                    path: 'brand.json',
                     type: 'json'
                 }
             },
@@ -52,7 +62,17 @@ var _config = {
                     type: 'odata'
                 },
                 offline: {
-                    path: 'items.json',
+                    path: 'posts.json',
+                    type: 'json'
+                }
+            },
+            'post': {
+                online: {
+                    path: 'odata.xsodata/Items',
+                    type: 'odata'
+                },
+                offline: {
+                    path: 'post.json',
                     type: 'json'
                 }
             }

@@ -32,19 +32,12 @@ function($scope, dataStorage, channel, dataService) {
 
     function updateBrands(order) {
         var params = {
-            type: 'milk',
+            type: 'formula',
             order: order || 1,
             top: 10
         };
         dataService.getBrands(params, function(data) {
-            $scope.brands = _.times(params.top, function(i) {
-                var item = {};
-                var rank = i + 1;
-                item.id = String.valueOf(rank);
-                item.rank = rank;
-                item.name = 'Brand ' + (params.order > 0 ? 'Most' : 'Least') + ' Liked ' + rank;
-                return item;
-            });
+            $scope.brands = data.results || [];
         });
     }
 
@@ -68,14 +61,7 @@ function($scope, dataStorage, channel, dataService) {
     function updatePosts() {
         var params = {};
         dataService.getPosts(params, function(data) {
-            $scope.posts = _.times(10, function(i) {
-                var item = {};
-                var rank = i + 1;
-                item.id = String.valueOf(rank);
-                item.rank = rank;
-                item.title = 'Post ' + rank;
-                return item;
-            });
+            $scope.posts = data.results || [];
         });
     }
 

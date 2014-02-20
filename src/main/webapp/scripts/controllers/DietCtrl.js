@@ -65,6 +65,22 @@ function($scope, dataStorage, channel, dataService) {
         });
     }
 
+    function showMorePosts() {
+        var currentCount = $scope.posts.length;
+
+        var params = {
+            top: 10,
+            skip: currentCount
+        };
+
+        dataService.getPosts(params, function(data) {
+            var newPosts = data.results || [];
+            jQuery.merge($scope.posts, newPosts);
+        });
+    }
+
+    $scope.showMorePosts = showMorePosts;
+
     function showPost(post) {
         jQuery('#post_detail').modal('show');
     }

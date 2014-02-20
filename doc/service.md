@@ -41,14 +41,16 @@ Kids Care Service API
             "name": "牛栏",
             "rank": 1,
             "vote_up": 70.4,
-            "vote_down": 21.4
+            "vote_down": 21.4,
+            "keywords": ["keyword 1", "keyword 2", "keyword 3"]
         },
         {
             "id": "047D7BADBC7E1ED389A3AC631909D505",
             "name": "亨氏",
             "rank": 2,
             "vote_up": 70.4,
-            "vote_down": 21.4
+            "vote_down": 21.4,
+            "keywords": ["keyword 1", "keyword 2", "keyword 3"]
         }
     ]
 }
@@ -84,6 +86,7 @@ dataService.getBrands(params, function(data) {
     "description ": "this is a dummy text",
     "vote_up": 70.4,
     "vote_down": 21.4,
+    "keywords": ["keyword 1", "keyword 2", "keyword 3"],
     "pros": [
         {
             "name": "keyword 1",

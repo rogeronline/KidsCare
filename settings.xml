@@ -40,7 +40,7 @@
                     <id>release</id>
                     <url>http://nexus.wdf.sap.corp:8081/nexus/content/groups/build.releases/</url>
                 </repository>
-				<repository>
+                <repository>
                     <id>milestone</id>
                     <url>http://nexus.wdf.sap.corp:8081/nexus/content/groups/build.milestones/</url>
                 </repository>

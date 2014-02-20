@@ -16,7 +16,7 @@ function bootstrap(options) {
             'bower_components/underscore/underscore.js'
         ]).queueWait()
         .queueScript(function() {
-            var locale = (navigator.language).toLowerCase();
+            var locale = navigator.language.toLowerCase();
             var url = 'bower_components/angular-i18n/angular-locale_' + locale + '.js';
             return url;
         })
@@ -40,7 +40,8 @@ function bootstrap(options) {
             'bower_components/datajs/datajs-1.1.1.js',
             'bower_components/select2/select2.js',
             'bower_components/angular-ui-select2/src/select2.js',
-            'bower_components/raphael/raphael.js'
+            'bower_components/raphael/raphael.js',
+            'bower_components/jquery.transit/jquery.transit.js'
         ]).queueWait()
         .queueScript('scripts/app.js').queueWait()
         .queueScript('scripts/config.js').queueWait()

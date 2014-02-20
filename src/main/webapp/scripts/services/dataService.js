@@ -162,7 +162,7 @@ app.factory('dataService', ['$http', 'config', 'formatFilter', function($http, c
     }
 
     function getRelatedPostsByBrand(params, callback) {
-        var serviceKey = 'brandRelatedPosts';
+        var serviceKey = 'related_posts';
         var options = {
             method: 'GET',
             params: params,

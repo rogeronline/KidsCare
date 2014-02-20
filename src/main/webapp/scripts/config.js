@@ -82,7 +82,7 @@ var _config = {
                     type: 'odata'
                 },
                 offline: {
-                    path: 'getBrandByID.json',
+                    path: 'brand.json',
                     type: 'json'
                 }
             },

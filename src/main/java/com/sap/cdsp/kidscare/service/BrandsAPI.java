@@ -101,7 +101,7 @@ public class BrandsAPI extends HttpServlet {
 				arrayList.add(map);
 			}
 			conn.close();
-			returnList.put("keywords", arrayList);
+			returnList.put("results", arrayList);
 		} 
 		catch (Exception e) 
 		{

@@ -27,13 +27,53 @@ function($scope, dataStorage, channel, dataService) {
     ];
 
     //--------------------------------------------------------------------------
+    // Form
+    //--------------------------------------------------------------------------
+
+    $scope.formData = {
+        type: 'formula',
+        sort: '0',
+        order: 1,
+        top: 10
+    };
+
+    $scope.sortKeywords = [
+        {
+            id: '0',
+            name: 'All'
+        },
+        {
+            id: '43',
+            name: 'Inframe'
+        },
+        {
+            id: '37',
+            name: 'Easy to Digest'
+        },
+        {
+            id: '52',
+            name: 'Delicious in taste'
+        }
+    ];
+
+    function changeKeyword(keyword) {
+        refreshBrands();
+        refreshPosts();
+    }
+
+    $scope.changeKeyword = changeKeyword;
+
+    //--------------------------------------------------------------------------
     // Brand
     //--------------------------------------------------------------------------
 
-    function updateBrands(order) {
+    function updateBrands() {
+        var formData = $scope.formData;
+
         var params = {
-            type: 'formula',
-            order: order || 1,
+            type: formData.type || 'formula',
+            sort: formData.sort || null,
+            order: formData.order || 1,
             top: 10
         };
         dataService.getBrands(params, function(data) {
@@ -41,11 +81,17 @@ function($scope, dataStorage, channel, dataService) {
         });
     }
 
-    function refreshBrands(order) {
-        updateBrands(order);
+    function refreshBrands() {
+        updateBrands();
     }
 
     $scope.refreshBrands = refreshBrands;
+
+    function changeBrandOrder(order) {
+        refreshBrands();
+    }
+
+    $scope.changeBrandOrder = changeBrandOrder;
 
     function showBrand(brand) {
         jQuery('#milk_powder').modal('show');
@@ -59,18 +105,32 @@ function($scope, dataStorage, channel, dataService) {
     //--------------------------------------------------------------------------
 
     function updatePosts() {
-        var params = {};
+        var formData = $scope.formData;
+
+        var params = {
+            type: formData.type || 'formula',
+            sort: formData.sort || null,
+            top: 10
+        };
         dataService.getPosts(params, function(data) {
             $scope.posts = data.results || [];
         });
     }
 
+    function refreshPosts() {
+        updatePosts();
+    }
+
+    $scope.refreshPosts = refreshPosts;
+
     function showMorePosts() {
-        var currentCount = $scope.posts.length;
+        var formData = $scope.formData;
 
         var params = {
+            type: formData.type || 'formula',
+            sort: formData.sort || null,
             top: 10,
-            skip: currentCount
+            skip: $scope.posts.length
         };
 
         dataService.getPosts(params, function(data) {

@@ -2,7 +2,7 @@
     "fiveMonths": [{
         "type": "img",
         "src": "./images/5m_icon1.png",
-        "pos": []
+        "pos": [200, 200]
     }, {
         "type": "circle",
         "des": "感冒",

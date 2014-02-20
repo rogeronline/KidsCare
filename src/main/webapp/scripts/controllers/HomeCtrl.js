@@ -65,7 +65,7 @@ function($scope, dataStorage, channel, dataService) {
                 var interval = setInterval(function() {
                     var ele = fiveMonthsEles[i];
                     if (ele.type == 'img') {
-                        drawImage(ele.src, [200, 100]);
+                        drawImage(ele.src, ele.pos);
                     } else if (ele.type == 'circle') {
                         $scope.circleEles.push(ele);
                         drawCircle(ele);
@@ -75,7 +75,7 @@ function($scope, dataStorage, channel, dataService) {
                         clearInterval(interval);
                         canvasEventHandler();
                     }
-                }, 200);
+                }, 50);
             });
         };
     }
@@ -115,11 +115,12 @@ function($scope, dataStorage, channel, dataService) {
                     $scope.mainPicCompleted = true;
                     clearInterval(interval);
                 }
-            }, 800);
+            }, 200);
         }
     }
 
     function drawImage(url, pos) {
+        pos = pos.length == 0 ? [200, 100] : pos;
         var img = new Image();
         img.src = url;
 
@@ -136,7 +137,7 @@ function($scope, dataStorage, channel, dataService) {
                     } else {
                         ctx.restore();
                     }
-                }, 200);
+                }, 80);
             };
             fadeIn();
         };
@@ -166,7 +167,7 @@ function($scope, dataStorage, channel, dataService) {
                     var text = circle.des;
                     ctx.translate(pos[0], pos[1]);
                     ctx.rotate(circle.angle * Math.PI / 180);
-                    ctx.font = 'bold 15pt sans-serif';
+                    ctx.font = 'bold ' + (circle.font || 15) + 'pt sans-serif';
                     ctx.fillStyle = '#fff';
                     ctx.fillText(text, 0 - ctx.measureText(text).width / 2, 8);
                     ctx.restore();
@@ -177,10 +178,23 @@ function($scope, dataStorage, channel, dataService) {
     }
 
     function searchEventHandler() {
-        $('#food_search_icon').click(function(e) {
-            $(this).fadeOut();
-            $("#food_search_box").fadeIn();
+        $('#search_icon').click(function(e) {
+            var cat = $(this).data('circleType');
+            console.log(cat);
+            $(this).removeClass().removeAttr('style');
             $scope.canvas.onmousemove = null;
+            switch(cat) {
+                case 'food':
+                    $('#food_search_box').fadeIn();
+                    break;
+                case 'disease':
+                    $('#disease_search_box').fadeIn();
+                    break;
+                default:
+                    $('#food_search_box').fadeIn();
+                    break;
+            }
+            return;
         });
         $("#food_search_btn").click(function() {
             $("#food_search_box").fadeOut();
@@ -199,16 +213,30 @@ function($scope, dataStorage, channel, dataService) {
             var pos = circle.pos;
             if ((Math.pow(x - pos[0], 2) + Math.pow(y - pos[1], 2)) <= Math.pow(circle.radius + 2, 2)) {
                 canvas.style.cursor = 'pointer';
-                $("#food_search_icon").fadeIn().css({
-                    left: e.clientX - 50,
-                    top: e.clientY - 50
-                }).data('circleType', circle.cat);
+                var cat = circle.cat;
+                switch (cat) {
+                    case 'food':
+                        $('#search_icon').removeClass().toggleClass('food', true);
+                        break;
+                    case 'disease':
+                        $('#search_icon').removeClass().toggleClass('disease', true);
+                        break;
+                    case 'milestones':
+                        $('#search_icon').removeClass().toggleClass('milestones', true);
+                        break;
+                    case 'growth':
+                        $('#search_icon').removeClass().toggleClass('growth', true);
+                        break;
+                    default:
+                        break;
+                }
+                $('#search_icon').show().data('circleType', cat);
                 break;
             }
         }
         if (i >= len) {
             canvas.style.cursor = 'default';
-            $(".search-icon").fadeOut();
+            $('#search_icon').removeClass().hide();
         }
     }
 
@@ -216,7 +244,7 @@ function($scope, dataStorage, channel, dataService) {
         var canvas = $scope.canvas;
         canvas.onmousemove = canvasMove;
         canvas.onmouseout = function(e) {
-            $(".searchIcon").fadeOut();
+            $('#search_icon').removeClass();
         };
         /*canvas.onclick = function(e) {
             var bb = canvas.getBoundingClientRect();

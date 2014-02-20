@@ -16,7 +16,6 @@
     left: 24%;
     bottom: 3%;
     border-radius: 342px;
-    border: 1px solid blue;
     z-index: 1;
 }
 #tree > #treeBody > div {
@@ -46,16 +45,16 @@
     width: 334px;
     height: 334px;
     border-radius: 167px;
-    left: 27%;
-    top: 42%;
+    left: 26%;
+    top: 40%;
     background: url("../images/5m_icon36.png") no-repeat;
 }
 .pic.five-months:nth-child(2) {
     width: 148px;  
     height: 148px;  
     border-radius: 74px;  
-    left: 72%;  
-    top: 38%;
+    left: 70%;  
+    top: 34%;
     background: url("../images/5m_icon32.png") no-repeat;
 }
 .pic.five-months:nth-child(3) {
@@ -63,16 +62,17 @@
     height: 158px;
     border-radius: 79px;
     left: 1%;
-    top: 265px;
+    top: 222px;
     background: url("../images/5m_icon37.png") no-repeat;
 }
 .pic.five-months:nth-child(4) {
-    width: 154px;
-    height: 154px;
-    border-radius: 77px;      
-    left: 37%;      
-    top: 17%;     
+    width: 180px;
+    height: 180px;
+    border-radius: 90px;      
+    left: 36%;      
+    top: 12%;     
     background: url("../images/5m_icon30.png") no-repeat;
+    background-size: cover;
 }
 @-webkit-keyframes rotate {
     50% {
@@ -174,24 +174,43 @@
 #timeAxis ul > li:nth-child(n+1):after {
     content: " months"
 }
-.search-icon {
+#search_icon {
     display: none;
     cursor: pointer;
-}
-#food_search_icon {
     background: rgba(0, 0, 0, 0.2);
-    width: 100px;
-    height: 100px;
-    border-radius: 50px;
-    box-shadow: 0px 0px 5px 5px rgba(0, 255, 255, 0.2);
-    z-index: 1;
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
+    line-height: 70px;
+    font-size: 17px;
+    text-indent: 0.4em;
+    z-index: 2;
+}
+#search_icon.food {
+    border: 5px solid rgb(65, 188, 167);
+    box-shadow: 0px 0px 5px 5px rgba(65, 188, 167, 0.2);
+    display: block;
+}
+#search_icon.growth {
+    border: 5px solid rgb(59, 211, 255);
+    box-shadow: 0px 0px 5px 5px rgba(59, 211, 255, 0.2);
+    display: block;
+}
+#search_icon.disease {
+    border: 5px solid rgb(231, 173, 0);
+    box-shadow: 0px 0px 5px 5px rgba(231, 173, 0, 0.2);
+    display: block;
+}
+#search_icon.milestones {
+    border: 5px solid rgb(59, 134, 105);
+    box-shadow: 0px 0px 5px 5px rgba(59, 134, 105, 0.2);
+    display: block;
 }
 .search-box {
     display: none;
 }
 #food_search_box {
     left: 40%;
-    
-    z-index: 1;
+    z-index: 2;
     top: 60%;
 }

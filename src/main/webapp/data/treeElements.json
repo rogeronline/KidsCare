@@ -2,144 +2,146 @@
     "fiveMonths": [{
         "type": "img",
         "src": "./images/5m_icon1.png",
-        "pos": [200, 200]
+        "pos": [200, 220]
     }, {
         "type": "circle",
         "des": "感冒",
         "cat": "disease",
-        "pos": [150, 350],
+        "pos": [600, 440],
         "radius": 32,
         "angle": 20
     }, {
         "type": "img",
         "src": "./images/5m_icon2.png",
-        "pos": []
+        "pos": [130, 165]
     }, {
         "type": "img",
         "src": "./images/5m_icon3.png",
-        "pos": []
+        "pos": [76, 139]
     }, {
         "type": "img",
         "src": "./images/5m_icon4.png",
-        "pos": []
+        "pos": [151, 79]
     }, {
         "type": "img",
         "src": "./images/5m_icon5.png",
-        "pos": []
+        "pos": [144, 86]
     }, {
         "type": "img",
         "src": "./images/5m_icon6.png",
-        "pos": []
+        "pos": [268, 0]
     }, {
         "type": "img",
         "src": "./images/5m_icon7.png",
-        "pos": []
+        "pos": [197, 22]
     }, {
         "type": "img",
         "src": "./images/5m_icon8.png",
-        "pos": []
+        "pos": [378, 16]
     }, {
         "type": "img",
         "src": "./images/5m_icon10.png",
-        "pos": []
+        "pos": [557, 128]
     }, {
         "type": "img",
         "src": "./images/5m_icon11.png",
-        "pos": []
+        "pos": [545, 90]
     }, {
         "type": "img",
         "src": "./images/5m_icon12.png",
-        "pos": []
+        "pos": [605, 180]
     }, {
         "type": "img",
         "src": "./images/5m_icon13.png",
-        "pos": []
+        "pos": [425, 139]
     }, {
         "type": "img",
         "src": "./images/5m_icon14.png",
-        "pos": []
+        "pos": [500, 150]
     }, {
         "type": "img",
         "src": "./images/5m_icon15.png",
-        "pos": []
+        "pos": [554, 200]
     }, {
         "type": "img",
         "src": "./images/5m_icon16.png",
-        "pos": []
+        "pos": [390, 230]
     }, {
         "type": "img",
         "src": "./images/5m_icon17.png",
-        "pos": []
+        "pos": [610, 206]
     }, {
         "type": "img",
         "src": "./images/5m_icon18.png",
-        "pos": []
+        "pos": [610, 317]
     }, {
         "type": "img",
         "src": "./images/5m_icon19.png",
-        "pos": []
+        "pos": [520, 390]
     }, {
         "type": "img",
         "src": "./images/5m_icon20.png",
-        "pos": []
+        "pos": [640, 422]
     }, {
         "type": "img",
         "src": "./images/5m_icon21.png",
-        "pos": []
+        "pos": [603, 484]
     }, {
         "type": "img",
         "src": "./images/5m_icon22.png",
-        "pos": []
+        "pos": [517, 450]
     }, {
         "type": "img",
         "src": "./images/5m_icon23.png",
-        "pos": []
+        "pos": [483, 539]
     }, {
         "type": "img",
         "src": "./images/5m_icon24.png",
-        "pos": []
+        "pos": [510, 578]
     }, {
         "type": "img",
         "src": "./images/5m_icon26.png",
-        "pos": []
+        "pos": [25, 370]
     }, {
         "type": "img",
         "src": "./images/5m_icon27.png",
-        "pos": []
+        "pos": [149, 501]
     }, {
         "type": "img",
         "src": "./images/5m_icon28.png",
-        "pos": []
+        "pos": [130, 439]
     }, {
         "type": "img",
         "src": "./images/5m_icon29.png",
-        "pos": []
+        "pos": [125, 571]
     }, {
         "type": "circle",
         "des": "皮肤",
         "cat": "disease",
-        "pos": [200, 400],
+        "pos": [573, 545],
         "radius": 32,
         "angle": 30
     }, {
         "type": "circle",
         "des": "辅食",
         "cat": "food",
-        "pos": [100, 100],
+        "pos": [480, 250],
+        "font": 12,
         "radius": 24,
         "angle": -15
     }, {
         "type": "circle",
         "des": "早教",
         "cat": "milestones",
-        "pos": [200, 200],
+        "pos": [505, 90],
         "radius": 37,
         "angle": 0
     }, {
         "type": "circle",
         "des": "成长",
         "cat": "growth",
-        "pos": [300, 300],
+        "pos": [100, 520],
+        "font": 22,
         "radius": 40,
         "angle": 15
     }]

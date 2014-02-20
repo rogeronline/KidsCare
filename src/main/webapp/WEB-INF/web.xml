@@ -24,10 +24,10 @@
     <servlet-class>com.sap.cdsp.kidscare.service.BrandsAPI</servlet-class>
    </servlet>
   
-  <filter-mapping>
-    <filter-name>BrandsAPI</filter-name>
+  <servlet-mapping>
+    <servlet-name>BrandsAPI</servlet-name>
     <url-pattern>/brands</url-pattern>
-  </filter-mapping>
+  </servlet-mapping>
   
   
 </web-app>

@@ -15,28 +15,64 @@
     height: 684px;
     left: 24%;
     bottom: 3%;
-    /* background: url("../images/tree.png") no-repeat;
-    background-size: contain;
-    -webkit-animation: zoom 2800ms ease 0s infinite; */
     border-radius: 342px;
+    border: 1px solid blue;
+    z-index: 1;
 }
 #tree > #treeBody > div {
     position: absolute;
 }
-#pic {
+#main_pics {
+    width: 684px;
+    height: 684px;
+    left: 24%;
+    top: 12.3%;
+}
+.pic {
+    position: absolute;
     width: 120px;
     height: 120px;
-    background: url("../images/tree.png");
     background-size: contain;
     border-radius: 60px;
     -webkit-transform-origin: 60px;
-    left: 40%;
-    top: 53%;
+    display: none;
     z-index: 1;
 }
-#pic.rotate {
+.pic.rotate {
     -webkit-transform: rotateY(0deg);
     -webkit-animation: rotate 800ms ease 2s 1;
+}
+.pic.five-months:first-child {
+    width: 334px;
+    height: 334px;
+    border-radius: 167px;
+    left: 27%;
+    top: 42%;
+    background: url("../images/5m_icon36.png") no-repeat;
+}
+.pic.five-months:nth-child(2) {
+    width: 148px;  
+    height: 148px;  
+    border-radius: 74px;  
+    left: 72%;  
+    top: 38%;
+    background: url("../images/5m_icon32.png") no-repeat;
+}
+.pic.five-months:nth-child(3) {
+    width: 158px;
+    height: 158px;
+    border-radius: 79px;
+    left: 1%;
+    top: 265px;
+    background: url("../images/5m_icon37.png") no-repeat;
+}
+.pic.five-months:last-child {
+    width: 154px;
+    height: 154px;
+    border-radius: 77px;      
+    left: 37%;      
+    top: 17%;     
+    background: url("../images/5m_icon30.png") no-repeat;
 }
 @-webkit-keyframes rotate {
     50% {
@@ -77,6 +113,16 @@
     background-image: url("../images/leaf1.png"), url("../images/leaf2.png"), url("../images/leaf3.png"), url("../images/leaf4.png");
     background-repeat: no-repeat;
     background-position: 48px 23px,5px 70px,86px 43px,289px 58px;
+    -webkit-animation: grow 2000ms ease 0s 1;
+    z-index: 1;
+}
+@-webkit-keyframes grow {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 #timeAxis {
     position: absolute;
@@ -135,6 +181,7 @@
     height: 100px;
     border-radius: 50px;
     box-shadow: 0px 0px 5px 5px rgba(0, 255, 255, 0.2);
+    z-index: 1;
 }
 .search-box {
     display: none;

@@ -1,10 +1,10 @@
 <div class="panel panel-default">
     <div ng-controller="HomeCtrl" class="hometree" style="height: 100%">
         <div id="tree">
-            <!-- <div id="treeBody">
-            </div> -->
-            <div id="pic" class="rotate normal"></div>
             <canvas id="treeBody" width="684" height="684"></canvas>
+            <div id="main_pics">
+                <div class="pic" ng-class="[days]" class="rotate normal" ng-repeat="i in [1, 2, 3, 4]"></div>
+            </div>
             <div class="search-icon" id="food_search_icon">Food Search</div>
             <div class="search-box" id="food_search_box">
                 <input type="text" placeholder="hello world" />

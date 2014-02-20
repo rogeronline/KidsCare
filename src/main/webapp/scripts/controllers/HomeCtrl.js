@@ -2,10 +2,43 @@
 
 app.controller('HomeCtrl', ['$scope', 'dataStorage', 'channel', 'dataService',
 function($scope, dataStorage, channel, dataService) {
+    //--------------------------------------------------------------------------
+    // bootstrap
+    //--------------------------------------------------------------------------
+
+    function init() {
+        $scope.timeList = [36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22,
+                           21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6,
+                           5, 4, 3, 2, 1];
+        $scope.now = 36 - 3;
+        $scope.days = "five-months";
+
+        $scope.canvasAlpha = [0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55,
+                              0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1];
+        $scope.circleStyles = {
+            'disease': 'rgba(231, 173, 0, 255)',
+            'food': 'rgba(65, 188, 167, 255)',
+            'milestones': 'rgba(59, 134, 105, 255)',
+            'growth': 'rgba(59, 211, 255, 255)',
+            'pink': 'rgba(255, 76, 195, 255)',
+            'green': 'rgba(84, 199, 122)'
+        };
+        $scope.circleEles = [];
+    }
+
+    function refresh() {
+        update();
+    }
+
+    function update() {
+        console.log('update view');
+    }
+
+    init();
+    refresh();
 
     $scope.$on('$viewContentLoaded', function() {
         drawTreebody();
-        picAnimate();
         timeListEventsHandler();
         searchEventHandler();
     });
@@ -15,73 +48,132 @@ function($scope, dataStorage, channel, dataService) {
     };
 
     function drawTreebody() {
-        var canvas = $scope.canvas = jQuery('#treeBody')[0];
-        var ctx = canvas.getContext('2d');
-        var posArr = $scope.posArr = [[342, 634], [242, 624], [442, 624], [142, 534], [542, 534],
-                      [242, 534], [342, 534], [442, 534],
-                      [42, 434], [142, 434], [242, 434], [342, 434], [442, 434], [542, 434], [642, 434],
-                      [0, 334], [100, 334], [200, 334], [300, 334], [400, 334], [500, 334], [600, 334],
-                      [0, 234], [100, 234], [200, 234], [300, 234], [400, 234], [500, 234], [600, 234],
-                      [42, 134], [142, 134], [242, 134]];
-        var i = 0, len = posArr.length;
+        showMainPics(picAnimate);
         var interval = setInterval(function() {
-            var pos = posArr[i++];
-            pos.opacity = 0.1;
-            ctx.save();
-            function fadeIn() {
-                setTimeout(function() {
-                    ctx.fillStyle = 'rgba(0, 0, 255,' + pos.opacity + ')';
-                    ctx.beginPath();
-                    ctx.moveTo(pos[0], pos[1]);
-                    ctx.arc(pos[0], pos[1], 50, 2 * Math.PI, 0, true);
-                    ctx.fill();
-                    pos.opacity += 0.05;
-                    if (pos.opacity < 0.5) {
-                        ctx.fillStyle = 'rgba(0, 0, 255,' + pos.opacity + ')';
-                        fadeIn();
-                    } else {
-                        ctx.font = 'bold 16pt sans-serif';
-                        ctx.fillStyle = '#aaa';
-                        ctx.fillText('#aaa', pos[0], pos[1]);
-                    }
-                }, 50);
-            }
-            fadeIn();
-            ctx.restore();
-            if (i >= len) {
+            if ($scope.mainPicCompleted) {
+                renderCanvas();
                 clearInterval(interval);
-                canvasEventHandler();
             }
-        }, 100);
-
-        //insertImage
-        var img = new Image();
-        img.onload = function() {
-          drawImage(this);
+        }, 200);
+        var renderCanvas = function() {
+            var canvas = $scope.canvas = jQuery('#treeBody')[0];
+            var ctx = $scope.ctx = canvas.getContext('2d');
+            jQuery.getJSON('./data/treeElements.json', function(data) {
+                $scope.treeElements = data;
+                var fiveMonthsEles = data.fiveMonths;
+                var i = 0, len = fiveMonthsEles.length;
+                var interval = setInterval(function() {
+                    var ele = fiveMonthsEles[i];
+                    if (ele.type == 'img') {
+                        drawImage(ele.src, [200, 100]);
+                    } else if (ele.type == 'circle') {
+                        $scope.circleEles.push(ele);
+                        drawCircle(ele);
+                    }
+                    i++;
+                    if (i >= len) {
+                        clearInterval(interval);
+                        canvasEventHandler();
+                    }
+                }, 200);
+            });
         };
-        img.src = './images/leaf1.png';
+    }
 
-        function drawImage(imageObj) {
+    function picAnimate(ele) {
+        var picUrls = ['bg', 'day-number', 'tree', 'tree-trunk'];
+        var cursor = 0;
+        ele.addEventListener('webkitAnimationEnd', function(event) {
+            var bg = 'url("images/' + picUrls[cursor++ % 4] + '.png") no-repeat';
+            $(ele).css({
+                'background': bg,
+                'backgroundSize': 'contain'
+            });
+            $(ele).removeClass('rotate').removeClass('normal');
+            setTimeout(function() {
+                $(ele).addClass('rotate').addClass('normal');
+            }, 1);
+        });
+    }
+
+    function showMainPics(callback) {
+        var cursor = 0, len = $('#main_pics .pic').length;
+        if (len == 0) {
+            setTimeout(function() {
+                showMainPics(callback);
+            }, 400);
+        } else {
+            var interval = setInterval(function() {
+                var ele = $('#main_pics .pic:eq(' + cursor + ')');
+                ele.fadeIn('slow');
+//                if (callback) {
+//                    ele.toggleClass('rotate', true);
+//                    callback(ele[0]);
+//                }
+                cursor++;
+                if (cursor > len) {
+                    $scope.mainPicCompleted = true;
+                    clearInterval(interval);
+                }
+            }, 800);
+        }
+    }
+
+    function drawImage(url, pos) {
+        var img = new Image();
+        img.src = url;
+
+        img.onload = function() {
+            var ctx = $scope.ctx;
             ctx.save();
-            var x = 200;
-            var y = 50;
-
-            ctx.globalAlpha = 0.1;
-            var alphas = [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1];
-            var cursor = 0;
-            ctx.drawImage(imageObj, x, y);
+            var cursor = 0, len = $scope.canvasAlpha.length;
             var fadeIn = function() {
                 setTimeout(function() {
-                    ctx.globalAlpha = alphas[cursor++];
-                    ctx.drawImage(imageObj, x, y);
-                    if (cursor <= 8) {
+                    ctx.globalAlpha = $scope.canvasAlpha[cursor++];
+                    ctx.drawImage(img, pos[0], pos[1], img.width, img.height);
+                    if (cursor <= len) {
                         fadeIn();
+                    } else {
+                        ctx.restore();
                     }
                 }, 200);
             };
             fadeIn();
-            ctx.restore();
-        }
+        };
+    }
+
+    function drawCircle(circle) {
+        var ctx = $scope.ctx;
+        ctx.save();
+        var pos = circle.pos, cursor = 0, len = $scope.canvasAlpha.length;
+        var fadeIn = function () {
+            setTimeout(function() {
+                ctx.fillStyle = ctx.strokeStyle = $scope.circleStyles[circle.cat];
+                ctx.globalAlpha = $scope.canvasAlpha[cursor++];
+                ctx.beginPath();
+                ctx.moveTo(pos[0], pos[1]);
+                ctx.arc(pos[0], pos[1], circle.radius - 6, 2 * Math.PI, 0, true);
+                ctx.fill();
+                ctx.beginPath();
+                ctx.lineWidth = 2;
+                ctx.arc(pos[0], pos[1], circle.radius, 2 * Math.PI, 0, true);
+                ctx.closePath();
+                ctx.stroke();
+
+                if (cursor < len) {
+                    fadeIn();
+                } else {
+                    var text = circle.des;
+                    ctx.translate(pos[0], pos[1]);
+                    ctx.rotate(circle.angle * Math.PI / 180);
+                    ctx.font = 'bold 15pt sans-serif';
+                    ctx.fillStyle = '#fff';
+                    ctx.fillText(text, 0 - ctx.measureText(text).width / 2, 8);
+                    ctx.restore();
+                }
+            }, 20);
+        };
+        fadeIn();
     }
 
     function searchEventHandler() {
@@ -101,15 +193,16 @@ function($scope, dataStorage, channel, dataService) {
         var bb = canvas.getBoundingClientRect();
         var x = (e.clientX - bb.left) * (canvas.width / bb.width);
         var y = (e.clientY - bb.top) * (canvas.height / bb.height);
-        var i = 0, len = $scope.posArr.length;
+        var i = 0, len = $scope.circleEles.length;
         for (i; i < len; i++) {
-            var pos = $scope.posArr[i];
-            if ((Math.pow(x - pos[0], 2) + Math.pow(y - pos[1], 2)) <= Math.pow(50, 2)) {
+            var circle = $scope.circleEles[i];
+            var pos = circle.pos;
+            if ((Math.pow(x - pos[0], 2) + Math.pow(y - pos[1], 2)) <= Math.pow(circle.radius + 2, 2)) {
                 canvas.style.cursor = 'pointer';
                 $("#food_search_icon").fadeIn().css({
                     left: e.clientX - 50,
                     top: e.clientY - 50
-                }).data('circleId', i);
+                }).data('circleType', circle.cat);
                 break;
             }
         }
@@ -139,23 +232,6 @@ function($scope, dataStorage, channel, dataService) {
         };*/
     }
 
-    function picAnimate() {
-        var pic = $('#pic')[0];
-        var picUrls = ['bg', 'day-number', 'tree', 'tree-trunk'];
-        var cursor = 0;
-        pic.addEventListener('webkitAnimationEnd', function(event) {
-            var bg = 'url("images/' + picUrls[cursor++ % 4] + '.png") no-repeat';
-            $(pic).css({
-                'background': bg,
-                'backgroundSize': 'contain'
-            });
-            $(pic).removeClass('rotate').removeClass('normal');
-            setTimeout(function() {
-                $(pic).addClass('rotate').addClass('normal');
-            }, 1);
-        });
-    }
-
     function timeListEventsHandler() {
         mousewheelHandler();
     }
@@ -181,25 +257,4 @@ function($scope, dataStorage, channel, dataService) {
         }, false);
     }
 
-    function update() {
-        console.log('update view');
-    }
-
-    //--------------------------------------------------------------------------
-    // bootstrap
-    //--------------------------------------------------------------------------
-
-    function init() {
-        $scope.timeList = [36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22,
-                           21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6,
-                           5, 4, 3, 2, 1];
-        $scope.now = 36 - 3;
-    }
-
-    function refresh() {
-        update();
-    }
-
-    init();
-    refresh();
 }]);

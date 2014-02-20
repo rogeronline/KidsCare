@@ -18,16 +18,14 @@
         <welcome-file>default.htm</welcome-file>
         <welcome-file>default.jsp</welcome-file>
     </welcome-file-list>
-    
+
     <servlet>
-    <servlet-name>BrandsAPI</servlet-name>
-    <servlet-class>com.sap.cdsp.kidscare.service.BrandsAPI</servlet-class>
-   </servlet>
-  
-  <servlet-mapping>
-    <servlet-name>BrandsAPI</servlet-name>
-    <url-pattern>/brands</url-pattern>
-  </servlet-mapping>
-  
-  
+        <servlet-name>BrandsAPI</servlet-name>
+        <servlet-class>com.sap.cdsp.kidscare.service.BrandsAPI</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>BrandsAPI</servlet-name>
+        <url-pattern>/brands</url-pattern>
+    </servlet-mapping>
 </web-app>

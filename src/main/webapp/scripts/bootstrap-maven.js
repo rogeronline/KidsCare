@@ -16,7 +16,7 @@ function bootstrap(options) {
             'webjars/underscorejs/1.5.2/underscore.js'
         ]).queueWait()
         .queueScript(function() {
-            var locale = (navigator.language).toLowerCase();
+            var locale = navigator.language.toLowerCase();
             var url = 'webjars/angularjs/1.2.13/i18n/angular-locale_' + locale + '.js';
             return url;
         })
@@ -40,7 +40,8 @@ function bootstrap(options) {
             'vendor/datajs/datajs-1.1.1.js',
             'webjars/select2/3.4.5/select2.js',
             'webjars/ui-select2/0.0.5/ui-select2.js',
-            'webjars/raphaeljs/2.1.2/raphael.js'
+            'webjars/raphaeljs/2.1.2/raphael.js',
+            'webjars/jquery-transit/0.9.9/jquery.transit.js'
         ]).queueWait()
         .queueScript('scripts/app.js').queueWait()
         .queueScript('scripts/config.js').queueWait()

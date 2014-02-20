@@ -1,6 +1,10 @@
 @CHARSET "UTF-8";
 
 /* Top Topic Detail Popup */
+#post_detail {
+    overflow: hidden !important;
+}
+
 #topic_modal {
     width: 1100px;
     margin: 120px auto;
@@ -9,6 +13,7 @@
 #topic_body {
     max-height: 800px !important;
     padding: 0 !important;
+    overflow-y: none !important;
 }
 
 .topic-title-group {

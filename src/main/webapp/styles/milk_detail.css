@@ -1,6 +1,10 @@
 @CHARSET "UTF-8";
 
 /* Milk Powder Detail Popup */
+#milk_powder {
+    overflow: hidden !important;
+}
+
 .blue-line {
     border-bottom-color: #59cfb9;
     height: 50px;

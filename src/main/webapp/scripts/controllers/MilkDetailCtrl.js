@@ -4,6 +4,15 @@ app.controller('MilkDetailCtrl', ['$scope', 'dataStorage', 'channel', 'dataServi
 function($scope, dataStorage, channel, dataService) {
 
     $('#milk_powder').on('shown.bs.modal', function (e) {
+        //$('#milk_powder').css('overflow-y', 'none');
+        $('#milk_powder').transition({
+            duration: 1000,
+            perspective: '4000px',
+            rotate3d: '1,1,0,360deg'
+        }, function(){
+            //reset the transform property
+            $(this).css('transform', '');
+        });
         drawGoodKeyGraph();
         drawBadKeyGraph();
     });
@@ -41,11 +50,11 @@ function($scope, dataStorage, channel, dataService) {
         var fiv = r.path().attr(param).attr({arc: [0, 12, R]}).attr({opacity: 0.6});
         r.circle(250, 250, 60).attr({stroke: "none", fill: Raphael.hsb2rgb(15 / 200, 1, .75).hex});
 
-        updateVal(60, 100, 180, fir);
-        updateVal(50, 100, 155, sec);
-        updateVal(47, 100, 130, thi);
-        updateVal(35, 100, 105, fou);
-        updateVal(27, 100, 80, fiv);
+        updateVal(60 / 3 * 2, 100, 180, fir);
+        updateVal(50 / 3 * 2, 100, 155, sec);
+        updateVal(47 / 3 * 2, 100, 130, thi);
+        updateVal(35 / 3 * 2, 100, 105, fou);
+        updateVal(27 / 3 * 2, 100, 80, fiv);
     }
 
     function drawMarks(r, R, lineColor, infoColor) {
@@ -69,7 +78,7 @@ function($scope, dataStorage, channel, dataService) {
     }
 
     function updateVal(value, total, R, hand) {
-        hand.animate({arc: [value, total, R]}, 900, "elastic");
+        hand.animate({arc: [value, total, R]}, 900, "linear");
     }
 
     function drawBadKeyGraph() {
@@ -102,11 +111,11 @@ function($scope, dataStorage, channel, dataService) {
         drawMarks(r, R);
         var fiv = r.path().attr(param).attr({arc: [0, 12, R]}).attr({opacity: 0.6});
 
-        updateVal(60, 100, 180, fir);
-        updateVal(50, 100, 155, sec);
-        updateVal(47, 100, 130, thi);
-        updateVal(35, 100, 105, fou);
-        updateVal(27, 100, 80, fiv);
+        updateVal(60 / 3 * 2, 100, 180, fir);
+        updateVal(50 / 3 * 2, 100, 155, sec);
+        updateVal(47 / 3 * 2, 100, 130, thi);
+        updateVal(35 / 3 * 2, 100, 105, fou);
+        updateVal(27 / 3 * 2, 100, 80, fiv);
     }
 
     $('#milk_powder').on('hidden.bs.modal', function (e) {

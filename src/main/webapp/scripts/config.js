@@ -12,7 +12,7 @@ var _config = {
     service: {
         offline: true,
         proxy: {
-            enabled: true,
+            enabled: false,
             path: 'proxy' // "http://localhost:8080/demo/proxy"
         },
         metadata: {

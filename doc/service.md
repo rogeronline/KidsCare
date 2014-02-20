@@ -227,15 +227,15 @@ dataService.getPosts(params, function(data) {
     "title": "post 1",
     "replies": [
         {
-            id: "047D7BADBC7E1ED389A3AC631909D501",
-            content: "answer 1"
+            "id": "047D7BADBC7E1ED389A3AC631909D501",
+            "content": "reply 1"
         },
         {
-            id: "047D7BADBC7E1ED389A3AC631909D502",
-            content: "answer 2"
+            "id": "047D7BADBC7E1ED389A3AC631909D502",
+            "content": "reply 2"
         }
     ],
-    reply_count: 10
+    "reply_count": 10
 }
 ```
 

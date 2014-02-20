@@ -149,8 +149,32 @@ app.factory('dataService', ['$http', 'config', 'formatFilter', function($http, c
         return result;
     }
 
+    function getBrand(params, callback) {
+        var serviceKey = 'brand';
+        var options = {
+            method: 'GET',
+            params: params,
+            callback: callback
+        };
+        var result = invokeService(serviceKey, options);
+
+        return result;
+    }
+
     function getPosts(params, callback) {
         var serviceKey = 'posts';
+        var options = {
+            method: 'GET',
+            params: params,
+            callback: callback
+        };
+        var result = invokeService(serviceKey, options);
+
+        return result;
+    }
+
+    function getPost(params, callback) {
+        var serviceKey = 'post';
         var options = {
             method: 'GET',
             params: params,
@@ -212,7 +236,9 @@ app.factory('dataService', ['$http', 'config', 'formatFilter', function($http, c
     exports = {
         getItems: getItems,
         getBrands: getBrands,
-        getPosts: getPosts
+        getBrand: getBrand,
+        getPosts: getPosts,
+        getPost: getPost
     };
 
     return exports;

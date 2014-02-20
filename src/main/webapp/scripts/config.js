@@ -17,9 +17,7 @@ var _config = {
         },
         metadata: {
             online: {
-                url: 'http://10.58.185.121:8000/sap/tam/demo/supplydemand/rest',
-                username: 'SYSTEM',
-                password: 'Abcd1234'
+                url: 'service'
             },
             offline: {
                 url: 'data'
@@ -38,8 +36,8 @@ var _config = {
             },
             'brands': {
                 online: {
-                    path: 'odata.xsodata/Items',
-                    type: 'odata'
+                    path: 'brands',
+                    type: 'json'
                 },
                 offline: {
                     path: 'brands.json',
@@ -48,8 +46,8 @@ var _config = {
             },
             'brand': {
                 online: {
-                    path: 'odata.xsodata/Items',
-                    type: 'odata'
+                    path: 'brands/{id}',
+                    type: 'json'
                 },
                 offline: {
                     path: 'brand.json',
@@ -58,8 +56,8 @@ var _config = {
             },
             'posts': {
                 online: {
-                    path: 'odata.xsodata/Items',
-                    type: 'odata'
+                    path: 'posts',
+                    type: 'json'
                 },
                 offline: {
                     path: 'posts.json',
@@ -68,8 +66,8 @@ var _config = {
             },
             'post': {
                 online: {
-                    path: 'odata.xsodata/Items',
-                    type: 'odata'
+                    path: 'posts/{id}',
+                    type: 'json'
                 },
                 offline: {
                     path: 'post.json',

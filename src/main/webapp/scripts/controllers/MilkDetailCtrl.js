@@ -5,21 +5,35 @@ function($scope, dataStorage, channel, dataService) {
 
     $('#milk_powder').on('shown.bs.modal', function (e) {
         //$('#milk_powder').css('overflow-y', 'none');
-        $('#milk_powder').transition({
-            duration: 1000,
-            perspective: '4000px',
-            rotate3d: '1,1,0,360deg'
-        }, function(){
-            //reset the transform property
-            $(this).css('transform', '');
+        var params = {};
+        dataService.getBrandByID(params, function(data) {
+            data.pros = sortByPercent(data.pros);
+            data.cons = sortByPercent(data.cons);
+            $scope.brandInfo = data;
+            $('#milk_powder').transition({
+                duration: 1000,
+                perspective: '4000px',
+                rotate3d: '1,1,0,360deg'
+            }, function(){
+                //reset the transform property
+                $(this).css('transform', '');
+            });
+            drawGoodKeyGraph($scope.brandInfo.pros);
+            drawBadKeyGraph($scope.brandInfo.cons);
         });
-        drawGoodKeyGraph();
-        drawBadKeyGraph();
+        dataService.getRelatedPostsByBrand(params, function(data) {
+            $scope.posts = data.results;
+        });
+    });
+
+    $('#milk_powder').on('hidden.bs.modal', function (e) {
+        $('#good').text("");
+        $('#bad').text("");
     });
 
     var marksAttr = {fill: "#444", stroke: "none"};
 
-    function drawGoodKeyGraph() {
+    function drawGoodKeyGraph(data) {
         var r = Raphael("good", 500, 500),
             R = 180,
             param = {stroke: "#fff", "stroke-width": 15};
@@ -34,54 +48,30 @@ function($scope, dataStorage, channel, dataService) {
             return {path: path, stroke: color};
         };
 
-        drawMarks(r, R);
+        drawMarks(r, R, data[0]);
         var fir = r.path().attr(param).attr({arc: [0, 60, R]}).attr({opacity: 0.6});
         R -= 25;
-        drawMarks(r, R);
+        drawMarks(r, R, data[1]);
         var sec = r.path().attr(param).attr({arc: [0, 60, R]}).attr({opacity: 0.6});
         R -= 25;
-        drawMarks(r, R);
+        drawMarks(r, R, data[2]);
         var thi = r.path().attr(param).attr({arc: [0, 12, R]}).attr({opacity: 0.6});
         R -= 25;
-        drawMarks(r, R);
+        drawMarks(r, R, data[3]);
         var fou = r.path().attr(param).attr({arc: [0, 31, R]}).attr({opacity: 0.6});
         R -= 25;
-        drawMarks(r, R);
+        drawMarks(r, R, data[4]);
         var fiv = r.path().attr(param).attr({arc: [0, 12, R]}).attr({opacity: 0.6});
         r.circle(250, 250, 60).attr({stroke: "none", fill: Raphael.hsb2rgb(15 / 200, 1, .75).hex});
 
-        updateVal(60 / 3 * 2, 100, 180, fir);
-        updateVal(50 / 3 * 2, 100, 155, sec);
-        updateVal(47 / 3 * 2, 100, 130, thi);
-        updateVal(35 / 3 * 2, 100, 105, fou);
-        updateVal(27 / 3 * 2, 100, 80, fiv);
+        updateVal(data[0].value / 3 * 2, 100, 180, fir);
+        updateVal(data[1].value / 3 * 2, 100, 155, sec);
+        updateVal(data[2].value / 3 * 2, 100, 130, thi);
+        updateVal(data[3].value / 3 * 2, 100, 105, fou);
+        updateVal(data[4].value / 3 * 2, 100, 80, fiv);
     }
 
-    function drawMarks(r, R, lineColor, infoColor) {
-        var pathParam = {stroke: "#fff", "stroke-width": 1};
-        var color = "hsb(".concat(Math.round(R) / 200, ", 1, .75)"),
-            out = r.set();
-        var alpha = 360 / 12 * 8,
-            a = (90 - alpha) * Math.PI / 180,
-            x = 250 + R * Math.cos(a),
-            y = 250 - R * Math.sin(a);
-        out.push(r.path().attr(pathParam).attr({arc: [8, 12, R]}));
-        out.push(r.circle(x, y, 5).attr(marksAttr));
-        out.push(r.text(x, y - 20, "40%"));
-
-        var alpha = 360 / 12 * 12,
-            a = (90 - alpha) * Math.PI / 180,
-            x = 250 + R * Math.cos(a),
-            y = 250 - R * Math.sin(a);
-        out.push(r.text(x - 100, y, "Allergic"));
-        return out;
-    }
-
-    function updateVal(value, total, R, hand) {
-        hand.animate({arc: [value, total, R]}, 900, "linear");
-    }
-
-    function drawBadKeyGraph() {
+    function drawBadKeyGraph(data) {
         var r = Raphael("bad", 500, 500),
             R = 180,
             param = {stroke: "#fff", "stroke-width": 15};
@@ -96,32 +86,57 @@ function($scope, dataStorage, channel, dataService) {
             return {path: path, stroke: color};
         };
 
-        drawMarks(r, R);
+        drawMarks(r, R, data[0]);
         var fir = r.path().attr(param).attr({arc: [0, 60, R]}).attr({opacity: 0.6});
         R -= 25;
-        drawMarks(r, R);
+        drawMarks(r, R, data[1]);
         var sec = r.path().attr(param).attr({arc: [0, 60, R]}).attr({opacity: 0.6});
         R -= 25;
-        drawMarks(r, R);
+        drawMarks(r, R, data[2]);
         var thi = r.path().attr(param).attr({arc: [0, 12, R]}).attr({opacity: 0.6});
         R -= 25;
-        drawMarks(r, R);
+        drawMarks(r, R, data[3]);
         var fou = r.path().attr(param).attr({arc: [0, 31, R]}).attr({opacity: 0.6});
         R -= 25;
-        drawMarks(r, R);
+        drawMarks(r, R, data[4]);
         var fiv = r.path().attr(param).attr({arc: [0, 12, R]}).attr({opacity: 0.6});
+        r.circle(250, 250, 60).attr({stroke: "none", fill: Raphael.hsb2rgb(15 / 200, 1, .75).hex});
 
-        updateVal(60 / 3 * 2, 100, 180, fir);
-        updateVal(50 / 3 * 2, 100, 155, sec);
-        updateVal(47 / 3 * 2, 100, 130, thi);
-        updateVal(35 / 3 * 2, 100, 105, fou);
-        updateVal(27 / 3 * 2, 100, 80, fiv);
+        updateVal(data[0].value / 3 * 2, 100, 180, fir);
+        updateVal(data[1].value / 3 * 2, 100, 155, sec);
+        updateVal(data[2].value / 3 * 2, 100, 130, thi);
+        updateVal(data[3].value / 3 * 2, 100, 105, fou);
+        updateVal(data[4].value / 3 * 2, 100, 80, fiv);
     }
 
-    $('#milk_powder').on('hidden.bs.modal', function (e) {
-        $('#good').text("");
-        $('#bad').text("");
-    });
+    function drawMarks(r, R, data, lineColor, infoColor) {
+        var pathParam = {stroke: "#fff", "stroke-width": 1};
+        var color = "hsb(".concat(Math.round(R) / 200, ", 1, .75)"),
+            out = r.set();
+        var alpha = 360 / 12 * 8,
+            a = (90 - alpha) * Math.PI / 180,
+            x = 250 + R * Math.cos(a),
+            y = 250 - R * Math.sin(a);
+        out.push(r.path().attr(pathParam).attr({arc: [8, 12, R]}));
+        out.push(r.circle(x, y, 5).attr(marksAttr));
+        out.push(r.text(x, y - 20, data.value + "%"));
+
+        var alpha = 360 / 12 * 12,
+            a = (90 - alpha) * Math.PI / 180,
+            x = 250 + R * Math.cos(a),
+            y = 250 - R * Math.sin(a);
+        out.push(r.text(x - 100, y, data.name));
+        return out;
+    }
+
+    function updateVal(value, total, R, hand) {
+        hand.animate({arc: [value, total, R]}, 900, "linear");
+    }
+
+    function sortByPercent(data) {
+        var orderedList =_.sortBy(data, "value").reverse();
+        return orderedList;
+    }
 
     //--------------------------------------------------------------------------
     // bootstrap

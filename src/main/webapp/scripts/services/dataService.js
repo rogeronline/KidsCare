@@ -161,6 +161,18 @@ app.factory('dataService', ['$http', 'config', 'formatFilter', function($http, c
         return result;
     }
 
+    function getRelatedPostsByBrand(params, callback) {
+        var serviceKey = 'brandRelatedPosts';
+        var options = {
+            method: 'GET',
+            params: params,
+            callback: callback
+        };
+        var result = invokeService(serviceKey, options);
+
+        return result;
+    }
+
     function getPosts(params, callback) {
         var serviceKey = 'posts';
         var options = {
@@ -238,7 +250,8 @@ app.factory('dataService', ['$http', 'config', 'formatFilter', function($http, c
         getBrands: getBrands,
         getBrand: getBrand,
         getPosts: getPosts,
-        getPost: getPost
+        getPost: getPost,
+        getRelatedPostsByBrand: getRelatedPostsByBrand
     };
 
     return exports;

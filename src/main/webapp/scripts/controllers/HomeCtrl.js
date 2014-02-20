@@ -178,24 +178,6 @@ function($scope, dataStorage, channel, dataService) {
     }
 
     function searchEventHandler() {
-        $('#search_icon').click(function(e) {
-            var cat = $(this).data('circleType');
-            console.log(cat);
-            $(this).removeClass().removeAttr('style');
-            $scope.canvas.onmousemove = null;
-            switch(cat) {
-                case 'food':
-                    $('#food_search_box').fadeIn();
-                    break;
-                case 'disease':
-                    $('#disease_search_box').fadeIn();
-                    break;
-                default:
-                    $('#food_search_box').fadeIn();
-                    break;
-            }
-            return;
-        });
         $("#food_search_btn").click(function() {
             $("#food_search_box").fadeOut();
             $scope.canvas.onmousemove = canvasMove;
@@ -230,7 +212,10 @@ function($scope, dataStorage, channel, dataService) {
                     default:
                         break;
                 }
-                $('#search_icon').show().data('circleType', cat);
+                $('#search_icon').show().css({
+                    left: e.clientX,
+                    top: e.clientY - 100
+                }).data('circleType', cat);;
                 break;
             }
         }
@@ -246,18 +231,32 @@ function($scope, dataStorage, channel, dataService) {
         canvas.onmouseout = function(e) {
             $('#search_icon').removeClass();
         };
-        /*canvas.onclick = function(e) {
+        canvas.onclick = function(e) {
             var bb = canvas.getBoundingClientRect();
             var x = (e.clientX - bb.left) * (canvas.width / bb.width);
             var y = (e.clientY - bb.top) * (canvas.height / bb.height);
-            var i = 0, len = $scope.posArr.length;
+            var i = 0, len = $scope.circleEles.length;
             for (i; i < len; i++) {
-                var pos = $scope.posArr[i];
-                if ((Math.pow(x - pos[0], 2) + Math.pow(y - pos[1], 2)) <= Math.pow(50, 2)) {
-                    alert("circle" + i);
+                var circle = $scope.circleEles[i];
+                var pos = circle.pos;
+                if ((Math.pow(x - pos[0], 2) + Math.pow(y - pos[1], 2)) <= Math.pow(circle.radius, 2)) {
+                    var cat = circle.cat;
+                    $('.search-icon').removeClass().hide();
+                    $scope.canvas.onmousemove = null;
+                    switch(cat) {
+                        case 'food':
+                            $('#food_search_box').fadeIn();
+                            break;
+                        case 'disease':
+                            $('#disease_search_box').fadeIn();
+                            break;
+                        default:
+                            $('#food_search_box').fadeIn();
+                            break;
+                    }
                 }
             }
-        };*/
+        };
     }
 
     function timeListEventsHandler() {

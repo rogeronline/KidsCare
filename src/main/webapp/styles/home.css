@@ -176,6 +176,7 @@
 }
 #search_icon {
     display: none;
+    position: absolute;
     cursor: pointer;
     background: rgba(0, 0, 0, 0.2);
     width: 70px;
@@ -211,6 +212,6 @@
 }
 #food_search_box {
     left: 40%;
-    z-index: 2;
     top: 60%;
+    z-index: 3;
 }

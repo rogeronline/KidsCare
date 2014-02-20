@@ -10,12 +10,13 @@ import org.apache.log4j.Logger;
 
 import com.sap.cdsp.kidscare.crawl.util.CrawlerConfig;
 
-public class WangYiCrawler implements Runnable {
+public class WangYiCrawler  {
 	private Logger logger = Logger.getLogger(WangYiCrawler.class.getName());
 	
-	 @Override
+	
 	    public void run() {
 		 try{
+			 logger.info("test_anna");
 			  String filename = CrawlerConfig.getValue("wangyi_config_file");
 			  InputStream stream = getClass().getResourceAsStream(filename);
 			  BufferedReader in = new BufferedReader(new InputStreamReader(stream));
@@ -26,21 +27,29 @@ public class WangYiCrawler implements Runnable {
 			  while((curr=in.readLine())!=null){
 				  StringTokenizer token = new StringTokenizer(curr);
 				  thread[i] = new Thread(new WangYiCrawlerEntry(token.nextToken(),token.nextToken()));
+				 
+				  i++;
 			  }
+			  in.close();
+			  for(Thread t : thread)
+	    		t.start();
 			 
-		 }catch(IOException ex){
+		 }catch(IOException e){
+			 logger.error(e.getMessage());
 			 
 		 }
 		 
 		
 	 }
+	 
+	 public static void main(String[] args) {
+			
+		 WangYiCrawler oWangYiCrawler=new WangYiCrawler();
+		 oWangYiCrawler.run();	
+				
+			
+			
+		}
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-
+	
 }

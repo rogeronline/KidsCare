@@ -7,4 +7,9 @@ public class DAOFactory
 	{
 		return new WangYiDAO();
 	}
+	
+	public static BaiduTiebaDAO getBaiduTiebaDAO()
+	{
+		return new BaiduTiebaDAO();
+	}
 }

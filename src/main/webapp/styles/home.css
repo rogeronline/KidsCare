@@ -24,9 +24,9 @@
 }
 #main_pics {
     width: 684px;
-    height: 684px;
+    height: 716px;
     left: 24%;
-    top: 12.3%;
+    bottom: 0px;
 }
 .pic {
     position: absolute;
@@ -66,7 +66,7 @@
     top: 265px;
     background: url("../images/5m_icon37.png") no-repeat;
 }
-.pic.five-months:last-child {
+.pic.five-months:nth-child(4) {
     width: 154px;
     height: 154px;
     border-radius: 77px;      
@@ -91,25 +91,28 @@
         -webkit-transform: scale(1);
     }
 }
-#tree > #treeTrunk {
+#main_pics *:not(.pic) {
+    position: absolute;
+}
+#main_pics > #treeTrunk {
     width: 260px;
     height: 129px;
-    left: 36%;
+    left: 29%;
     bottom: 0px;
     background: url("../images/tree-trunk.png") no-repeat 42% 100%;
 }
-#tree > #days {
+#main_pics > #days {
     width: 75px;
     height: 61px;
     bottom: 3%;
-    left: 42%;
+    left: 44%;
     background: url("../images/day-number.png") no-repeat;
 }
-#tree > #leaves {
+#main_pics > #leaves {
     width: 360px;
     height: 180px;
     bottom: 0%;
-    left: 34%;
+    left: 24%;
     background-image: url("../images/leaf1.png"), url("../images/leaf2.png"), url("../images/leaf3.png"), url("../images/leaf4.png");
     background-repeat: no-repeat;
     background-position: 48px 23px,5px 70px,86px 43px,289px 58px;

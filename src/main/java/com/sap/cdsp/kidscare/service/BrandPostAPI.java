@@ -163,7 +163,7 @@ public class BrandPostAPI extends HttpServlet {
 				
 				HashMap<Object,Object> map = new HashMap<Object,Object>();
 				map.put("id", rs.getString(3));
-				map.put("content",  rs.getInt(4));
+				map.put("content",  rs.getString(4));
 				arrayList.add(map);
 			    returnList.put("replies", arrayList);
 			}

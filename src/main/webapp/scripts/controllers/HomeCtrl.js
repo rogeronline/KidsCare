@@ -196,22 +196,28 @@ function($scope, dataStorage, channel, dataService) {
     }
 
     function searchEventHandler() {
-        $("#food_search_btn").click(function() {
-            $("#food_search_box").fadeOut();
+        $('#food_search_btn').click(function() {
+            $('#food_search_box').fadeOut();
             $scope.canvas.onmousemove = canvasMove;
+        });
+        $('#disease_search_box').on('click', 'img', function(e) {
+            $('#upload').show();
+        });
+        $('#disease_search_box').on('click', '#disease_search_btn', function(e) {
+            $('#questionnaire_detail').modal('show');
         });
     }
 
     function canvasMove(e) {
         var canvas = $scope.canvas;
         var bb = canvas.getBoundingClientRect();
-        var x = (e.clientX - bb.left) * (canvas.width / bb.width);
-        var y = (e.clientY - bb.top) * (canvas.height / bb.height);
+        var x = (e.clientX - bb.left) * canvas.width / bb.width;
+        var y = (e.clientY - bb.top) * canvas.height / bb.height;
         var i = 0, len = $scope.circleEles.length;
         for (i; i < len; i++) {
             var circle = $scope.circleEles[i];
             var pos = circle.pos;
-            if ((Math.pow(x - pos[0], 2) + Math.pow(y - pos[1], 2)) <= Math.pow(circle.radius + 2, 2)) {
+            if (Math.pow(x - pos[0], 2) + Math.pow(y - pos[1], 2) <= Math.pow(circle.radius + 2, 2)) {
                 canvas.style.cursor = 'pointer';
                 var cat = circle.cat;
                 switch (cat) {
@@ -251,13 +257,13 @@ function($scope, dataStorage, channel, dataService) {
         };
         canvas.onclick = function(e) {
             var bb = canvas.getBoundingClientRect();
-            var x = (e.clientX - bb.left) * (canvas.width / bb.width);
-            var y = (e.clientY - bb.top) * (canvas.height / bb.height);
+            var x = (e.clientX - bb.left) * canvas.width / bb.width;
+            var y = (e.clientY - bb.top) * canvas.height / bb.height;
             var i = 0, len = $scope.circleEles.length;
             for (i; i < len; i++) {
                 var circle = $scope.circleEles[i];
                 var pos = circle.pos;
-                if ((Math.pow(x - pos[0], 2) + Math.pow(y - pos[1], 2)) <= Math.pow(circle.radius, 2)) {
+                if (Math.pow(x - pos[0], 2) + Math.pow(y - pos[1], 2) <= Math.pow(circle.radius, 2)) {
                     var cat = circle.cat;
                     $('.search-icon').removeClass().hide();
                     $scope.canvas.onmousemove = null;
@@ -270,7 +276,11 @@ function($scope, dataStorage, channel, dataService) {
                             }).fadeIn();
                             break;
                         case 'disease':
-                            $('#disease_search_box').fadeIn();
+                            var pos = calSearchBoxPos('disease_search_box');
+                            $('#disease_search_box').css({
+                                left: pos.left,
+                                top: pos.top
+                            }).fadeIn();
                             break;
                         default:
                             $('#food_search_box').fadeIn();
@@ -306,7 +316,7 @@ function($scope, dataStorage, channel, dataService) {
             var offsetY = parseInt($('#timeList').css('bottom'));
             var delta = event.wheelDelta;
             if (delta > 0) {
-                if ((wrapHeight - offsetY) > totalHeight) {
+                if (wrapHeight - offsetY > totalHeight) {
                     return;
                 }
                 offsetY -= itemHeight;

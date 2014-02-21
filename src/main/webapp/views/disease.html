@@ -1,20 +1,50 @@
-<div class="container">
+<div class="container" ng-controller="DiseaseCtrl" >
     <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-7">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">Related Pictures</h3>
                 </div>
-                <div class="panel-body">
+                <div id="diseseList" class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-6 col-md-6" ng-repeat="img in imgs1">
+                            <div class="thumbnail">
+                                <img src= {{img.src}} />
+                                <div class="pic-keyword">{{img.keywords}}</div>
+                                <input type="checkbox" class="checkbox right-check" ng-click="selectImg(img)" />
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 col-md-4" ng-repeat="img in imgs2">
+                            <div class="thumbnail">
+                                <img src= {{img.src}} />
+                                <div class="pic-keyword">{{img.keywords}}</div>
+                                <input type="checkbox" class="checkbox right-check" ng-click="selectImg(img)" />
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-5">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Related Topics</h3>
+                    <h3 class="panel-title">Related Hot Tpoics</h3>
                 </div>
                 <div class="panel-body">
+                    <div class="row" style="margin: 1rem 0.5rem; max-height: 620px; overflow-y: auto;">
+                        <div class="col-xs-6 col-md-12" ng-repeat="topic in topics">
+                            <div class="thumbnail" ng-click="showDetail(topic)">
+                                <div class="caption">
+                                    <h3>{{topic.title}}</h3>
+                                    <h4>Key Words: {{topic.keyWords}}</h4>
+                                    <img src={{topic.type}}/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,0 +1,26 @@
+<div class="modal" id="medical_detail" ng-controller="MedicalDetailCtrl" role="modal">
+    <div class="modal-dialog" id="medical_modal">
+        <div class="modal-content">
+            <div class="modal-header blue-line">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Topic</h4>
+            </div>
+            <div class="modal-body" id="medical_body">
+                <div class="topic-title-group">
+                    <h3 class="topic-title">{{topic.title}}</h3>
+                    <h4 class="topic-keyword">
+                        <span class="keyword-caption">关键词 : </span>
+                        <span class="keyword-list">{{topic.keywords}}</span>
+                    </h4>
+                </div>
+                <div class="panel panel-default topic-panel">
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="reply in topic.replies">
+                            <div class="topic-content">{{reply.content}}</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

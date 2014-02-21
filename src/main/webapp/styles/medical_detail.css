@@ -1,0 +1,83 @@
+@CHARSET "UTF-8";
+
+/* Top Topic Detail Popup */
+#medical_detail {
+    overflow: hidden !important;
+}
+
+#medical_modal {
+    width: 1100px;
+    margin: 70px auto;
+    padding: 40px;
+}
+
+#medical_body {
+    max-height: 800px !important;
+    padding: 0 !important;
+    overflow-y: none !important;
+}
+
+.topic-title-group {
+    height: 100px;
+    padding: 0px 40px;
+}
+
+.topic-title-group .topic-title {
+    height: 40px;
+    background: url("../images/topic_head.png") no-repeat left;
+    text-indent: 50px;
+    line-height: 40px;
+}
+    
+.topic-title-group .topic-keyword {
+    height: 40px;
+    padding: 0 50px;
+    margin-top: -10px;
+}
+    
+.topic-title-group .topic-keyword .keyword-caption {
+    line-height: 40px;
+}
+        
+.topic-title-group .topic-keyword .keyword-list {
+    line-height: 40px;
+    margin-left: 20px;
+}
+
+#medical_body .topic-panel {
+    margin: 0 50px 20px 50px;
+    border: 1px dashed;
+    overflow-y: scroll;
+}
+
+#medical_body .topic-panel .list-group {
+    border: 0;
+    max-height: 270px;
+}
+
+#medical_body .topic-panel .list-group .list-group-item .topic-content{
+    height: 70px;
+    line-height: 30px;
+}
+
+/* Button Group Below*/
+.medical-button {
+    height: 100px;
+}
+
+.medical-praise {
+    text-align: right;
+}
+
+.medical-praise button {
+    margin-right: 40px;
+}
+
+.medical-recomd {
+    text-align: left;
+}
+
+.medical-recomd button {
+    margin-left: 40px;
+}
+

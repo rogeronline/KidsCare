@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <div class="row">
+    <div class="row" style="margin: 1rem 0.5rem;">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="btn-group">
                 <button type="button" class="btn btn-primary" ng-repeat="keyword in sortKeywords" ng-model="$parent.formData.sort" btn-radio="keyword.id" ng-click="changeKeyword(keyword)">{{keyword.name}}</button>
@@ -8,17 +8,18 @@
     </div>
     <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-5">
-            <div class="btn-group">
-                <button type="button" class="btn btn-primary" ng-model="formData.order" btn-radio="1" ng-click="changeBrandOrder(1)">Most Liked</button>
-                <button type="button" class="btn btn-primary" ng-model="formData.order" btn-radio="-1" ng-click="changeBrandOrder(-1)">Least Liked</button>
+            <div class="row text-right" style="margin: 1rem 0.5rem;">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary" ng-model="formData.order" btn-radio="1" ng-click="changeBrandOrder(1)">Most Liked</button>
+                    <button type="button" class="btn btn-primary" ng-model="formData.order" btn-radio="-1" ng-click="changeBrandOrder(-1)">Least Liked</button>
+                </div>
             </div>
-
-            <div class="row">
+            <div class="row" style="margin: 1rem 0.5rem;">
                 <div class="col-xs-6 col-md-4" ng-repeat="brand in brands">
                     <div class="thumbnail" ng-click="showBrand(brand)">
                         <div class="caption">
-                            <h4>No. {{brand.rank}}</h4>
-                            <h4>{{brand.name}}</h4>
+                            <p class="h4 text-center">No. {{brand.rank}}</p>
+                            <p class="h3 text-center">{{brand.name}}</p>
                             <p>
                                 <span class="glyphicon glyphicon-thumbs-up"></span>
                                 <span>{{brand.vote_up / 100 | percentage}}</span>
@@ -33,17 +34,19 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-7">
-            <div class="row" style="max-height: 600px; overflow-y: auto;">
+            <div class="row" style="margin: 1rem 0.5rem; max-height: 600px; overflow-y: auto;">
                 <div class="col-xs-6 col-md-6" ng-repeat="post in posts">
                     <div class="thumbnail" ng-click="showPost(post)">
                         <div class="caption">
                             <h4>No. {{post.rank}}</h4>
-                            <h4>{{post.title}}</h4>
+                            <h3>{{post.title}}</h3>
                         </div>
                     </div>
                 </div>
             </div>
-            <button type="button" class="btn btn-primary" ng-click="showMorePosts()">More</button>
+            <div class="text-center">
+                <button type="button" class="btn btn-default btn-lg" ng-click="showMorePosts()">More</button>
+            </div>
         </div>
     </div>
 </div>

@@ -15,6 +15,10 @@ select.ng-invalid {
 
 .thumbnail {
     cursor: pointer;
+    border: 1px solid #2aabd2;
+}
+
+.thumbnail .caption {
 }
 
 .progress-bar {
@@ -59,6 +63,51 @@ select.ng-invalid {
     background-repeat: no-repeat;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff20829f', endColorstr='#ff28a4c9', GradientType=0);
     filter: none;
+}
+
+.nav-pills > li > a {
+    background-image: -webkit-linear-gradient(#484e55, #3a3f44 60%, #313539);
+    background-image: linear-gradient(#484e55, #3a3f44 60%, #313539);
+    background-repeat: no-repeat;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff484e55', endColorstr='#ff313539', GradientType=0);
+    filter: none;
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.nav-pills > li > a:hover {
+    background-image: -webkit-linear-gradient(#20829f, #2596b8 40%, #28a4c9);
+    background-image: linear-gradient(#20829f, #2596b8 40%, #28a4c9);
+    background-repeat: no-repeat;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff20829f', endColorstr='#ff28a4c9', GradientType=0);
+    filter: none;
+    border: 1px solid rgba(0, 0, 0, 0.6);
+}
+
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+    color: #333333;
+}
+
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover {
+    background-color: none;
+    background-image: -webkit-linear-gradient(#20829f, #2596b8 40%, #28a4c9);
+    background-image: linear-gradient(#20829f, #2596b8 40%, #28a4c9);
+    background-repeat: no-repeat;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff20829f', endColorstr='#ff28a4c9', GradientType=0);
+    filter: none;
+    border: 1px solid rgba(0, 0, 0, 0.6);
+}
+
+
+
+body {
+}
+
+a {
+    color: #2aabd2;
 }
 
 #wrap {

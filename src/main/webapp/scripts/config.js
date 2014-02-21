@@ -10,7 +10,7 @@ function getContextPath() {
 var _config = {
     contextPath: '/kidscare', // "http://localhost:8080/kidscare"
     service: {
-        offline: true,
+        offline: false,
         proxy: {
             enabled: false,
             path: 'proxy' // "http://localhost:8080/demo/proxy"

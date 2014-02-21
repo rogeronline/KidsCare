@@ -10,7 +10,7 @@ function($scope, dataStorage, channel, dataService) {
         $scope.timeList = [36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22,
                            21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6,
                            5, 4, 3, 2, 1];
-        $scope.now = 36 - 3;
+        $scope.now = 36 - 5;
         $scope.days = "five-months";
 
         $scope.canvasAlpha = [0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55,
@@ -202,9 +202,18 @@ function($scope, dataStorage, channel, dataService) {
         });
         $('#disease_search_box').on('click', 'img', function(e) {
             $('#upload').show();
+            $(this).attr('src', './images/icon_pic.png');
         });
         $('#disease_search_box').on('click', '#disease_search_btn', function(e) {
             $('#questionnaire_detail').modal('show');
+        });
+        $('#disease_search_box').on('click', '#closeUpload', function(e) {
+            $('.search-box').hide();
+            $('#upload').hide();
+            $scope.canvas.onmousemove = canvasMove;
+        });
+        $('#disease_search_box').on('change', '#file', function(e) {
+            $('#fileName').text($(this).val());
         });
     }
 

@@ -10,18 +10,21 @@
             </div>
             <div id="search_icon">Search</div>
             <div class="search-box" id="food_search_box">
-                <button class="btn btn-default" type="button" id="food_search_btn">Go!</button>
+                <button class="btn btn-default" type="button" id="food_search_btn"></button>
                 <input type="text" class="form-control" placeholder="Enter Food Name">
             </div>
              <div class="search-box" id="disease_search_box">
                 <div>Search</div>
-                <img src="./images/leaf1.png" alt="uploadImage" />
+                <img src="./images/icon_pic_opacity.png" alt="uploadImage" />
                 <div id="upload">
                     <div>Symptoms:
                         <input type="text" class="form-control" placeholder="hello world" />
                     </div>
                     <input type="file" id="file" title="Search for a file to add">
-                    <button class="btn btn-default" type="button" id="disease_search_btn">Go!</button>                </div>
+                    <span id="uploadPic">Upload</span><span id="fileName">{{fileName}}</span>
+                    <button class="btn btn-default" type="button" id="disease_search_btn">Search</button>
+                    <button id="closeUpload">×</button>
+                </div>
             </div>
         </div>
         <div id="timeAxis">

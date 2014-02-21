@@ -150,7 +150,12 @@ function($scope, dataStorage, channel, dataService) {
     $scope.showMorePosts = showMorePosts;
 
     function showPost(post) {
-        jQuery('#post_detail').modal('show');
+        var params = {
+            id: post.id
+        };
+        dataService.getPost(params, function(data) {
+            channel.publish('post_detail_loaded', data);
+        });
     }
 
     $scope.showPost = showPost;

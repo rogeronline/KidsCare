@@ -11,6 +11,43 @@
     padding: 40px;
 }
 
+.post-dismiss {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    background: url('../images/green_close.png') no-repeat;
+    background-size: 100% 100%;
+    width: 61px;
+    height: 58px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#post_detail .modal-content {
+    background: url("../images/Detail_green_bg.png") no-repeat;
+    background-size: 100% 100%;
+    opacity: 0.9;
+    height: 400px;
+}
+
+.topic-header {
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+}
+
+.topic-header span {
+    font-size: 25px !important;
+    font-weight: bolder;
+    color: #000;
+}
+
+#topic_body {
+    max-height: 800px !important;
+    padding: 0 !important;
+    overflow-y: none !important;
+}
+
 #topic_body {
     max-height: 800px !important;
     padding: 0 !important;

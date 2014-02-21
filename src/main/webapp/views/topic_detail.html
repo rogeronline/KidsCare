@@ -1,11 +1,9 @@
 <div class="modal" id="post_detail" ng-controller="TopicDetailCtrl" role="modal">
     <div class="modal-dialog" id="topic_modal">
         <div class="modal-content">
-            <div class="modal-header blue-line">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Topic Detail</h4>
-            </div>
+            <div class="post-dismiss"></div>
             <div class="modal-body" id="topic_body">
+                <div class="topic-header"><span>Topic Detail</span></div>
                 <div class="topic-title-group">
                     <h3 class="topic-title">{{topic.title}}</h3>
                     <!-- <h4 class="topic-keyword">
@@ -24,15 +22,7 @@
                         </li>
                     </ul>
                 </div>
-                <!-- <div class="panel panel-default related-topics">
-                    <h3>Related Topics</h3>
-                    <ul class="list-group">
-                        <li class="list-group-item" ng-repeat="post in posts">
-                            <div class="topic-content">{{post.title}}</div>
-                        </li>
-                    </ul>
-                </div> -->
             </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+        </div>
+    </div>
+</div>

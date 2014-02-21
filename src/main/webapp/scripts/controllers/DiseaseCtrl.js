@@ -3,7 +3,7 @@
 app.controller('DiseaseCtrl', ['$scope', 'dataStorage', 'channel', 'dataService',
 function($scope, dataStorage, channel, dataService) {
     $scope.selectImg = function(img){
-        alert(img.keywords);
+        getTopics(2);
     };
     
     function getTopics(flag) {

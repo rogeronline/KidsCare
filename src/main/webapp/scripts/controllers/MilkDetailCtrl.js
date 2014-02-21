@@ -4,14 +4,13 @@ app.controller('MilkDetailCtrl', ['$scope', 'dataStorage', 'channel', 'dataServi
 function($scope, dataStorage, channel, dataService) {
 
     $('#milk_powder').on('shown.bs.modal', function (e) {
-        //$('#milk_powder').css('overflow-y', 'none');
         var params = {};
-        dataService.getBrandByID(params, function(data) {
+        dataService.getBrand(params, function(data) {
             data.pros = sortByPercent(data.pros);
             data.cons = sortByPercent(data.cons);
             $scope.brandInfo = data;
             $('#milk_powder').transition({
-                duration: 1000,
+                duration: 500,
                 perspective: '4000px',
                 rotate3d: '1,1,0,360deg'
             }, function(){

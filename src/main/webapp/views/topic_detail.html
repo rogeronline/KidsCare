@@ -7,47 +7,28 @@
             </div>
             <div class="modal-body" id="topic_body">
                 <div class="topic-title-group">
-                    <h3 class="topic-title">2段奶粉哪个好？适合宝宝的奶粉就是最好的奶粉</h3>
+                    <h3 class="topic-title">{{topic.title}}</h3>
                     <h4 class="topic-keyword">
                         <span class="keyword-caption">关键词 : </span>
-                        <span class="keyword-list">keyword1, keyword2, keyword3</span>
+                        <span class="keyword-list">{{topic.keywords}}</span>
                     </h4>
                 </div>
                 <div class="panel panel-default topic-panel">
                     <ul class="list-group">
-                        <li class="list-group-item">
-                            <div class="topic-content">1段的时候吃过奶粉吗？如果吃过的话，建议还是吃以前那个，这样比较好哦</div>
+                        <li class="list-group-item" ng-repeat="reply in topic.replies">
+                            <div class="topic-content">{{reply.content}}</div>
                             <div class="row">
-                                <div class="col-md-10 topic-src">来源 ： </div>
-                                <div class="col-md-1 topic-agree">23<img src="images/topic_agree.png"></div>
-                                <div class="col-md-1 topic-answer">23<img src="images/topic_answer.png"></div>
+                                <div class="col-md-11 topic-src">来源 ： {{reply.source}}</div>
+                                <div class="col-md-1 topic-agree">{{reply.agree_num}}<img src="images/topic_agree.png"></div>
                             </div>
                         </li>
-                        <li class="list-group-item">
-                            <div>hot topic two</div>
-                        </li>
-                        <li class="list-group-item">
-                            <div>hot topic three</div>
-                        </li>
-                        <!-- <li class="list-group-item">
-                            <div>hot topic four</div>
-                        </li> -->
                     </ul>
                 </div>
                 <div class="panel panel-default related-topics">
                     <h3>Related Topics</h3>
                     <ul class="list-group">
-                        <li class="list-group-item">
-                            <div class="topic-content">宝宝和奶粉</div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="topic-content">宝宝和奶粉</div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="topic-content">宝宝和奶粉</div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="topic-content">宝宝和奶粉</div>
+                        <li class="list-group-item" ng-repeat="post in posts">
+                            <div class="topic-content">{{post.title}}</div>
                         </li>
                     </ul>
                 </div>

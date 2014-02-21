@@ -74,13 +74,13 @@ var _config = {
                     type: 'json'
                 }
             },
-            'brandRelatedPosts': {
+            'related_posts': {
                 online: {
                     path: 'odata.xsodata/brand',
                     type: 'odata'
                 },
                 offline: {
-                    path: 'getRelatedPostsByBrand.json',
+                    path: 'related_posts.json',
                     type: 'json'
                 }
             }

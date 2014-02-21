@@ -38,4 +38,14 @@
         <servlet-name>SickAPI</servlet-name>
         <url-pattern>/service/sick</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>BrandPostAPI</servlet-name>
+        <servlet-class>com.sap.cdsp.kidscare.service.BrandPostAPI</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>BrandPostAPI</servlet-name>
+        <url-pattern>/service/posts/*</url-pattern>
+    </servlet-mapping>
 </web-app>

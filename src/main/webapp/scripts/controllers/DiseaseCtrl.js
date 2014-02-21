@@ -12,7 +12,7 @@ function($scope, dataStorage, channel, dataService) {
         };
         
         dataService.getRelatedTopics(params, function(data){
-            $scope.topics = data.results;
+            $scope.topics = data;
         });
     };
     //--------------------------------------------------------------------------

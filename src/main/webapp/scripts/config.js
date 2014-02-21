@@ -86,8 +86,8 @@ var _config = {
             },
             'ralated_topics': {
                  online: {
-                    path: 'odata.xsodata/brand',
-                    type: 'odata'
+                    path: 'sick',
+                    type: 'json'
                 },
                 offline: {
                     path: 'ralated_topics.json',

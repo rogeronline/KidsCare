@@ -1,24 +1,32 @@
-{
-    "results": [
-        {
-            "id": "047D7BADBC7E1ED389A3AC631909D501",
-            "title": "post 1",
-            "image_url": "images/bg.png"
-        },
-        {
-            "id": "047D7BADBC7E1ED389A3AC631909D502",
-            "title": "post 2",
-            "image_url": "images/bg.png"
-        },
-        {
-            "id": "047D7BADBC7E1ED389A3AC631909D502",
-            "title": "post 3",
-            "image_url": "images/bg.png"
-        },
-        {
-            "id": "047D7BADBC7E1ED389A3AC631909D502",
-            "title": "post 4",
-            "image_url": "images/bg.png"
-        }
-    ]
-}
+[
+  {
+    "title": "湿疹？湿疹！姐妹们来给支支招吧~~",
+    "sol_key": "炉甘石  晒太阳  金银花  软膏",
+    "topic_id": "7102983",
+    "sym_key": "脸上  复发  红点  过敏"
+  },
+  {
+    "title": "湿疹湿疹，头疼的湿疹啊",
+    "sol_key": "郁美净  湿疹膏  橄榄油  看医生",
+    "topic_id": "7338347",
+    "sym_key": "痒  起皮  粗糙 脸上 额头"
+  },
+  {
+    "title": "宝宝发烧过起了满身的红疹怎么回事",
+    "sol_key": "物理降温  多喝水  不洗澡  别吹风",
+    "topic_id": "6455176",
+    "sym_key": "全身  红疹  反复发烧  高烧"
+  },
+  {
+    "title": "宝宝严重湿疹，哪些湿疹膏或者液对宝宝伤害最小啊？",
+    "sol_key": "肤乐霜  湿疹膏  干燥  注意饮食  外用药",
+    "topic_id": "7406771",
+    "sym_key": "结痂  脸上  过敏  疙瘩  脂溢 粗糙"
+  },
+  {
+    "title": "发烧后出现红疹请问是否可以用金银花煲水洗？",
+    "sol_key": "清热解毒  不处理  看医生  清水洗",
+    "topic_id": "6449318",
+    "sym_key": "不痒  反复发烧  烧退疹出"
+  }
+]

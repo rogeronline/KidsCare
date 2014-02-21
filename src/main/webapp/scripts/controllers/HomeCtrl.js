@@ -196,9 +196,15 @@ function($scope, dataStorage, channel, dataService) {
     }
 
     function searchEventHandler() {
-        $("#food_search_btn").click(function() {
-            $("#food_search_box").fadeOut();
+        $('#food_search_btn').click(function() {
+            $('#food_search_box').fadeOut();
             $scope.canvas.onmousemove = canvasMove;
+        });
+        $('#disease_search_box').on('click', 'img', function(e) {
+            $('#upload').show();
+        });
+        $('#disease_search_box').on('click', '#disease_search_btn', function(e) {
+
         });
     }
 
@@ -270,7 +276,11 @@ function($scope, dataStorage, channel, dataService) {
                             }).fadeIn();
                             break;
                         case 'disease':
-                            $('#disease_search_box').fadeIn();
+                            var pos = calSearchBoxPos('disease_search_box');
+                            $('#disease_search_box').css({
+                                left: pos.left,
+                                top: pos.top
+                            }).fadeIn();
                             break;
                         default:
                             $('#food_search_box').fadeIn();

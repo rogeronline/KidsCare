@@ -28,4 +28,14 @@
         <servlet-name>BrandsAPI</servlet-name>
         <url-pattern>/service/brands/*</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>SickAPI</servlet-name>
+        <servlet-class>com.sap.cdsp.kidscare.service.SickAPI</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SickAPI</servlet-name>
+        <url-pattern>/service/sick</url-pattern>
+    </servlet-mapping>
 </web-app>

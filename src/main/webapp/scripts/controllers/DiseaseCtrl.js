@@ -18,7 +18,8 @@ function($scope, dataStorage, channel, dataService) {
 
     function showDetail(topic) {
         var params = {
-            id: topic.id
+            id: topic.id,
+            flag: 3
         };
         dataService.getPost(params, function(data) {
             channel.publish('medical_topic_loaded', data);

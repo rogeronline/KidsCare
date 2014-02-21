@@ -17,6 +17,10 @@
     padding: 40px;
 }
 
+#milk_modal .modal-content {
+    background: url("../images/milkbrand_detail_bg.png") 100%;
+}
+
 #milk_body {
     max-height: 800px !important;
 }

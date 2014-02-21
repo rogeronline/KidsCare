@@ -19,6 +19,8 @@
         <link rel="stylesheet" href="styles/diet.css">
         <link rel="stylesheet" href="styles/milk_detail.css">
         <link rel="stylesheet" href="styles/topic_detail.css">
+        <link rel="stylesheet" href="styles/medical_detail.css">
+        <link rel="stylesheet" href="styles/disease.css">
 
         <script src="bower_components/modernizr/modernizr.js"></script>
     </head>
@@ -33,7 +35,7 @@
             <div id="navbar" ng-include="'views/navbar.html'"></div>
 
             <!-- Begin page content -->
-            <div id="container" class="" style="position: absolute; top: 50px; bottom: 30px; width: 100%;">
+            <div id="container">
                 <section id="content" ng-view style="height: 100%"></section>
                 <aside id="popups" ng-include="'views/popups.html'"></aside>
             </div>
@@ -58,7 +60,8 @@
                 'scripts/controllers/RecordCtrl.js',
                 'scripts/controllers/MilkDetailCtrl.js',
                 'scripts/controllers/TopicDetailCtrl.js',
-                'scripts/controllers/DietGraphCtrl.js'
+                'scripts/controllers/DietGraphCtrl.js',
+                'scripts/controllers/MedicalDetailCtrl.js'
             ]).wait(function() {
                 angular.bootstrap(document, ['app']);
             });

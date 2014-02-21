@@ -1,10 +1,14 @@
-<div class="modal" role="modal" id="questionnaire_detail" ng-controller="questionnaireCtrl">
+<div class="modal" role="modal" id="questionnaire_detail" ng-controller="QuestionnaireCtrl">
     <div class="modal-dialog" id="questionnaire_modal">
         <div class="modal-content">
             <div class="question-colse"></div>
             <div class="modal-body" id="questionnaire_body">
                 <div id="question_item">
-                    Are the red pots  mainly on the head and face?
+                    <div>Question {{number}}</div>
+                    {{question}}
+                </div>
+                <div id="question_next_container">
+                    <button class="btn btn-default" type="button" id="question_next" ng-click="nextClick()"></button>
                 </div>
             </div>
         </div>

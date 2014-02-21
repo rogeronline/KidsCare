@@ -9,6 +9,7 @@
     height: 50px;
     padding: 10px;
     text-align: center;
+    border-bottom: 0px !important;
 }
 
 #milk_modal {
@@ -18,12 +19,38 @@
 }
 
 #milk_modal .modal-content {
-    background: url("../images/milkbrand_detail_bg.png") 100%;
+    background: url("../images/milkbrand_detail_bg.png") no-repeat;
+    background-size: 100% 100%;
+    opacity: 0.9;
 }
 
 #milk_body {
     max-height: 800px !important;
+    overflow-x: hidden !important;
 }
+
+.milk-header {
+    height: 50px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.milk-header span {
+    font-size: 25px !important;
+    font-weight: bolder;
+    color: #000;
+}
+
+.milk-dismiss {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    background: url('../images/milkbrand_close.png') no-repeat;
+    background-size: 100% 100%;
+    width: 59px;
+    height: 59px;
+    cursor: pointer;
+    z-index: 1000;
 
 .milk-name {
     text-align: center;

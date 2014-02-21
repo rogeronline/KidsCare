@@ -204,6 +204,7 @@ function($scope, dataStorage, channel, dataService) {
             $('#upload').show();
         });
         $('#disease_search_box').on('click', '#disease_search_btn', function(e) {
+            alert("sfddsa");
             $('#questionnaire_detail').modal('show');
         });
     }

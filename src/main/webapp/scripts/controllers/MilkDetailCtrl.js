@@ -143,6 +143,10 @@ function($scope, dataStorage, channel, dataService) {
         return orderedList;
     }
 
+    $('.milk-dismiss').on('click', function() {
+        $('#milk_powder').modal('hide');
+    });
+
     //--------------------------------------------------------------------------
     // bootstrap
     //--------------------------------------------------------------------------

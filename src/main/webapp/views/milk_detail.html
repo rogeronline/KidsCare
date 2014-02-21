@@ -1,11 +1,9 @@
 <div class="modal" id="milk_powder" ng-controller="MilkDetailCtrl" role="modal">
     <div class="modal-dialog" id="milk_modal">
         <div class="modal-content">
-            <div class="modal-header blue-line">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Milk Powder Detail</h4>
-            </div>
+            <div class="milk-dismiss"></div>
             <div class="modal-body" id="milk_body">
+                <div class="milk-header"><span>Milk Powder Detail</span></div>
                 <div class="row milk-detail">
                     <div class="col-md-3 milk-name">{{brandInfo.name}}</div>
                     <div class="col-md-9 milk-info">{{brandInfo.description}}</div>

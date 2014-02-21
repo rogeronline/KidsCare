@@ -2,42 +2,113 @@
 
 app.controller('DietGraphCtrl', ['$scope', 'dataStorage', 'channel', 'dataService',
 function($scope, dataStorage, channel, dataService) {
-    function generateGraph(){
-          var canvas = $scope.canvas = jQuery('#graph_body')[0];
-        var ctx = canvas.getContext('2d');
-        var posArr = $scope.posArr = [[12, 24]];
-        var i = 0, len = posArr.length;
-        var interval = setInterval(function() {
-            var pos = posArr[i++];
-            pos.opacity = 0.1;
+    var levelConfig = [
+        {
+            imagePath: 'images/diet_brank_bubble1.png',
+            imagePositionX: 50,
+            imagePositionY: 100,
+            font: '30px Arial',
+            fontPositionX: 40,
+            fontPositionY: 130,
+        },
+        {
+            imagePath: 'images/diet_brank_bubble2.png',
+            imagePositionX: 300,
+            imagePositionY: 100,
+            font: '30px Arial',
+            fontPositionX: 40,
+            fontPositionY: 130,
+        },
+        {
+            imagePath: 'images/diet_brank_bubble3.png',
+            imagePositionX: 500,
+            imagePositionY: 100,
+            font: '30px Arial',
+            fontPositionX: 40,
+            fontPositionY: 130,
+        },
+        {
+            imagePath: 'images/diet_brank_bubble4.png',
+            imagePositionX: 50,
+            imagePositionY: 150,
+            font: '30px Arial',
+            fontPositionX: 40,
+            fontPositionY: 130,
+        },
+        {
+            imagePath: 'images/diet_brank_bubble5.png',
+            imagePositionX: 50,
+            imagePositionY: 150,
+            font: '30px Arial',
+            fontPositionX: 40,
+            fontPositionY: 130,
+        }
+        
+    ];
+    
+  function updateBrands(callback) {
+        var params = {
+            type: 'milk',
+            order: 1,
+            top: 10
+        };
+        dataService.getBrands(params, function(data) {
+            callback(data.results);
+        });
+    }
+    
+    function drawMainBubble(canvas, month){
+        
+    }
+    
+    function drawImage(currentStyle, currentResult) {
+        var img = new Image();
+        img.src = currentStyle.imagePath;
+
+        img.onload = function() {
+            var ctx = $scope.ctx;
             ctx.save();
-            function fadeIn() {
+            var cursor = 0, len = $scope.canvasAlpha.length;
+            var fadeIn = function() {
                 setTimeout(function() {
-/*                    ctx.fillStyle = 'rgba(0, 0, 255,' + pos.opacity + ')';
-                    ctx.beginPath();
-                    ctx.moveTo(pos[0], pos[1]);
-                    ctx.arc(pos[0], pos[1], 50, 2 * Math.PI, 0, true);
-                    ctx.fill();*/
-                   var image = new Image();
-                   image.src = 'images/diet-bubble1.png';
-                   ctx.font= "30px Arial";
-                   ctx.fillStyle = 'white';
-                   ctx.drawImage(image, pos[0], pos[1]);
-                   ctx.fillText('test', pos[0]+20, pos[1]+100);
-                    pos.opacity += 0.05;
-                    if (pos.opacity < 1) {
-                        ctx.fillStyle = 'rgba(0, 0, 255,' + pos.opacity + ')';
+                    ctx.globalAlpha = $scope.canvasAlpha[cursor++];
+                    ctx.drawImage(img, currentStyle.imagePositionX, currentStyle.fontPositionY);
+                    ctx.font= currentStyle.font;
+                        ctx.fillStyle = 'white';
+                        ctx.fillText(currentResult.name, currentStyle.imagePositionX + currentStyle.fontPositionX, 
+                        currentStyle.fontPositionY + currentStyle.fontPositionY);
+                    if (cursor <= len) {
                         fadeIn();
+                    } else {
+                        ctx.restore();
                     }
-                }, 50);
-            }
+                }, 80);
+            };
             fadeIn();
-            ctx.restore();
-            if (i >= len) {
-                clearInterval(interval);
-                canvasEventHandler();
-            }
-        }, 100);
+        };
+    }
+    
+    function updateGraph(){
+        updateBrands(function(results){
+            showMainPics();
+            var canvas = $scope.canvas = jQuery('#graph_body')[0];
+            var ctx = $scope.ctx = canvas.getContext('2d');
+            var posArr = $scope.posArr = [[50, 100]];
+            var i = 0, len = results.length;
+            
+            var interval = setInterval(function() {
+                var currentResult = results[i];
+                var currentStyle = levelConfig[+currentResult.rank - 1];
+                ctx.save();
+                drawImage(currentStyle, currentResult);
+                ctx.restore();
+                i++;
+                if (i >= len) {
+                    clearInterval(interval);
+                    canvasEventHandler();
+                }
+            }, 900);
+        });
     };
 
     function canvasEventHandler() {
@@ -71,16 +142,41 @@ function($scope, dataStorage, channel, dataService) {
             }
         };
     }
-
+    
+    function showMainPics() {
+        var cursor = 0, len = $('#diet_tree #graph_main_pics .pic').length;
+        if (len == 0) {
+            setTimeout(function() {
+                showMainPics();
+            }, 400);
+        } else {
+            var interval = setInterval(function() {
+                var ele = $('#diet_tree #graph_main_pics .pic:eq(' + cursor + ')');
+                ele.fadeIn('slow');
+                cursor++;
+                if (cursor > len) {
+                    $scope.mainPicCompleted = true;
+                    clearInterval(interval);
+                }
+            }, 800);
+        }
+    }
+    
+    function refreshGraph() {
+        updateGraph();
+    }
     //--------------------------------------------------------------------------
     // bootstrap
     //--------------------------------------------------------------------------
 
     function init() {
-        generateGraph();
+         $scope.days = "five-months";
+         $scope.canvasAlpha = [0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55,
+                              0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1];
     }
 
     function refresh() {
+        refreshGraph();
     }
 
     init();

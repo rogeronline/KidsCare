@@ -1,6 +1,12 @@
-<div class="container-fluid" ng-controller="DietGraphCtrl" role="modal">
-    <div id="diet_graph">
+<div class="container-fluid" ng-controller="DietGraphCtrl" role="modal" style="height: 100%">
+    <div id="diet_tree" style="height: 100%">
         <canvas id="graph_body" width="684" height="684">
         </canvas>
+        <div id="graph_main_pics">
+            <div class="pic" ng-class="[days]" class="rotate normal" ng-repeat="i in [1]"></div>
+        </div>
+        <div id="treeTrunk"></div>
+        <div id="days"></div>
+        <div id="leaves"></div>
     </div>
 </div>

@@ -83,6 +83,16 @@ var _config = {
                     path: 'related_posts.json',
                     type: 'json'
                 }
+            },
+            'ralated_topics': {
+                 online: {
+                    path: 'odata.xsodata/brand',
+                    type: 'odata'
+                },
+                offline: {
+                    path: 'ralated_topics.json',
+                    type: 'json'
+                }
             }
         }
     },

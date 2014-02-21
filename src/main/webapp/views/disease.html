@@ -34,15 +34,17 @@
                     <h3 class="panel-title">Related Hot Tpoics</h3>
                 </div>
                 <div class="panel-body">
-                    <div class="col-xs-6 col-md-8" ng-repeat="topic in topics">
-                    <div class="thumbnail" ng-click="showDetail(topic)">
-                        <div class="caption">
-                            <h4>No. {{topic.title}}</h4>
-                            <h4>Key Words: {{topic.keyWords}}</h4>
-                            <img src={{topic.type}}/>
+                    <div class="row" style="margin: 1rem 0.5rem; max-height: 620px; overflow-y: auto;">
+                        <div class="col-xs-6 col-md-12" ng-repeat="topic in topics">
+                            <div class="thumbnail" ng-click="showDetail(topic)">
+                                <div class="caption">
+                                    <h3>{{topic.title}}</h3>
+                                    <h4>Key Words: {{topic.keyWords}}</h4>
+                                    <img src={{topic.type}}/>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </div>
             </div>
         </div>

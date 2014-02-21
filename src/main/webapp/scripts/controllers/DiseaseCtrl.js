@@ -5,6 +5,16 @@ function($scope, dataStorage, channel, dataService) {
     $scope.selectImg = function(img){
         alert(img.keywords);
     };
+    
+    function getTopics(flag) {
+        var params = {
+            flag:flag
+        };
+        
+        dataService.getRelatedTopics(params, function(data){
+            $scope.topics = data.results;
+        });
+    };
     //--------------------------------------------------------------------------
     // bootstrap
     //--------------------------------------------------------------------------
@@ -32,31 +42,7 @@ function($scope, dataStorage, channel, dataService) {
                         {src:"images/illness3.png",
                         keywords: "满身 发烧 "}
         ];
-        $scope.topics = [{
-            title: "how to solve...",
-            keyWords: "how to solve...",
-            type: "images/leaf1.png"
-        },
-        {
-            title: "how to solve...",
-            keyWords: "how to solve...",
-            type: "images/leaf1.png"
-        },
-        {
-            title: "how to solve...",
-            keyWords: "how to solve...",
-            type: "images/leaf1.png"
-        },
-        {
-            title: "how to solve...",
-            keyWords: "how to solve...",
-            type: "images/leaf1.png"
-        },
-        {
-            title: "how to solve...",
-            keyWords: "how to solve...",
-            type: "images/leaf1.png"
-        }];
+       getTopics(1);
     }
 
     init();

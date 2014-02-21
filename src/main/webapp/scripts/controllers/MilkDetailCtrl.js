@@ -3,9 +3,19 @@
 app.controller('MilkDetailCtrl', ['$scope', 'dataStorage', 'channel', 'dataService',
 function($scope, dataStorage, channel, dataService) {
 
+    //--------------------------------------------------------------------------
+    // subscribe
+    //--------------------------------------------------------------------------
+
+    channel.subscribe('brand_detail_loaded', function(data) {
+        $scope.data = data;
+
+        jQuery('#milk_powder').modal('show');
+    });
+
+
     $('#milk_powder').on('shown.bs.modal', function (e) {
-        var params = {};
-        dataService.getBrand(params, function(data) {
+            var data = $scope.data;
             data.pros = sortByPercent(data.pros);
             data.cons = sortByPercent(data.cons);
             $scope.brandInfo = data;
@@ -19,7 +29,7 @@ function($scope, dataStorage, channel, dataService) {
             });
             drawGoodKeyGraph($scope.brandInfo.pros);
             drawBadKeyGraph($scope.brandInfo.cons);
-        });
+
         dataService.getRelatedPostsByBrand(params, function(data) {
             $scope.posts = data.results;
         });

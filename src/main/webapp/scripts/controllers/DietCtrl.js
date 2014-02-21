@@ -97,7 +97,12 @@ function($scope, dataStorage, channel, dataService) {
     $scope.changeBrandOrder = changeBrandOrder;
 
     function showBrand(brand) {
-        jQuery('#milk_powder').modal('show');
+        var params = {
+            id: brand.id
+        };
+        dataService.getBrand(params, function(data) {
+            channel.publish('brand_detail_loaded', data);
+        });
     }
 
     $scope.showBrand = showBrand;

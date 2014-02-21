@@ -6,7 +6,6 @@ function($scope, dataStorage, channel, dataService) {
     $('#post_detail').on('shown.bs.modal', function (e) {
         var params = {};
         dataService.getPost(params, function(data) {
-            data.keywords = data.keywords.join(", ");
             $scope.topic = data;
 
             $('#post_detail').transition({

@@ -5,16 +5,28 @@ function($scope, dataStorage, channel, dataService) {
     $scope.selectImg = function(img){
         getTopics(2);
     };
-    
+
     function getTopics(flag) {
         var params = {
             flag:flag
         };
-        
+
         dataService.getRelatedTopics(params, function(data){
             $scope.topics = data.results;
         });
     };
+
+    function showDetail(topic) {
+        var params = {
+            id: topic.id
+        };
+        dataService.getPost(params, function(data) {
+            channel.publish('medical_topic_loaded', data);
+        });
+    }
+
+    $scope.showDetail = showDetail;
+
     //--------------------------------------------------------------------------
     // bootstrap
     //--------------------------------------------------------------------------

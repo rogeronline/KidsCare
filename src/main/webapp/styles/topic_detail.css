@@ -17,29 +17,29 @@
     overflow-y: none !important;
 }
 
-.topic-title-group {
-    height: 100px;
+#post_detail .topic-title-group {
+    height: 55px;
     padding: 0px 40px;
 }
 
-.topic-title-group .topic-title {
+#post_detail .topic-title-group .topic-title {
     height: 40px;
-    background: url("../images/topic_head.png") no-repeat left;
+    background: url("../images/icon_question.png") no-repeat left;
     text-indent: 50px;
     line-height: 40px;
 }
     
-.topic-title-group .topic-keyword {
+#post_detail .topic-title-group .topic-keyword {
     height: 40px;
     padding: 0 50px;
     margin-top: -10px;
 }
     
-.topic-title-group .topic-keyword .keyword-caption {
+#post_detail .topic-title-group .topic-keyword .keyword-caption {
     line-height: 40px;
 }
         
-.topic-title-group .topic-keyword .keyword-list {
+#post_detail .topic-title-group .topic-keyword .keyword-list {
     line-height: 40px;
     margin-left: 20px;
 }

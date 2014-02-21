@@ -2,48 +2,106 @@
 
 app.controller('DietGraphCtrl', ['$scope', 'dataStorage', 'channel', 'dataService',
 function($scope, dataStorage, channel, dataService) {
-    var levelConfig = [
+    var brandLevelConfig = [
         {
             imagePath: 'images/diet_brank_bubble1.png',
-            imagePositionX: 50,
-            imagePositionY: 100,
+            imagePositionX: 180,
+            imagePositionY: 110,
             font: '30px Arial',
-            fontPositionX: 40,
-            fontPositionY: 130,
+            fontPositionX: 35,
+            fontPositionY: 100,
         },
         {
             imagePath: 'images/diet_brank_bubble2.png',
-            imagePositionX: 300,
-            imagePositionY: 100,
-            font: '30px Arial',
-            fontPositionX: 40,
-            fontPositionY: 130,
+            imagePositionX: 50,
+            imagePositionY: 400,
+            font: '28px Arial',
+            fontPositionX: 33,
+            fontPositionY: 60,
         },
         {
             imagePath: 'images/diet_brank_bubble3.png',
-            imagePositionX: 500,
-            imagePositionY: 100,
-            font: '30px Arial',
-            fontPositionX: 40,
-            fontPositionY: 130,
+            imagePositionX: 320,
+            imagePositionY: 120,
+            font: '26px Arial',
+            fontPositionX: 20,
+            fontPositionY: 80,
         },
         {
             imagePath: 'images/diet_brank_bubble4.png',
             imagePositionX: 50,
             imagePositionY: 150,
-            font: '30px Arial',
+            font: '24px Arial',
             fontPositionX: 40,
-            fontPositionY: 130,
+            fontPositionY: 70,
         },
         {
             imagePath: 'images/diet_brank_bubble5.png',
+            imagePositionX: 50,
+            imagePositionY: 270,
+            font: '22px Arial',
+            fontPositionX: 40,
+            fontPositionY: 40,
+        },
+        {
+            imagePath: 'images/diet_brank_bubble6.png',
+            imagePositionX: 50,
+            imagePositionY: 270,
+            font: '22px Arial',
+            fontPositionX: 40,
+            fontPositionY: 40,
+        },
+        {
+            imagePath: 'images/diet_brank_bubble7.png',
+            imagePositionX: 50,
+            imagePositionY: 270,
+            font: '22px Arial',
+            fontPositionX: 40,
+            fontPositionY: 40,
+        },
+        {
+            imagePath: 'images/diet_brank_bubble8.png',
+            imagePositionX: 50,
+            imagePositionY: 270,
+            font: '22px Arial',
+            fontPositionX: 40,
+            fontPositionY: 40,
+        },
+        {
+            imagePath: 'images/diet_brank_bubble9.png',
+            imagePositionX: 50,
+            imagePositionY: 270,
+            font: '22px Arial',
+            fontPositionX: 40,
+            fontPositionY: 40,
+        },
+        {
+            imagePath: 'images/diet_brank_bubble10.png',
+            imagePositionX: 50,
+            imagePositionY: 270,
+            font: '22px Arial',
+            fontPositionX: 40,
+            fontPositionY: 40,
+        }
+    ];
+    
+    var postLevelConfig = [
+        {
+            imagePath: 'images/diet_post_bubble1.png',
             imagePositionX: 50,
             imagePositionY: 150,
             font: '30px Arial',
             fontPositionX: 40,
             fontPositionY: 130,
         }
-        
+    ];
+    
+    var iconsList = [
+        {
+            imagePath: 'images/diet_icons_bubble1.png',
+            imagePositionX: 350,
+            imagePositionY: 150,
+        }
     ];
     
   function updateBrands(callback) {
@@ -57,9 +115,16 @@ function($scope, dataStorage, channel, dataService) {
         });
     }
     
-    function drawMainBubble(canvas, month){
-        
-    }
+    function updatePosts(callback){
+        var params = {
+            type: 'milk',
+            order: 1,
+            top: 10
+        };
+        dataService.getPosts(params, function(data){
+            callback(data.results);
+        })
+    };
     
     function drawImage(currentStyle, currentResult) {
         var img = new Image();
@@ -72,11 +137,11 @@ function($scope, dataStorage, channel, dataService) {
             var fadeIn = function() {
                 setTimeout(function() {
                     ctx.globalAlpha = $scope.canvasAlpha[cursor++];
-                    ctx.drawImage(img, currentStyle.imagePositionX, currentStyle.fontPositionY);
+                    ctx.drawImage(img, currentStyle.imagePositionX, currentStyle.imagePositionY);
                     ctx.font= currentStyle.font;
                         ctx.fillStyle = 'white';
                         ctx.fillText(currentResult.name, currentStyle.imagePositionX + currentStyle.fontPositionX, 
-                        currentStyle.fontPositionY + currentStyle.fontPositionY);
+                        currentStyle.imagePositionY + currentStyle.fontPositionY);
                     if (cursor <= len) {
                         fadeIn();
                     } else {
@@ -89,26 +154,43 @@ function($scope, dataStorage, channel, dataService) {
     }
     
     function updateGraph(){
+        var canvas = $scope.canvas = jQuery('#graph_body')[0];
+        var ctx = $scope.ctx = canvas.getContext('2d');
         updateBrands(function(results){
             showMainPics();
-            var canvas = $scope.canvas = jQuery('#graph_body')[0];
-            var ctx = $scope.ctx = canvas.getContext('2d');
             var posArr = $scope.posArr = [[50, 100]];
             var i = 0, len = results.length;
             
             var interval = setInterval(function() {
                 var currentResult = results[i];
-                var currentStyle = levelConfig[+currentResult.rank - 1];
+                var currentStyle = brandLevelConfig[+currentResult.rank - 1];
                 ctx.save();
                 drawImage(currentStyle, currentResult);
                 ctx.restore();
                 i++;
                 if (i >= len) {
                     clearInterval(interval);
-                    canvasEventHandler();
+                    //canvasEventHandler();
                 }
             }, 900);
         });
+        /*updatePosts(function(results){
+            var i = 0;
+            var interval = setInterval(function() {
+                var currentResult = results[i];
+                currentResult.name = currentResult.title;
+                var currentStyle = postLevelConfig[+currentResult.rank - 1];
+                ctx.save();
+                drawImage(currentStyle, currentResult);
+                ctx.restore();
+                i++;
+                if (i >= len) {
+                    clearInterval(interval);
+                    //canvasEventHandler();
+                }
+            }, 900);
+        });*/
+        
     };
 
     function canvasEventHandler() {

@@ -110,15 +110,11 @@ a {
     color: #2aabd2;
 }
 
-#wrap {
-    height: 100%;
-    background: url("../images/bg.png") no-repeat;
-    background-size: 100%;
-}
-
 #container {
     position: absolute;
     top: 100px;
     bottom: 30px;
     width: 100%;
+    background: url("../images/bg.png") no-repeat;
+    background-size: 100%;
 }

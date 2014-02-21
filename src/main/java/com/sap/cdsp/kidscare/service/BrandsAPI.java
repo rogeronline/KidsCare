@@ -39,15 +39,36 @@ public class BrandsAPI extends HttpServlet {
 		Writer writer = response.getWriter();
 		String output = null;
 		GsonJsonMarshaller marshaller = new GsonJsonMarshaller();
-
-		//GET /brands?type=formula&sort=taste&order=1&top=10
-		String type = request.getParameter("type");
-		String sort = request.getParameter("sort");
-		String order = request.getParameter("order");
-		String top = request.getParameter("top");
+		
+		
+		String url = request.getRequestURL().toString();
+        url = url.replace("http://","");
+        String[] urlArray = url.split("/");
+		
 		
 		try {
+			
+			//GET /brands?type=formula&sort=taste&order=1&top=10
+			if(urlArray.length==4)
+			{
+			String type = request.getParameter("type");
+			String sort = request.getParameter("sort");
+			String order = request.getParameter("order");
+			String top = request.getParameter("top");
 			output = marshaller.toJson(this.getJsonList(type,sort,order,top));
+			}
+			//GET /service/brands/1234
+			if(urlArray.length==5)
+			{}
+			//GET /service/brands/1234/related_posts
+			if(urlArray.length==6)
+			{}
+			
+
+
+			
+
+			
 		} catch (Exception ex) {
 			writer.write("error");
 		}
@@ -78,6 +99,8 @@ public class BrandsAPI extends HttpServlet {
 			else
 				sql = sql.replace("@2", "DESC");
 			
+			if(sort==null||sort.equals("0")||sort.equals(""))
+				sort = "0";
 			sql = sql.replace("@3", sort);
 				
 			

@@ -144,5 +144,148 @@
         "type": "img",
         "src": "./images/5m_icon8.png",
         "pos": [378, 16]
-    }]
+    }],
+    "smallCircles": {
+        "fivePage": [{
+            "cat": "food",
+            "pos": [530, 225],
+            "radius": 15
+        }, {
+            "cat": "food",
+            "pos": [550, 190],
+            "radius": 7
+        }, {
+            "cat": "food",
+            "pos": [650, 236],
+            "radius": 5
+        }, {
+            "cat": "food",
+            "pos": [650, 276],
+            "radius": 10
+        }, {
+            "cat": "food",
+            "pos": [640, 316],
+            "radius": 14
+        }, {
+            "cat": "disease",
+            "pos": [640, 402],
+            "radius": 14
+        }, {
+            "cat": "disease",
+            "pos": [577, 485],
+            "radius": 12
+        }, {
+            "cat": "disease",
+            "pos": [500, 630],
+            "radius": 7
+        }, {
+            "cat": "milestones",
+            "pos": [465, 120],
+            "radius": 6
+        }, {
+            "cat": "milestones",
+            "pos": [430, 130],
+            "radius": 14
+        }, {
+            "cat": "milestones",
+            "pos": [400, 100],
+            "radius": 8
+        }, {
+            "cat": "milestones",
+            "pos": [480, 200],
+            "radius": 10
+        }, {
+            "cat": "milestones",
+            "pos": [500, 140],
+            "radius": 8
+        }, {
+            "cat": "milestones",
+            "pos": [490, 170],
+            "radius": 12
+        }, {
+            "cat": "growth",
+            "pos": [20, 390],
+            "radius": 13
+        }, {
+            "cat": "growth",
+            "pos": [175, 350],
+            "radius": 14
+        }, {
+            "cat": "growth",
+            "pos": [140, 400],
+            "radius": 7
+        }, {
+            "cat": "growth",
+            "pos": [175, 410],
+            "radius": 12
+        }, {
+            "cat": "growth",
+            "pos": [60, 470],
+            "radius": 20
+        }, {
+            "cat": "growth",
+            "pos": [50, 200],
+            "radius": 8
+        }, {
+            "cat": "pink",
+            "pos": [500, 600],
+            "radius": 5
+        }, {
+            "cat": "pink",
+            "pos": [190, 570],
+            "radius": 10
+        }, {
+            "cat": "pink",
+            "pos": [470, 640],
+            "radius": 10
+        }, {
+            "cat": "pink",
+            "pos": [440, 600],
+            "radius": 15
+        }, {
+            "cat": "pink",
+            "pos": [440, 660],
+            "radius": 6
+        }, {
+            "cat": "pink",
+            "pos": [170, 610],
+            "radius": 10
+        }, {
+            "cat": "pink",
+            "pos": [238, 655],
+            "radius": 12
+        }, {
+            "cat": "pink",
+            "pos": [380, 640],
+            "radius": 14
+        }, {
+            "cat": "pink",
+            "pos": [288, 640],
+            "radius": 8
+        }, {
+            "cat": "green",
+            "pos": [120, 120],
+            "radius": 13
+        }, {
+            "cat": "green",
+            "pos": [130, 150],
+            "radius": 4
+        }, {
+            "cat": "green",
+            "pos": [160, 70],
+            "radius": 10
+        }, {
+            "cat": "green",
+            "pos": [200, 80],
+            "radius": 8
+        }, {
+            "cat": "green",
+            "pos": [270, 90],
+            "radius": 12
+        }, {
+            "cat": "green",
+            "pos": [330, 80],
+            "radius": 7
+        }]
+    }
 }

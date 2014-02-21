@@ -21,7 +21,7 @@ function($scope, dataStorage, channel, dataService) {
             'milestones': 'rgba(59, 134, 105, 255)',
             'growth': 'rgba(59, 211, 255, 255)',
             'pink': 'rgba(255, 76, 195, 255)',
-            'green': 'rgba(84, 199, 122)'
+            'green': 'rgba(84, 199, 122, 255)'
         };
         $scope.circleEles = [];
     }
@@ -73,6 +73,7 @@ function($scope, dataStorage, channel, dataService) {
                     i++;
                     if (i >= len) {
                         clearInterval(interval);
+                        drawSmallCircles(data.smallCircles.fivePage);
                         canvasEventHandler();
                     }
                 }, 50);
@@ -177,6 +178,23 @@ function($scope, dataStorage, channel, dataService) {
         fadeIn();
     }
 
+    function drawSmallCircles(circles) {
+        var ctx = $scope.ctx;
+        ctx.save();
+        var i = 0, len = circles.length;
+        for (i; i < len; i++) {
+            var circle = circles[i];
+            var pos = circle.pos;
+            ctx.fillStyle = $scope.circleStyles[circle.cat];
+            ctx.globalAlpha = 1;
+            ctx.beginPath();
+            ctx.moveTo(pos[0] || 0, pos[1] || 0);
+            ctx.arc(pos[0] || 0, pos[1] || 0, circle.radius, 2 * Math.PI, 0, true);
+            ctx.fill();
+        }
+        ctx.restore();
+    }
+
     function searchEventHandler() {
         $("#food_search_btn").click(function() {
             $("#food_search_box").fadeOut();
@@ -215,7 +233,7 @@ function($scope, dataStorage, channel, dataService) {
                 $('#search_icon').show().css({
                     left: e.clientX,
                     top: e.clientY - 100
-                }).data('circleType', cat);;
+                }).data('circleType', cat);
                 break;
             }
         }
@@ -245,7 +263,11 @@ function($scope, dataStorage, channel, dataService) {
                     $scope.canvas.onmousemove = null;
                     switch(cat) {
                         case 'food':
-                            $('#food_search_box').fadeIn();
+                            var pos = calSearchBoxPos('food_search_box');
+                            $('#food_search_box').css({
+                                left: pos.left,
+                                top: pos.top
+                            }).fadeIn();
                             break;
                         case 'disease':
                             $('#disease_search_box').fadeIn();
@@ -256,6 +278,18 @@ function($scope, dataStorage, channel, dataService) {
                     }
                 }
             }
+        };
+    }
+
+    function calSearchBoxPos(id) {
+        var offset = $('#treeBody').offset();
+        var canvasW = $scope.canvas.width;
+        var canvasH = $scope.canvas.height;
+        var boxW = $('#' + id).width();
+        var boxH = $('#' + id).height();
+        return {
+            left: offset.left + (canvasW - boxW) / 2 + 50,
+            top: offset.top + (canvasH - boxH) / 2
         };
     }
 

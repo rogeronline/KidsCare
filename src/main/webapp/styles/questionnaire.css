@@ -1,1 +1,31 @@
 @CHARSET "UTF-8";
+#questionnaire_modal .modal-content {
+    background: url("../images/question_bg.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.question-colse {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    background: url('../images/question_colse.png') no-repeat;
+    background-size: 100% 100%;
+    width: 59px;
+    height: 59px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#questionnaire_body {
+    max-height: 800px !important;
+    overflow-x: hidden !important;
+    height: 500px !important;
+}
+
+#question_item {
+    padding-top: 177px;
+    padding-left: 99px;
+    font-size: 30px;
+    color: #000;
+    width: 374px;
+}

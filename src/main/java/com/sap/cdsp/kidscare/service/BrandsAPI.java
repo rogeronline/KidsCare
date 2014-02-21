@@ -59,7 +59,10 @@ public class BrandsAPI extends HttpServlet {
 			}
 			//GET /service/brands/1234
 			if(urlArray.length==5)
-			{}
+			{
+				//SELECT ID,NAME,KEYWORDS_ID,kEYWORD,FLAG_DESC,KEYWORDS_PERCENTAGE,DESC FROM RESULT_MILK_POWDER_DETAIL WHERE MILK_ID = 8;
+				output = marshaller.toJson(this.getJsonList2());
+			}
 			//GET /service/brands/1234/related_posts
 			if(urlArray.length==6)
 			{}
@@ -85,12 +88,19 @@ public class BrandsAPI extends HttpServlet {
 		try 
 		{
 			Connection conn = DataSource.getConnection();
-				
-			String sql = 
-					"SELECT TOP @1 ID,NAME,RANK,VOTE_UP,VOTE_DOWN,MAX_KEYWORD "+
+		    String sql ="SELECT ID,NAME,ROW_NUMBER() OVER() AS RANK,VOTE_UP, VOTE_DOWN,MAX_KEYWORD "+
+"FROM "+
+"( "+
+"SELECT TOP @1 ID,NAME,VOTE_UP,VOTE_DOWN,MAX_KEYWORD "+
 "FROM RESULT_BRAND_LIST "+ 
-"WHERE KEYWORDS_ID = @3 "+// --(不上火)
-"ORDER BY RANK @2";
+"WHERE KEYWORDS_ID = @3 "+
+"ORDER BY RANK @2 "+
+")T1";  
+//			String sql = 
+//					"SELECT TOP @1 ID,NAME,RANK,VOTE_UP,VOTE_DOWN,MAX_KEYWORD "+
+//"FROM RESULT_BRAND_LIST "+ 
+//"WHERE KEYWORDS_ID = @3 "+// --(不上火)
+//"ORDER BY RANK @2";
 			
 			sql = sql.replace("@1", top);
 			
@@ -125,6 +135,61 @@ public class BrandsAPI extends HttpServlet {
 			}
 			conn.close();
 			returnList.put("results", arrayList);
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
+		
+		return returnList;
+	}	
+	
+	
+	
+	
+	private  HashMap<Object,Object> getJsonList2() {
+		HashMap<Object,Object> returnList = new HashMap<Object,Object>();
+		try 
+		{
+			Connection conn = DataSource.getConnection();
+				
+			String sql ="SELECT ID,NAME,KEYWORDS_ID,kEYWORD,FLAG_DESC,KEYWORDS_PERCENTAGE,DESC FROM RESULT_MILK_POWDER_DETAIL WHERE MILK_ID = 8";
+		
+			
+			Statement stmt = conn.createStatement();
+			ResultSet rs = null;
+			rs = stmt.executeQuery(sql);    
+	            
+			ArrayList<Object> prosArrayList = new ArrayList<Object>();
+			ArrayList<Object> consArrayList = new ArrayList<Object>();
+			
+			while (rs.next()) 
+			{
+				
+				
+				
+				returnList.put("id", rs.getString(1));
+				returnList.put("name", rs.getString(2));
+				returnList.put("description", rs.getString(7));
+				
+				HashMap<Object,Object> map = new HashMap<Object,Object>();
+				map.put("name", rs.getString(4));
+				map.put("value",  rs.getInt(6));
+				String flag = rs.getString(5);
+				if(flag.equals("NEGATIVE"))
+				{
+					consArrayList.add(map);
+				}
+				else
+				{
+					prosArrayList.add(map);
+				}
+				
+	
+			}
+			returnList.put("pros", prosArrayList);
+			returnList.put("cons", consArrayList);
+			conn.close();
 		} 
 		catch (Exception e) 
 		{

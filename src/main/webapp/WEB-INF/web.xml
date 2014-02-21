@@ -26,6 +26,6 @@
 
     <servlet-mapping>
         <servlet-name>BrandsAPI</servlet-name>
-        <url-pattern>/brands</url-pattern>
+        <url-pattern>/service/brands/*</url-pattern>
     </servlet-mapping>
 </web-app>

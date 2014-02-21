@@ -17,6 +17,10 @@ select.ng-invalid {
     cursor: pointer;
 }
 
+.progress-bar {
+    text-align: left;
+}
+
 #wrap {
     height: 100%;
     background: url("../images/bg.png") no-repeat;

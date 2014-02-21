@@ -118,7 +118,7 @@ function($scope, dataStorage, channel, dataService) {
         var params = {
             type: formData.type || 'formula',
             sort: formData.sort || null,
-            top: formData.top || 5
+            top: 5
         };
         dataService.getPosts(params, function(data) {
             $scope.posts = data.results || [];

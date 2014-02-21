@@ -157,13 +157,13 @@
     cursor: pointer;
     background: url("../images/time-line-dot.png") no-repeat 16px 0px;
     text-indent: 2em;
-    font-size: 16px;
+    font-size: 20px;
 }
 #timeAxis ul > li.now {
     color: #00aeef;
-    background: url("../images/time-line-foot-print.png") no-repeat 1px 0;
+    background: url("../images/time-line-foot-print.png") no-repeat 1px 7px;
     height: 60px;
-    font-size: 20px;
+    font-size: 28px;
 }
 #timeAxis ul > li:first-child:after {
     content: " month"

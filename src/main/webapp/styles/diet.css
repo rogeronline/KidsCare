@@ -1,5 +1,9 @@
 @CHARSET "UTF-8";
 
+.tab-content {
+    height: 800px;
+}
+
 .graphicon {
     background: url("../images/diet-graph.png") no-repeat;
     background-size: 100%;
@@ -14,4 +18,73 @@
     width: 50px;
     height: 50px;
     background-color: rgba(0,0,0,0) !important;
+}
+
+#diet_tree {
+    position: absolute;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    /*background: url("../images/bg.png") no-repeat;
+    background-size: 100%;*/
+}
+#diet_tree > * {
+    position: absolute;
+}
+#diet_tree > #graph_body {
+    width: 684px;
+    height: 684px;
+    left: 22%;
+    bottom: 100px;
+    border-radius: 342px;
+    border: 1px solid blue;
+    z-index: 1;
+}
+#diet_tree > #graph_body > div {
+    position: absolute;
+}
+
+#diet_tree > #treeTrunk {
+    width: 260px;
+    height: 129px;
+    left: 36%;
+    bottom: 0px;
+    background: url("../images/tree-trunk.png") no-repeat 42% 100%;
+}
+
+#diet_tree > #days {
+    width: 75px;
+    height: 61px;
+    bottom: 3%;
+    left: 42%;
+    background: url("../images/day-number.png") no-repeat;
+}
+
+#diet_tree > #leaves {
+    width: 360px;
+    height: 180px;
+    bottom: 0%;
+    left: 34%;
+    background-image: url("../images/leaf1.png"), url("../images/leaf2.png"), url("../images/leaf3.png"), url("../images/leaf4.png");
+    background-repeat: no-repeat;
+    background-position: 48px 23px,5px 70px,86px 43px,289px 58px;
+    -webkit-animation: grow1 2000ms ease 0s 1;
+    z-index: 1;
+}
+
+#diet_tree
+@-webkit-keyframes grow1 {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#diet_tree #graph_main_pics {
+    width: 684px;
+    height: 684px;
+    bottom: 100px;
+    left: 22%;
 }

@@ -4,17 +4,15 @@
     top: 0px;
     height: 100%;
     width: 100%;
-    background: url("../images/bg.png") no-repeat;
-    background-size: 100%;
 }
 #tree > * {
     position: absolute;
-}
-#tree > #treeBody {
     width: 684px;
     height: 684px;
     left: 24%;
     bottom: 3%;
+}
+#tree > #treeBody {
     border-radius: 342px;
     z-index: 1;
 }
@@ -22,9 +20,7 @@
     position: absolute;
 }
 #main_pics {
-    width: 684px;
     height: 716px;
-    left: 24%;
     bottom: 0px;
 }
 .pic {
@@ -176,7 +172,6 @@
 }
 #search_icon {
     display: none;
-    position: absolute;
     cursor: pointer;
     background: rgba(0, 0, 0, 0.2);
     width: 70px;
@@ -211,7 +206,8 @@
     display: none;
 }
 #food_search_box {
-    left: 40%;
-    top: 60%;
-    z-index: 3;
+    position: absolute;
+    width: 300px;
+    height: 100px;
+    z-index: 2;
 }

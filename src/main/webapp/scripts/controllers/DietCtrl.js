@@ -57,6 +57,8 @@ function($scope, dataStorage, channel, dataService) {
     ];
 
     function changeKeyword(keyword) {
+        $scope.formData.sort = keyword.id;
+
         refreshBrands();
         refreshPosts();
     }
@@ -88,6 +90,7 @@ function($scope, dataStorage, channel, dataService) {
     $scope.refreshBrands = refreshBrands;
 
     function changeBrandOrder(order) {
+        $scope.formData.order = order;
         refreshBrands();
     }
 

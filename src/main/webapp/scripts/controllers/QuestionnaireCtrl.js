@@ -14,6 +14,9 @@ function($scope, dataStorage, channel, dataService) {
             return;
         }
         if($scope.number = 3){
+            $('#closeUpload').click();
+            $('#questionnaire_detail').modal('hide');
+            $('.navbar-nav li a')[4].click();
             return;
             //close the popup and go to disease page.
         }

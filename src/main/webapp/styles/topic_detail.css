@@ -27,7 +27,7 @@
     background: url("../images/Detail_green_bg.png") no-repeat;
     background-size: 100% 100%;
     opacity: 0.9;
-    height: 400px;
+    height: 420px;
 }
 
 .topic-header {
@@ -39,13 +39,7 @@
 .topic-header span {
     font-size: 25px !important;
     font-weight: bolder;
-    color: #000;
-}
-
-#topic_body {
-    max-height: 800px !important;
-    padding: 0 !important;
-    overflow-y: none !important;
+    color: #fdfffe;
 }
 
 #topic_body {
@@ -62,8 +56,13 @@
 #post_detail .topic-title-group .topic-title {
     height: 40px;
     background: url("../images/icon_question.png") no-repeat left;
+}
+
+#post_detail .topic-title-group .topic-title {
     text-indent: 50px;
     line-height: 40px;
+    font-size: 25px;
+    color: #fdfffe;
 }
     
 #post_detail .topic-title-group .topic-keyword {
@@ -84,67 +83,27 @@
 #topic_body .topic-panel {
     margin: 0 50px 20px 50px;
     border: 1px dashed;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 #topic_body .topic-panel .list-group {
     border: 0;
-    max-height: 270px;
+    max-height: 250px;
 }
 
-#topic_body .topic-panel .list-group .list-group-item .topic-content{
-    height: 70px;
-    line-height: 30px;
+#topic_body .topic-panel .list-group .list-group-item {
+    height: 80px;
 }
 
-/* #topic_body .topic-panel .list-group .list-group-item .row{
-    height: 40px;
+#topic_body .topic-panel .list-group .list-group-item {
     padding-left: 10px;
     padding-right: 10px;
+    background-color: #fdfffe;
 }
 
-#topic_body .topic-panel .list-group .list-group-item .row .topic-src {
-    height: 40px;
-    line-height: 40px;
-    padding-left: 2px;
-    padding-right: 2px;
+#topic_body .topic-panel .list-group .list-group-item span{
+    line-height: 30px;
+    font-size: 20px;
+    color: #3e3f3f;
+    font-weight: bold;
 }
-
-#topic_body .panel .list-group .list-group-item .row .topic-agree{
-    height: 40px;
-    line-height: 40px;
-    padding-left: 2px;
-    padding-right: 2px;
-}
-
-#topic_body .panel .list-group .list-group-item .row .topic-answer{
-    height: 40px;
-    line-height: 40px;
-    padding-left: 2px;
-    padding-right: 2px;
-}
-
-#topic_body .related-topics {
-    height: 120px;
-    margin: 0 40px 20px 40px;
-    border: 0;
-}
-
-#topic_body .related-topics ul {
-    max-height: 75px;
-    border: 0;
-    overflow-y: scroll;
-}
-
-#topic_body .related-topics ul li {
-    height: 40px;
-    padding: 0 20px;
-    border: 0 !important;
-}
-
-#topic_body .related-topics ul li div {
-    height: 39px;
-    text-indent: 10px;
-    line-height: 40px;
-    border-bottom: grey 1px dashed;
-} */

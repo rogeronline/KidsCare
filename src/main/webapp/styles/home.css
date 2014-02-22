@@ -158,12 +158,14 @@
     background: url("../images/time-line-dot.png") no-repeat 16px 0px;
     text-indent: 2em;
     font-size: 20px;
+    width: 200px;
 }
 #timeAxis ul > li.now {
     color: #00aeef;
     background: url("../images/time-line-foot-print.png") no-repeat 1px 7px;
     height: 60px;
     font-size: 28px;
+    text-indent: 1.5em;
 }
 #timeAxis ul > li:first-child:after {
     content: " month"

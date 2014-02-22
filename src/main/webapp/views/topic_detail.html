@@ -5,20 +5,12 @@
             <div class="modal-body" id="topic_body">
                 <div class="topic-header"><span>Topic Detail</span></div>
                 <div class="topic-title-group">
-                    <h3 class="topic-title">{{topic.title}}</h3>
-                    <!-- <h4 class="topic-keyword">
-                        <span class="keyword-caption">关键词 : </span>
-                        <span class="keyword-list">{{topic.keywords}}</span>
-                    </h4> -->
+                    <div class="topic-title"><span>{{topic.title}}</span></div>
                 </div>
                 <div class="panel panel-default topic-panel">
                     <ul class="list-group">
                         <li class="list-group-item" ng-repeat="reply in topic.replies">
-                            <div class="topic-content">{{reply.content}}</div>
-                            <!-- <div class="row">
-                                <div class="col-md-11 topic-src">来源 ： {{reply.source}}</div>
-                                <div class="col-md-1 topic-agree">{{reply.agree_num}}<img src="images/topic_agree.png"></div>
-                            </div> -->
+                            <span class="topic-content">{{reply.content}}</span>
                         </li>
                     </ul>
                 </div>

@@ -10,10 +10,11 @@ function($scope, dataStorage, channel, dataService) {
         }
         if($scope.number == 2) {
             $scope.number = 3;
-            $scope.question = 'Does  the baby feed by formula?';
+            $scope.question = 'Does the baby feed by formula?';
             return;
         }
         if($scope.number = 3){
+            $scope.number = 1;
             $('#closeUpload').click();
             $('#questionnaire_detail').modal('hide');
             $('.navbar-nav li a')[4].click();

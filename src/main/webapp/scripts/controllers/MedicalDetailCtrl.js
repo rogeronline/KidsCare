@@ -24,6 +24,10 @@ function($scope, dataStorage, channel, dataService) {
         });
     });
 
+    $('.medical-dismiss').on('click', function() {
+        $('#medical_topic').modal('hide');
+    });
+
     //--------------------------------------------------------------------------
     // bootstrap
     //--------------------------------------------------------------------------

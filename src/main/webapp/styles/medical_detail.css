@@ -11,14 +11,46 @@
     padding: 40px;
 }
 
+#medical_modal .modal-content {
+    background: url("../images/milkbrand_detail_bg.png") no-repeat;
+    background-size: 100% 100%;
+    opacity: 0.9;
+    height: 480px;
+}
+
 #medical_body {
     max-height: 800px !important;
     padding: 0 !important;
-    overflow-y: none !important;
+    overflow-x: hidden;
+}
+
+.medical-header {
+    height: 50px;
+    line-height: 30px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.medical-header span {
+    font-size: 25px !important;
+    font-weight: bolder;
+    color: #ff7400;
+}
+
+.medical-dismiss {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    background: url('../images/milkbrand_close.png') no-repeat;
+    background-size: 100% 100%;
+    width: 59px;
+    height: 59px;
+    cursor: pointer;
+    z-index: 1000;
 }
 
 #medical_topic .topic-title-group {
-    height: 100px;
+    height: 80px;
     padding: 0px 40px;
 }
 
@@ -28,20 +60,28 @@
     text-indent: 50px;
     line-height: 40px;
 }
-    
+
+#medical_topic .topic-title-group .topic-title span {
+    font-size: 25px;
+    color: #282829;
+}
+
 #medical_topic .topic-title-group .topic-keyword {
     height: 40px;
     padding: 0 50px;
-    margin-top: -10px;
 }
     
 #medical_topic .topic-title-group .topic-keyword .keyword-caption {
     line-height: 40px;
+    font-size: 20px;
+    color: #282829;
 }
-        
+
 #medical_topic .topic-title-group .topic-keyword .keyword-list {
     line-height: 40px;
     margin-left: 20px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 #medical_body .topic-panel {
@@ -60,24 +100,19 @@
     line-height: 30px;
 }
 
-/* Button Group Below*/
-.medical-button {
-    height: 100px;
+#medical_topic .row {
+    height: 30px;
 }
 
-.medical-praise {
-    text-align: right;
+#medical_topic .row > div {
+    height: 50px;
+    text-align: center;
 }
 
-.medical-praise button {
-    margin-right: 40px;
+#medical_topic .row > div > div {
+    width: 100%;
+    height: 100%;
+    background: url('../images/Btn_praise.png') no-repeat;
+    background-position: center;
+    background-size: 129px 44px;
 }
-
-.medical-recomd {
-    text-align: left;
-}
-
-.medical-recomd button {
-    margin-left: 40px;
-}
-

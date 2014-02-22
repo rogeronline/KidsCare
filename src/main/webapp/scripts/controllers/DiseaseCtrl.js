@@ -18,7 +18,7 @@ function($scope, dataStorage, channel, dataService) {
 
     function showDetail(topic) {
         var params = {
-            id: topic.id,
+            topicId: topic.topic_id,
             flag: 3
         };
         dataService.getPost(params, function(data) {

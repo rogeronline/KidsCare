@@ -5,13 +5,6 @@
     overflow: hidden !important;
 }
 
-.blue-line {
-    height: 50px;
-    padding: 10px;
-    text-align: center;
-    border-bottom: 0px !important;
-}
-
 #milk_modal {
     width: 1100px;
     margin: 70px auto;

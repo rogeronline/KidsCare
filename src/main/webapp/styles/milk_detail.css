@@ -33,12 +33,13 @@
     height: 50px;
     line-height: 30px;
     text-align: center;
+    margin-top: 10px;
 }
 
 .milk-header span {
     font-size: 25px !important;
     font-weight: bolder;
-    color: #000;
+    color: #247b5a;
 }
 
 .milk-dismiss {
@@ -51,9 +52,31 @@
     height: 59px;
     cursor: pointer;
     z-index: 1000;
+}
+
+.milk-detail {
+    height: 50px;
+}
 
 .milk-name {
     text-align: center;
+    line-height: 40px;
+    padding-left: 25px;
+}
+
+.milk-name span {
+    font-size: 25px;
+    font-weight: bold;
+    color: #00d2b9;
+}
+
+.milk-info {
+    line-height: 22px;
+}
+
+.milk-info span {
+    font-size: 20px;
+    color: #4c4e4b;
 }
 
 .milk-graph {
@@ -63,6 +86,7 @@
 .milk-graph-info {
     width: 500px;
     height: 500px;
+    margin-top: -15px;
 }
 
 #good {
@@ -71,43 +95,4 @@
 
 #bad {
     margin-left: -60px;
-}
-
-.post-title {
-    border-top: 1px dotted;
-    text-indent: 40px;
-    padding-top: 10px;
-}
-
-.top-posts {
-    height: 120px;
-    padding: 0 50px;
-}
-
-.top-post-item {
-    height: 120px;
-    padding: 10px 10px;
-}
-
-.top-post-item a {
-    height: 100px;
-    padding: 0 !important;
-    border: 0;
-}
-
-.top-post-item a img {
-    width: 100%;
-    height: 100%;
-}
-
-.post-caption {
-    position: absolute;
-    left: 10px;
-    bottom: 0;
-    width: 207px;
-    height: 28px;
-    line-height: 28px;
-    text-indent: 10px;
-    background: rgba(0,0,0,0.6);
-    opacity: 0.5;
 }

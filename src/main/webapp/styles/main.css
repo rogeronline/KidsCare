@@ -18,11 +18,13 @@ select.ng-invalid {
     border: 1px solid #2aabd2;
 }
 
-.thumbnail .caption {
+.brand .thumbnail .caption {
+    color: #2aabd2;
 }
 
 .progress-bar {
     text-align: left;
+    padding-left: 1rem;brand 
 }
 
 .navbar {

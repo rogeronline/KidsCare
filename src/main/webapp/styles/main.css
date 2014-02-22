@@ -18,8 +18,7 @@ select.ng-invalid {
     border: 1px solid #2aabd2;
 }
 
-.brand .thumbnail .caption {
-    color: #2aabd2;
+.thumbnail .caption {
 }
 
 .progress-bar {

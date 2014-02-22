@@ -9,7 +9,7 @@
                     <div class="row">
                         <div class="col-xs-6 col-md-6" ng-repeat="img in imgs1">
                             <div class="thumbnail">
-                                <img src= {{img.src}} />
+                                <img ng-src="{{img.src}}" />
                                 <div class="pic-keyword">{{img.keywords}}</div>
                                 <input type="checkbox" class="checkbox right-check" ng-click="selectImg(img)" />
                                 
@@ -19,7 +19,7 @@
                     <div class="row">
                         <div class="col-xs-6 col-md-4" ng-repeat="img in imgs2">
                             <div class="thumbnail">
-                                <img src= {{img.src}} />
+                                <img ng-src="{{img.src}}" />
                                 <div class="pic-keyword">{{img.keywords}}</div>
                                 <input type="checkbox" class="checkbox right-check" ng-click="selectImg(img)" />
                             </div>

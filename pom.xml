@@ -373,13 +373,13 @@
 
         <pluginManagement>
             <plugins>
-                <!-- Use JDK 1.7 -->
+                <!-- Use JDK 1.6 -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <configuration>
-                        <source>1.7</source>
-                        <target>1.7</target>
+                        <source>1.6</source>
+                        <target>1.6</target>
                         <!--
                         <includes>
                             <include>**</include>

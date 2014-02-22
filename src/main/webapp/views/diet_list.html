@@ -25,23 +25,25 @@
                             <p class="h4 text-center text-info">No. {{brand.rank}}</p>
                             <p class="h3 text-center">{{brand.name}}</p>
                             <div class="row">
-                                <div class="col-xs-3 col-sm-3 col-md-1 text-success text-right">
-                                    <span class="glyphicon glyphicon-thumbs-up"></span>
-                                </div>
-                                <div class="col-xs-8 col-sm-8 col-md-10">
+                                <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="progress">
-                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{brand.vote_up}}" aria-valuemin="0" aria-valuemax="100" style="width: {{brand.vote_up}}%;">{{brand.vote_up / 100 | percentage}}</div>
+                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{brand.vote_up}}" aria-valuemin="0" aria-valuemax="100" style="width: {{brand.vote_up}}%;"></div>
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="{{brand.vote_down}}" aria-valuemin="0" aria-valuemax="100" style="width: {{brand.vote_down}}%;"></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-xs-3 col-sm-3 col-md-1 text-danger text-right">
-                                    <span class="glyphicon glyphicon-thumbs-down"></span>
+                                <div class="col-xs-3 col-sm-3 col-md-1">
+                                    <span class="glyphicon glyphicon-thumbs-up text-info"></span>
                                 </div>
-                                <div class="col-xs-8 col-sm-8 col-md-10">
-                                    <div class="progress">
-                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="{{brand.vote_down}}" aria-valuemin="0" aria-valuemax="100" style="width: {{brand.vote_down}}%;">{{brand.vote_down / 100 | percentage}}</div>
-                                    </div>
+                                <div class="col-xs-3 col-sm-3 col-md-4">
+                                    <span class="text-info">{{brand.vote_up / 100 | percentage}}</span>
+                                </div>
+                                <div class="col-xs-3 col-sm-3 col-md-1">
+                                    <span class="glyphicon glyphicon-thumbs-down text-muted"></span>
+                                </div>
+                                <div class="col-xs-3 col-sm-3 col-md-4">
+                                    <span class="text-muted">{{brand.vote_down / 100 | percentage}}</span>
                                 </div>
                             </div>
                         </div>

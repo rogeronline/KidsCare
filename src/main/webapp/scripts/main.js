@@ -41,7 +41,8 @@ function bootstrap(options) {
             'bower_components/select2/select2.js',
             'bower_components/angular-ui-select2/src/select2.js',
             'bower_components/raphael/raphael.js',
-            'bower_components/jquery.transit/jquery.transit.js'
+            'bower_components/jquery.transit/jquery.transit.js',
+            'vendor/widgets/prettyCheckable.min.js'
         ]).queueWait()
         .queueScript('scripts/app.js').queueWait()
         .queueScript('scripts/config.js').queueWait()

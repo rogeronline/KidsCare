@@ -15,7 +15,7 @@
     background: url("../images/milkbrand_detail_bg.png") no-repeat;
     background-size: 100% 100%;
     opacity: 0.9;
-    height: 480px;
+    height: 550px;
 }
 
 #medical_body {
@@ -82,22 +82,30 @@
     margin-left: 20px;
     font-size: 20px;
     font-weight: bold;
+    color: #ff7400;
 }
 
 #medical_body .topic-panel {
     margin: 0 50px 20px 50px;
     border: 1px dashed;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 #medical_body .topic-panel .list-group {
     border: 0;
-    max-height: 270px;
+    max-height: 290px;
+}
+
+#medical_body .topic-panel .list-group .list-group-item {
+    background-color: #fdfffe;
+    border-bottom: 0px !important;
 }
 
 #medical_body .topic-panel .list-group .list-group-item .topic-content{
-    height: 70px;
-    line-height: 30px;
+    height: 80px;
+    line-height: 20px;
+    font-size: 17px;
+    color: #282829;
 }
 
 #medical_topic .row {

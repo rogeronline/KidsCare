@@ -21,8 +21,9 @@ function($scope, dataStorage, channel, dataService) {
             topicId: topic.topic_id,
             flag: 3
         };
-        dataService.getPost(params, function(data) {
-            channel.publish('medical_topic_loaded', data);
+        dataService.getRelatedTopics(params, function(data) {
+            channel.publish('medical_topic_detail', data);
+            channel.publish('medical_topic_selected', topic);
         });
     }
 

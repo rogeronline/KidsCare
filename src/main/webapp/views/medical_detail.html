@@ -8,13 +8,13 @@
                     <div class="topic-title"><span>{{topic.title}}</span></div>
                     <div class="topic-keyword">
                         <span class="keyword-caption">关键词 : </span>
-                        <span class="keyword-list">{{topic.keywords}}</span>
+                        <span class="keyword-list">{{topic.sol_key}}</span>
                     </div>
                 </div>
                 <div class="panel panel-default topic-panel">
                     <ul class="list-group">
-                        <li class="list-group-item" ng-repeat="reply in topic.replies">
-                            <div class="topic-content">{{reply.content}}</div>
+                        <li class="list-group-item" ng-repeat="reply in topicDetail">
+                            <div class="topic-content">{{reply}}</div>
                         </li>
                     </ul>
                 </div>

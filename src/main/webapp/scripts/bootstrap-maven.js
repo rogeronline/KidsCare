@@ -57,7 +57,8 @@ function bootstrap(options) {
             'scripts/services/dataService.js'
         ])
         .queueScript([
-            'scripts/controllers/debugboxCtrl.js'
+            'scripts/controllers/debugboxCtrl.js',
+            'vendor/widgets/prettyCheckable.min.js'
         ]);
 }
 

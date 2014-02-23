@@ -2,36 +2,47 @@
 
 app.controller('QuestionnaireCtrl', ['$scope', 'dataStorage', 'channel', 'dataService',
 function($scope, dataStorage, channel, dataService) {
+
+    $('input[name="questionAnswer"]').prettyCheckable({
+        color: 'red'
+    });
+
     $scope.nextClick = function(){
-        $('input:radio[name="questionAnswer"]').attr('checked', false);
-        if($scope.number == 1) {
-            $scope.number = 2;
-            $scope.question = 'Does baby have a fever?';
-            $($(".question")[0]).removeClass("questionBrand").removeClass("questionBrand1");
-            $($(".question")[1]).addClass("questionBrand").addClass("questionBrand2");
+        if($($('input:radio[name="questionAnswer"]:checked')).length == 0) {
             return;
-        }
-        if($scope.number == 2) {
-            $scope.number = 3;
-            $scope.question = 'Does the baby feed by formula?';
-            $($(".question")[1]).removeClass("questionBrand").removeClass("questionBrand2");
-            $($(".question")[2]).addClass("questionBrand").addClass("questionBrand3");
-            return;
-        }
-        if($scope.number = 3){
-            $scope.number = 1;
-            $($(".question")[2]).removeClass("questionBrand").removeClass("questionBrand3");
-            $($(".question")[0]).addClass("questionBrand").addClass("questionBrand1");
-            $('#closeUpload').click();
-            $('#questionnaire_detail').modal('hide');
-            $('.navbar-nav li a')[4].click();
-            return;
-            //close the popup and go to disease page.
+        } else {
+            $('input:radio[name="questionAnswer"]').prettyCheckable('uncheck');
+            if($scope.number == 1) {
+                $scope.number = 2;
+                $scope.question = 'Does baby have a fever?';
+                $($(".question")[0]).removeClass("questionBrand").removeClass("questionBrand1");
+                $($(".question")[1]).addClass("questionBrand").addClass("questionBrand2");
+                return;
+            }
+            if($scope.number == 2) {
+                $scope.number = 3;
+                $scope.question = 'Does the baby feed by formula?';
+                $($(".question")[1]).removeClass("questionBrand").removeClass("questionBrand2");
+                $($(".question")[2]).addClass("questionBrand").addClass("questionBrand3");
+                return;
+            }
+            if($scope.number = 3){
+                $scope.number = 1;
+                $($(".question")[2]).removeClass("questionBrand").removeClass("questionBrand3");
+                $($(".question")[0]).addClass("questionBrand").addClass("questionBrand1");
+                $('#closeUpload').click();
+                $('#questionnaire_detail').modal('hide');
+                $('.navbar-nav li a')[4].click();
+                return;
+                //close the popup and go to disease page.
+            }
         }
     };
 
     $('.question-close').on('click', function() {
         $("#questionnaire_detail").modal('hide');
+        $('input:radio[name="questionAnswer"]').prettyCheckable('uncheck');
+        $scope.number = 1;
     });
     //--------------------------------------------------------------------------
     // bootstrap

@@ -28,6 +28,13 @@ function($scope, dataStorage, channel, dataService) {
         $('#medical_topic').modal('hide');
     });
 
+    $('.medical-praise').on('click', function() {
+        $('.praise-info').css('display', 'block');
+        $('.praise-info').fadeOut(2000, function() {
+            $('.praise-info').css('display', 'none');
+        });
+    });
+
     //--------------------------------------------------------------------------
     // bootstrap
     //--------------------------------------------------------------------------

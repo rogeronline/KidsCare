@@ -12,7 +12,7 @@
 }
 
 #medical_modal .modal-content {
-    background: url("../images/milkbrand_detail_bg.png") no-repeat;
+    background: url("../images/illness_detail_bg.png") no-repeat;
     background-size: 100% 100%;
     opacity: 0.9;
     height: 550px;
@@ -41,7 +41,7 @@
     position: absolute;
     top: -20px;
     right: -20px;
-    background: url('../images/milkbrand_close.png') no-repeat;
+    background: url('../images/illness_close.png') no-repeat;
     background-size: 100% 100%;
     width: 59px;
     height: 59px;
@@ -56,7 +56,7 @@
 
 #medical_topic .topic-title-group .topic-title {
     height: 40px;
-    background: url("../images/icon_question.png") no-repeat left;
+    background: url("../images/icon_q.png") no-repeat left;
     text-indent: 50px;
     line-height: 40px;
 }
@@ -109,18 +109,30 @@
 }
 
 #medical_topic .row {
-    height: 30px;
-}
-
-#medical_topic .row > div {
     height: 50px;
     text-align: center;
 }
 
-#medical_topic .row > div > div {
-    width: 100%;
-    height: 100%;
+#medical_topic .row > .medical-praise {
+    padding: 0 50%;
+    width: 129px;
+    height: 44px;
     background: url('../images/Btn_praise.png') no-repeat;
     background-position: center;
     background-size: 129px 44px;
+    cursor: pointer;
+}
+
+.praise-info {
+    width: 50px;
+    height: 40px;
+    padding: 0 50px;
+    position: absolute;
+    bottom: 50px;
+    left: 403px;
+    font-size: 30px;
+    float: left;
+    color: #ff7400;
+    font-weight: bold;
+    display: none;
 }

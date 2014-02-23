@@ -11,7 +11,7 @@ function($scope, dataStorage, channel, dataService) {
 
     $('#medical_topic').on('shown.bs.modal', function (e) {
         var data = $scope.data;
-        data.keywords = data.keywords.join(", ");
+        //data.keywords = data.keywords.join(", ");
         $scope.topic = data;
 
         $('#medical_topic').transition({

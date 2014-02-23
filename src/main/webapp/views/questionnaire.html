@@ -1,14 +1,38 @@
 <div class="modal" role="modal" id="questionnaire_detail" ng-controller="QuestionnaireCtrl">
     <div class="modal-dialog" id="questionnaire_modal">
         <div class="modal-content">
-            <div class="question-colse"></div>
+            <div class="question-close"></div>
+            <div class="question-leaf"></div>
+            <span class="question-modal-title">Questionnaire</span>
             <div class="modal-body" id="questionnaire_body">
-                <div id="question_item">
-                    <div>Question {{number}}</div>
-                    {{question}}
-                </div>
-                <div id="question_next_container">
-                    <button class="btn btn-default" type="button" id="question_next" ng-click="nextClick()"></button>
+                <div class="row">
+                    <div class="col-md-10">
+                        <div id="question_item">
+                            <div class="question-title">Question {{number}}</div>
+                            <div class="question-content">{{question}}</div>
+                            <div class="input-group">
+                                <div class="input-group-cb">
+                                    <input type="radio" name="questionAnswer" />&nbsp;&nbsp;&nbsp;Yes
+                                </div>
+                                <div class="input-group-cb">
+                                    <input type="radio" name="questionAnswer" />&nbsp;&nbsp;&nbsp;No
+                                </div>
+                                <div class="input-group-cb">
+                                    <input type="radio" name="questionAnswer" />&nbsp;&nbsp;&nbsp;Don't know
+                                </div>
+                            </div>
+                        </div>
+                        <div id="question_next_container">
+                            <button class="btn btn-default" type="button" id="question_next" ng-click="nextClick()"></button>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="question-tube"></div>
+                        <div class="question1 question questionBrand questionBrand1">Q1</div>
+                        <div class="question2 question">Q2</div>
+                        <div class="question3 question">Q3</div>
+                        <div class="questionNum">{{number}}</div>
+                    </div>
                 </div>
             </div>
         </div>

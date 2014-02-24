@@ -79,7 +79,11 @@ function($scope, dataStorage, channel, dataService) {
             top: formData.top || 5
         };
         dataService.getBrands(params, function(data) {
-            $scope.brands = data.results || [];
+            $scope.brands = _.map(data.results || [], function(brand) {
+                brand.logo = 'images/brand/' + brand.id + '.jpg';
+
+                return brand;
+            });
         });
     }
 

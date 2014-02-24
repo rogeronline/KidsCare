@@ -1,7 +1,7 @@
 'use strict';
 
-app.controller('QuestionnaireCtrl', ['$scope', 'dataStorage', 'channel', 'dataService',
-function($scope, dataStorage, channel, dataService) {
+app.controller('QuestionnaireCtrl', ['$scope', '$location', 'dataStorage', 'channel', 'dataService',
+function($scope, $location, dataStorage, channel, dataService) {
 
     $('input[name="questionAnswer"]').prettyCheckable({
         color: 'red'
@@ -35,7 +35,8 @@ function($scope, dataStorage, channel, dataService) {
                 $(".question-tube").css("background-image", "url('images/tube1.png')");
                 $('#closeUpload').click();
                 $('#questionnaire_detail').modal('hide');
-                $('.navbar-nav li a')[4].click();
+
+                $location.path('/illness');
                 return;
                 //close the popup and go to disease page.
             }

@@ -49,25 +49,6 @@
 
         <script src="vendor/LABjs/LAB.src.js"></script>
         <script src="scripts/bootstrap-maven.js"></script>
-        <script>
-            bootstrap();
-
-            $LAB.runQueue()
-            .script([
-                'scripts/controllers/NavbarCtrl.js',
-                'scripts/controllers/HomeCtrl.js',
-                'scripts/controllers/DietCtrl.js',
-                'scripts/controllers/IntelligenceCtrl.js',
-                'scripts/controllers/DiseaseCtrl.js',
-                'scripts/controllers/RecordCtrl.js',
-                'scripts/controllers/MilkDetailCtrl.js',
-                'scripts/controllers/TopicDetailCtrl.js',
-                'scripts/controllers/DietGraphCtrl.js',
-                'scripts/controllers/MedicalDetailCtrl.js',
-                'scripts/controllers/QuestionnaireCtrl.js'
-            ]).wait(function() {
-                angular.bootstrap(document, ['app']);
-            });
-        </script>
+        <script src="scripts/main.js"></script>
     </body>
 </html>

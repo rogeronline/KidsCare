@@ -17,6 +17,9 @@ select.ng-invalid {
     cursor: pointer;
     border: 1px solid #2aabd2;
     position: relative;
+
+    -webkit-box-shadow: 0px 0px 20px 0px #59c2e4;
+            box-shadow: 0px 0px 20px 0px #59c2e4;
 }
 
 .thumbnail:hover {
@@ -30,6 +33,9 @@ select.ng-invalid {
        -moz-transition: all 0.4s ease-in-out;
          -o-transition: all 0.4s ease-in-out;
             transition: all 0.4s ease-in-out;
+
+    -webkit-box-shadow: 0px 0px 30px 0px #59c2e4;
+            box-shadow: 0px 0px 30px 0px #59c2e4;
 }
 
 
@@ -96,12 +102,11 @@ select.ng-invalid {
 }
 
 .btn-default:hover {
-    color: #ffffff;
-    background-image: -webkit-linear-gradient(#20829f, #2596b8 40%, #28a4c9);
+    /*background-image: -webkit-linear-gradient(#20829f, #2596b8 40%, #28a4c9);
     background-image: linear-gradient(#20829f, #2596b8 40%, #28a4c9);
     background-repeat: no-repeat;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff20829f', endColorstr='#ff28a4c9', GradientType=0);
-    filter: none;
+    filter: none;*/
 }
 
 .nav-pills > li > a {
@@ -114,23 +119,7 @@ select.ng-invalid {
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
-.nav-pills > li > a:hover {
-    background-image: -webkit-linear-gradient(#20829f, #2596b8 40%, #28a4c9);
-    background-image: linear-gradient(#20829f, #2596b8 40%, #28a4c9);
-    background-repeat: no-repeat;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff20829f', endColorstr='#ff28a4c9', GradientType=0);
-    filter: none;
-    border: 1px solid rgba(0, 0, 0, 0.6);
-}
-
-.nav-pills > li.active > a,
-.nav-pills > li.active > a:hover,
-.nav-pills > li.active > a:focus {
-    color: #ffffff;
-}
-
-.nav-pills > li.active > a,
-.nav-pills > li.active > a:hover {
+.nav-pills > li.active > a {
     background-color: none;
     background-image: -webkit-linear-gradient(#20829f, #2596b8 40%, #28a4c9);
     background-image: linear-gradient(#20829f, #2596b8 40%, #28a4c9);
@@ -140,6 +129,13 @@ select.ng-invalid {
     border: 1px solid rgba(0, 0, 0, 0.6);
 }
 
+.nav-pills > li > a:hover,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+    color: #ffffff;
+    background-color: #39b3d7;
+    border-color: #2aabd2;
+}
 
 body {
 }
@@ -147,6 +143,14 @@ body {
 a {
     color: #2aabd2;
 }
+
+.btn:hover,
+.btn.active,
+.nav > li > a:hover {
+    color: #c7f2ff;
+    text-shadow: 0 0 5px #59c2e4, 0 0 10px #59c2e4, 0 0 15px #59c2e4, 0 0 40px #59c2e4, 0 0 70px #59c2e4;
+}
+
 
 #container {
     position: absolute;

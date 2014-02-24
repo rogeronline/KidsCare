@@ -2,6 +2,8 @@
 
 /* Milk Powder Detail Popup */
 #milk_powder {
+    position: fixed;
+    left: -3000px;
     overflow: hidden !important;
 }
 

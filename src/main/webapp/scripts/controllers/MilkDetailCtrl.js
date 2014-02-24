@@ -3,6 +3,23 @@
 app.controller('MilkDetailCtrl', ['$scope', 'dataStorage', 'channel', 'dataService',
 function($scope, dataStorage, channel, dataService) {
 
+    Raphael.fn.addGuides = function() {
+        this.ca.guide = function(g) {
+            return {
+                guide: g
+            };
+        };
+        this.ca.along = function(percent) {
+            var g = this.attr("guide");
+            var len = g.getTotalLength();
+            var point = g.getPointAtLength(percent * len);
+            var t = {
+                transform: "t" + point.x + " " + point.y
+            };
+            return t;
+        };
+    };
+
     //--------------------------------------------------------------------------
     // subscribe
     //--------------------------------------------------------------------------
@@ -19,21 +36,33 @@ function($scope, dataStorage, channel, dataService) {
         data.pros = sortByPercent(data.pros);
         data.cons = sortByPercent(data.cons);
         $scope.brandInfo = data;
-        $('#milk_powder').transition({
+        /*$('#milk_powder').transition({
             duration: 500,
             perspective: '4000px',
             rotate3d: '1,1,0,360deg'
         }, function(){
             //reset the transform property
             $(this).css('transform', '');
-        });
+        });*/
         drawGoodKeyGraph($scope.brandInfo.pros);
         drawBadKeyGraph($scope.brandInfo.cons);
+
+        /*$('#milk_powder').addClass("modal-animation");*/
+        $('#milk_powder').animate({
+            x: '1500px'
+        }, 1000, 'linear', function() {
+            $('#milk_powder').css('transform', '');
+            $('#milk_powder').css('position', '')
+                             .css('left', 0);
+        });
     });
 
     $('#milk_powder').on('hidden.bs.modal', function (e) {
         $('#good').text("");
         $('#bad').text("");
+        /*$('#milk_powder').removeClass("modal-animation");*/
+        $('#milk_powder').css('position', 'fixed')
+                         .css('left', '-3000px');
     });
 
     function drawGoodKeyGraph(data) {

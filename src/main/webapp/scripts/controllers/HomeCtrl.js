@@ -337,4 +337,15 @@ function($scope, dataStorage, channel, dataService) {
         }, false);
     }
 
+    function divShake(el, angle) {
+        el.animate({
+            transform: "rotate(" + angle + "deg)"
+        }, 500, function() {
+            angle = angle * -1;
+            el.animate({
+                transform: "rotate(" + angle + "deg)"
+            }, 500);
+        });
+    }
+
 }]);

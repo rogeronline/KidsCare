@@ -107,3 +107,16 @@
     background: url("../images/diet-selected-category.png") no-repeat 10px 0;
     border: none;
 }
+
+#diet .thumbnail:hover {
+    -webkit-transform: scale(1.1);
+       -moz-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+         -o-transform: scale(1.1);
+            transform: rotate scale(1.1);
+
+    -webkit-transition: all 0.4s ease-in-out;
+       -moz-transition: all 0.4s ease-in-out;
+         -o-transition: all 0.4s ease-in-out;
+            transition: all 0.4s ease-in-out;
+}

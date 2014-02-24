@@ -22,9 +22,10 @@
                 <div class="brand col-xs-6 col-sm-6 col-md-4" ng-repeat="brand in brands">
                     <div class="thumbnail" ng-click="showBrand(brand)">
                         <span class="h3 text-info">{{brand.rank}}</span>
+                        <span class="hidden">{{brand.id}}</span>
                         <img ng-src="{{brand.logo}}" alt="{{brand.name}}" style="width: 120px; height:60px;" class="img-rounded" />
                         <div class="caption">
-                            <p class="h4 text-center">{{brand.id}} - {{brand.name}}</p>
+                            <p class="h4 text-center">{{brand.name}}</p>
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="progress">

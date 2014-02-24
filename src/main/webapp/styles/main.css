@@ -79,7 +79,20 @@ select.ng-invalid {
 }
 
 .navbar .navbar-nav {
-    margin: 50px 0 0 50px;
+    margin: 45px 0 0 50px;
+}
+
+.navbar-default .navbar-nav > li > a {
+    margin: 0;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    background: none;
+}
+
+.navbar-default .navbar-nav > li.active > a {
+    border-bottom: 5px solid #2aabd2;
 }
 
 .navbar .navbar-nav.navbar-right {
@@ -146,11 +159,12 @@ a {
 
 .btn:hover,
 .btn.active,
-.nav > li > a:hover {
+.nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li.active > a {
     color: #c7f2ff;
     text-shadow: 0 0 5px #59c2e4, 0 0 10px #59c2e4, 0 0 15px #59c2e4, 0 0 40px #59c2e4, 0 0 70px #59c2e4;
 }
-
 
 #container {
     position: absolute;

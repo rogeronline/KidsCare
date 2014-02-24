@@ -21,8 +21,10 @@
             <div class="row" style="margin: 1rem 0.5rem;">
                 <div class="brand col-xs-6 col-sm-6 col-md-4" ng-repeat="brand in brands">
                     <div class="thumbnail" ng-click="showBrand(brand)">
-                        <span class="h3 text-info">{{brand.rank}}</span>
-                        <span class="hidden">{{brand.id}}</span>
+                        <span class="badge-triangle-top-left">
+                            <span class="h3 badge-text">{{brand.rank}}</span>
+                        </span>
+                        <span class="h3 invisible">{{brand.id}}</span>
                         <img ng-src="{{brand.logo}}" alt="{{brand.name}}" style="width: 120px; height:60px;" class="img-rounded" />
                         <div class="caption">
                             <p class="h4 text-center">{{brand.name}}</p>

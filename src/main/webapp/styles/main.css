@@ -16,6 +16,7 @@ select.ng-invalid {
 .thumbnail {
     cursor: pointer;
     border: 1px solid #2aabd2;
+    position: relative;
 }
 
 .thumbnail:hover {
@@ -29,6 +30,33 @@ select.ng-invalid {
        -moz-transition: all 0.4s ease-in-out;
          -o-transition: all 0.4s ease-in-out;
             transition: all 0.4s ease-in-out;
+}
+
+
+.thumbnail .badge-triangle-top-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 50px 50px 0 0;
+    border-color: #2aabd2 transparent transparent transparent;
+}
+
+.thumbnail .badge-triangle-top-left > .badge-text {
+    position: relative;
+    top: -3.5rem;
+    left: 0.6rem;
+    white-space: nowrap;
+
+/*
+    -webkit-transform: rotate(-30deg);
+       -moz-transform: rotate(-30deg);
+        -ms-transform: rotate(-30deg);
+         -o-transform: rotate(-30deg);
+            transform: rotate(-30deg);
+*/
 }
 
 .progress-bar {
@@ -111,7 +139,6 @@ select.ng-invalid {
     filter: none;
     border: 1px solid rgba(0, 0, 0, 0.6);
 }
-
 
 
 body {

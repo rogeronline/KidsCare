@@ -119,10 +119,6 @@ app.config(['$routeProvider', function($routeProvider) {
             templateUrl: 'views/diet.html',
             controller: 'DietCtrl'
         })
-        .when('/milestone', {
-            templateUrl: 'views/growth.html',
-            controller: 'GrowthCtrl'
-        })
         .when('/play', {
             templateUrl: 'views/intelligence.html',
             controller: 'IntelligenceCtrl'

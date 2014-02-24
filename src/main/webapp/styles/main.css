@@ -18,7 +18,17 @@ select.ng-invalid {
     border: 1px solid #2aabd2;
 }
 
-.thumbnail .caption {
+.thumbnail:hover {
+    -webkit-transform: scale(1.1);
+       -moz-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+         -o-transform: scale(1.1);
+            transform: rotate scale(1.1);
+
+    -webkit-transition: all 0.4s ease-in-out;
+       -moz-transition: all 0.4s ease-in-out;
+         -o-transition: all 0.4s ease-in-out;
+            transition: all 0.4s ease-in-out;
 }
 
 .progress-bar {
@@ -52,7 +62,7 @@ select.ng-invalid {
 .btn-default:active,
 .btn-default.active,
 .open .dropdown-toggle.btn-default {
-    color: #333333;
+    color: #ffffff;
     background-color: #39b3d7;
     border-color: #2aabd2;
 }
@@ -88,7 +98,7 @@ select.ng-invalid {
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
-    color: #333333;
+    color: #ffffff;
 }
 
 .nav-pills > li.active > a,

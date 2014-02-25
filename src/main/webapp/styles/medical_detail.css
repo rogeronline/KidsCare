@@ -2,6 +2,8 @@
 
 /* Top Topic Detail Popup */
 #medical_topic {
+    position: fixed;
+    right: -3000px;
     overflow: hidden !important;
 }
 

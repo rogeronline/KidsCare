@@ -161,7 +161,7 @@
     width: 200px;
 }
 #timeAxis ul > li:hover {
-    text-shadow: 5px 5px 20px #ff7400;
+    text-shadow: 0 0 5px #59c2e4, 0 0 10px #59c2e4, 0 0 15px #59c2e4, 0 0 40px #59c2e4, 0 0 70px #59c2e4;
     font-size: 25px;
 }
 #timeAxis ul > li.now {
@@ -170,7 +170,7 @@
     height: 60px;
     font-size: 28px;
     text-indent: 1.5em;
-    text-shadow: 5px 5px 28px #ff7400;
+    text-shadow: 0 0 5px #59c2e4, 0 0 10px #59c2e4, 0 0 15px #59c2e4, 0 0 40px #59c2e4, 0 0 70px #59c2e4;
 }
 #timeAxis ul > li:first-child:after {
     content: " month"

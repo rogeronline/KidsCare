@@ -5,7 +5,7 @@
                 <li><a href="#diet_graph" data-toggle="tab"><span class="glyphicon glyphicon-tree-deciduous"></span></a></li>
                 <li class="active"><a href="#diet_list" data-toggle="tab"><span class="glyphicon glyphicon-th"></span></a></li>
             </ul>
-            <ul id="intelligence_nav" class="nav nav-pills nav-stacked">
+            <ul id="intelligence_nav" class="nav nav-pills nav-stacked" style="margin-left: 1rem;">
                 <li ng-repeat="item in navItems" ng-class="{'active': ($index === 0)}"><a ng-href="#{{item.id}}" data-toggle="tab">{{item.name}}</a></li>
             </ul>
         </div>

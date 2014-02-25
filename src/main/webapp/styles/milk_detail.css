@@ -2,85 +2,93 @@
 
 /* Milk Powder Detail Popup */
 #milk_powder {
+    position: fixed;
+    left: -3000px;
     overflow: hidden !important;
 }
 
-.blue-line {
-    height: 50px;
-    padding: 10px;
-    text-align: center;
-}
-
 #milk_modal {
-    width: 1100px;
-    margin: 70px auto;
+    width: 900px;
+    margin: 40px auto;
     padding: 40px;
 }
 
 #milk_modal .modal-content {
-    background: url("../images/milkbrand_detail_bg.png") 100%;
+    background: url("../images/milkbrand_detail_bg.png") no-repeat;
+    background-size: 100% 100%;
+    opacity: 0.9;
 }
 
 #milk_body {
     max-height: 800px !important;
+    overflow: hidden !important;
+}
+
+.milk-header {
+    height: 40px;
+    line-height: 10px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.milk-header span {
+    font-size: 20px;
+    font-weight: bolder;
+    color: #247b5a;
+}
+
+.milk-dismiss {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: url('../images/milkbrand_close.png') no-repeat;
+    background-size: 100% 100%;
+    width: 49px;
+    height: 49px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.milk-detail {
+    height: 30px;
 }
 
 .milk-name {
     text-align: center;
+    line-height: 30px;
+    padding-left: 25px;
+}
+
+.milk-name span {
+    font-size: 20px;
+    font-weight: bold;
+    color: #00d2b9;
+}
+
+.milk-info {
+    line-height: 15px;
+}
+
+.milk-info span {
+    font-size: 13px;
+    font-family: "Microsoft Yahei";
+    color: #4c4e4b;
 }
 
 .milk-graph {
-    height: 500px;
+
 }
 
 .milk-graph-info {
-    width: 500px;
-    height: 500px;
+    width: 350px;
+    height: 400px;
+    margin-top: -33px;
 }
 
 #good {
-    margin-left: 20px;
+    margin-left: -150px;
 }
 
 #bad {
-    margin-left: -60px;
-}
-
-.post-title {
-    border-top: 1px dotted;
-    text-indent: 40px;
-    padding-top: 10px;
-}
-
-.top-posts {
-    height: 120px;
-    padding: 0 50px;
-}
-
-.top-post-item {
-    height: 120px;
-    padding: 10px 10px;
-}
-
-.top-post-item a {
-    height: 100px;
-    padding: 0 !important;
-    border: 0;
-}
-
-.top-post-item a img {
-    width: 100%;
-    height: 100%;
-}
-
-.post-caption {
-    position: absolute;
-    left: 10px;
-    bottom: 0;
-    width: 207px;
-    height: 28px;
-    line-height: 28px;
-    text-indent: 10px;
-    background: rgba(0,0,0,0.6);
-    opacity: 0.5;
+    
 }

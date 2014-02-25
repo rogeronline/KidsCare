@@ -18,11 +18,12 @@ function($scope, dataStorage, channel, dataService) {
 
     function showDetail(topic) {
         var params = {
-            id: topic.id,
+            topicId: topic.topic_id,
             flag: 3
         };
-        dataService.getPost(params, function(data) {
-            channel.publish('medical_topic_loaded', data);
+        dataService.getRelatedTopics(params, function(data) {
+            channel.publish('medical_topic_detail', data);
+            channel.publish('medical_topic_selected', topic);
         });
     }
 
@@ -48,12 +49,12 @@ function($scope, dataStorage, channel, dataService) {
                         keywords: "起皮  粗糙  脸颊 "},
                         {src:"images/illness5.png",
                         keywords: "红点  高烧"},
-                        {src:"images/illness3.png",
-                        keywords: "满身 发烧 "},
-                        {src:"images/illness3.png",
-                        keywords: "满身 发烧 "},
-                        {src:"images/illness3.png",
-                        keywords: "满身 发烧 "}
+                        {src:"images/illness6.png",
+                        keywords: "脸 食欲低 "},
+                        {src:"images/illness7.png",
+                        keywords: "头 发烧 "},
+                        {src:"images/illness8.png",
+                        keywords: "脸颊 眼屎 "}
         ];
        getTopics(1);
     }

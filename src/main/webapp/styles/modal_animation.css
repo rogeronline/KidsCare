@@ -1,0 +1,113 @@
+@CHARSET "UTF-8";
+
+/*
+ * Set up the keyframes to actually describe the begining and end states of 
+ * the animation.  The browser will interpolate all the frames between these 
+ * points.  Again, remember your vendor-specific prefixes for now!
+ */
+/* First Move */
+@-webkit-keyframes firstMove {
+    from { -webkit-transform: translateX(150px) translateY(150px); }
+    to   { -webkit-transform: translateX(300px) translateX(300px); }
+}
+
+@-moz-keyframes firstMove {
+    from { -moz-transform: translateX(150px) translateX(150px); }
+    to   { -moz-transform: translateX(300px) translateX(300px); }
+}
+
+@-o-keyframes firstMove {
+    from { -o-transform: translateX(150px) translateX(150px); }
+    to   { -o-transform: translateX(300px) translateX(300px); }
+}
+
+@keyframes firstMove {
+    from { transform: translateX(150px) translateY(150px); }
+    to   { transform: translateX(300px) translateY(300px); }
+}
+
+/* Second Move */
+@-webkit-keyframes secondMove {
+    from { -webkit-transform: rotate(0deg) translateX(150px) rotate(0deg); }
+    to   { -webkit-transform: rotate(180deg) translateX(150px) rotate(-180deg); }
+}
+
+@-moz-keyframes secondMove {
+    from { -moz-transform: rotate(0deg) translateX(150px) rotate(0deg); }
+    to   { -moz-transform: rotate(180deg) translateX(150px) rotate(-180deg); }
+}
+
+@-o-keyframes secondMove {
+    from { -o-transform: rotate(0deg) translateX(150px) rotate(0deg); }
+    to   { -o-transform: rotate(180deg) translateX(150px) rotate(-180deg); }
+}
+
+@keyframes secondMove {
+    from { transform: rotate(0deg) translateX(150px) rotate(0deg); }
+    to   { transform: rotate(180deg) translateX(150px) rotate(-180deg); }
+}
+
+
+/* Third Move */
+@-webkit-keyframes thirdMove {
+    from { -webkit-transform: rotate(180deg) translateX(150px) rotate(-180deg); }
+    to   { -webkit-transform: rotate(180deg) translateX(300px) rotate(-180deg); }
+}
+
+@-moz-keyframes thirdMove {
+    from { -moz-transform: rotate(180deg) translateX(150px) rotate(-180deg); }
+    to   { -moz-transform: rotate(180deg) translateX(300px) rotate(-180deg); }
+}
+
+@-o-keyframes thirdMove {
+    from { -o-transform: rotate(180deg) translateX(150px) rotate(-180deg); }
+    to   { -o-transform: rotate(180deg) translateX(300px) rotate(-180deg); }
+}
+
+@keyframes thirdMove {
+    from { transform: rotate(180deg) translateX(150px) rotate(-180deg); }
+    to   { transform: rotate(180deg) translateX(300px) rotate(-180deg); }
+}
+
+/* Fourth Move */
+@-webkit-keyframes fourthMove {
+    from { -webkit-transform: translateX(150px) translateY(150px); }
+    to   { -webkit-transform: translateX(300px) translateY(300px); }
+}
+
+@-moz-keyframes fourthMove {
+    from { -moz-transform: translateX(150px) translateY(150px); }
+    to   { -moz-transform: translateX(300px) translateY(300px); }
+}
+
+@-o-keyframes fourthMove {
+    from { -o-transform: translateX(150px) translateY(150px); }
+    to   { -o-transform: translateX(300px) translateY(300px); }
+}
+
+@keyframes fourthMove {
+    from { transform: translateX(150px) translateY(150px); }
+    to   { transform: translateX(300px) translateY(300px); }
+}
+
+.modal-animation {
+    -webkit-animation: firstMove 1s linear; /* Chrome, Safari 5 */
+       -moz-animation: firstMove 1s linear; /* Firefox 5-15 */
+         -o-animation: firstMove 1s linear; /* Opera 12+ */
+            animation: firstMove 1s linear; /* Chrome, Firefox 16+, IE 10+, Safari 5 */
+    /* 
+    -webkit-animation: secondMove 1s linear; Chrome, Safari 5
+       -moz-animation: secondMove 1s linear; Firefox 5-15
+         -o-animation: secondMove 1s linear; Opera 12+
+            animation: secondMove 1s linear; Chrome, Firefox 16+, IE 10+, Safari 5
+    
+    -webkit-animation: thirdMove 1s linear; Chrome, Safari 5
+       -moz-animation: thirdMove 1s linear; Firefox 5-15
+         -o-animation: thirdMove 1s linear; Opera 12+
+            animation: thirdMove 1s linear; Chrome, Firefox 16+, IE 10+, Safari 5
+    
+    -webkit-animation: fourthMove 1s linear; Chrome, Safari 5
+       -moz-animation: fourthMove 1s linear; Firefox 5-15
+         -o-animation: fourthMove 1s linear; Opera 12+
+            animation: fourthMove 1s linear; Chrome, Firefox 16+, IE 10+, Safari 5 */
+}

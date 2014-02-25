@@ -21,9 +21,11 @@ public class DBConnectionFactory
 			String url = "jdbc:" + DB_IP + ":" + DB_PORT + "?reconnect=true&user=" + DB_user + "&password=" + DB_password;
 			
 			conn = DriverManager.getConnection(url);
-		} catch (ClassNotFoundException | SQLException e) {
+		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-		}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
 		return conn;
 	}
 }

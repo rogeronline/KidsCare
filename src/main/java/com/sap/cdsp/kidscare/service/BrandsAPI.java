@@ -3,6 +3,7 @@ package com.sap.cdsp.kidscare.service;
 import java.io.IOException;
 import java.io.Writer;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -154,7 +155,6 @@ public class BrandsAPI extends HttpServlet {
 			Connection conn = DataSource.getConnection();
 				
 			String sql ="SELECT ID,NAME,KEYWORDS_ID,kEYWORD,FLAG_DESC,KEYWORDS_PERCENTAGE,DESC FROM RESULT_MILK_POWDER_DETAIL WHERE MILK_ID = 8";
-		
 			
 			Statement stmt = conn.createStatement();
 			ResultSet rs = null;

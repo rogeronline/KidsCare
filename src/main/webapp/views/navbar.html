@@ -7,13 +7,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">{{'APP_TITLE' | translate}}</a>
+            <a class="navbar-brand" href="#" title="{{'APP_TITLE' | translate}}"><img src="images/brand-logo.png" alt="{{'APP_TITLE' | translate}}" style="height: 40px;" /></a>
         </div>
         <div class="collapse navbar-collapse" ng-cloak>
             <ul class="nav navbar-nav">
                 <li ng-class="{active: isActive('/')}"><a href="#">Home</a></li>
                 <li ng-class="{active: isActive('/food')}"><a href="#food">Food</a></li>
-                <li ng-class="{active: isActive('/milestone')}"><a href="#milestone">Milestones</a></li>
                 <li ng-class="{active: isActive('/play')}"><a href="#play">Play & Toys</a></li>
                 <li ng-class="{active: isActive('/illness')}"><a href="#illness">Illnesses</a></li>
                 <li ng-class="{active: isActive('/diary')}"><a href="#diary">Growth Diary</a></li>
@@ -31,8 +30,8 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><p class="navbar-text">{{'APP_WELCOME' | translate}}</p></li>
-                <li><a href="#">{{'APP_LOGOUT' | translate}}</a></li>
+                <li class="hidden"><p class="navbar-text">{{'APP_WELCOME' | translate}}</p></li>
+                <li><a href="#" title="{{'APP_LOGOUT' | translate}}"><img src="images/logout.png" alt="{{'APP_LOGOUT' | translate}}" style="height: 50px;" /></a></li>
             </ul>
         </div>
         <!--/.nav-collapse -->

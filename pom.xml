@@ -259,7 +259,7 @@
             <version>0.6.30</version>
         </dependency>
 
-        <!-- JPA -->
+        <!-- JPA
         <dependency>
             <groupId>org.apache.openjpa</groupId>
             <artifactId>openjpa</artifactId>
@@ -271,6 +271,7 @@
             <artifactId>org.eclipse.persistence.jpa</artifactId>
             <version>2.5.1</version>
         </dependency>
+        -->
 
         <dependency>
             <groupId>commons-dbcp</groupId>
@@ -372,13 +373,13 @@
 
         <pluginManagement>
             <plugins>
-                <!-- Use JDK 1.7 -->
+                <!-- Use JDK 1.6 -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <configuration>
-                        <source>1.7</source>
-                        <target>1.7</target>
+                        <source>1.6</source>
+                        <target>1.6</target>
                         <!--
                         <includes>
                             <include>**</include>
@@ -399,4 +400,127 @@
             </plugins>
         </pluginManagement>
     </build>
+
+
+    <!-- ============================================================== -->
+    <!-- POM SECTION: Profiles Settings                                 -->
+    <!-- ============================================================== -->
+
+    <profiles>
+
+        <!-- Profile for deploy WARs to the remote staging server -->
+        <profile>
+            <id>deploy.staging.server</id>
+            <properties>
+                <cargo.plugin.version>1.4.2</cargo.plugin.version>
+
+                <!-- staging server -->
+                <staging.server.container>tomcat7x</staging.server.container>
+                <staging.server.host>cnpvg50809797vm10.dhcp.pvgl.sap.corp</staging.server.host>
+                <staging.server.port>8080</staging.server.port>
+                <staging.server.protocol>http</staging.server.protocol>
+                <staging.server.url>${staging.server.protocol}://${staging.server.host}:${staging.server.port}</staging.server.url>
+                <staging.server.deployer>${staging.server.url}/manager/text</staging.server.deployer>
+                <staging.server.username>tomcat</staging.server.username>
+                <staging.server.password>tomcat</staging.server.password>
+                <staging.server.timeout>30000</staging.server.timeout>
+            </properties>
+            <dependencies>
+            </dependencies>
+            <build>
+                <plugins>
+                    <!-- deploy war packages to the staging server for test execution -->
+                    <plugin>
+                        <groupId>org.codehaus.cargo</groupId>
+                        <artifactId>cargo-maven2-plugin</artifactId>
+                        <version>${cargo.plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>deploy-war</id>
+                                <phase>install</phase>
+                                <goals>
+                                    <goal>redeploy</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <container>
+                                <containerId>${staging.server.container}</containerId>
+                                <type>remote</type>
+                            </container>
+                            <configuration>
+                                <type>runtime</type>
+                                <properties>
+                                    <cargo.hostname>${staging.server.host}</cargo.hostname>
+                                    <cargo.servlet.port>${staging.server.port}</cargo.servlet.port>
+                                    <cargo.protocol>${staging.server.protocol}</cargo.protocol>
+                                    <cargo.remote.uri>${staging.server.deployer}</cargo.remote.uri>
+                                    <cargo.remote.username>${staging.server.username}</cargo.remote.username>
+                                    <cargo.remote.password>${staging.server.password}</cargo.remote.password>
+                                </properties>
+                            </configuration>
+                            <deployer>
+                                <type>remote</type>
+                            </deployer>
+                            <deployables>
+                                <!-- deploy web application -->
+                                <deployable>
+                                    <location>${project.build.directory}/${project.build.finalName}.${project.packaging}</location>
+                                    <properties>
+                                        <context>${web.context.name}</context>
+                                    </properties>
+                                    <pingURL>${staging.server.url}/${web.context.name}</pingURL>
+                                    <pingTimeout>${staging.server.timeout}</pingTimeout>
+                                </deployable>
+                            </deployables>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <!-- Profile for JS Test Runner -->
+        <profile>
+            <id>test.js</id>
+            <properties>
+                <!-- local server -->
+                <local.server.host>localhost</local.server.host>
+                <local.server.port>${jetty.port}</local.server.port>
+                <local.server.protocol>http</local.server.protocol>
+                <local.server.url>${local.server.protocol}://${local.server.host}:${local.server.port}</local.server.url>
+
+                <!-- phantomjs command arguments -->
+                <phantomjs.runner>${project.basedir}/src/test/config/phantomjs/runner.js</phantomjs.runner>
+                <testpage.url>${local.server.url}/${web.context.name}/test/testsuite.qunit.html</testpage.url>
+                <testreport.dir>${project.build.directory}/failsafe-reports</testreport.dir>
+            </properties>
+            <build>
+                <plugins>
+                    <!-- Launch phantomjs command to run qunit tests -->
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>1.2.1</version>
+                        <executions>
+                            <execution>
+                                <id>PhantomJS Unit Testing</id>
+                                <phase>integration-test</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <executable>phantomjs</executable>
+                            <arguments>
+                                <argument>${phantomjs.runner}</argument>
+                                <argument>${testpage.url}</argument>
+                                <argument>${testreport.dir}</argument>
+                            </arguments>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>

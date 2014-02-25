@@ -3,24 +3,37 @@
 app.controller('MedicalDetailCtrl', ['$scope', 'dataStorage', 'channel', 'dataService',
 function($scope, dataStorage, channel, dataService) {
 
-    channel.subscribe('medical_topic_loaded', function(data) {
-        $scope.data = data;
+    channel.subscribe('medical_topic_selected', function(data) {
+        //data.sol_key = data.sol_key.split(" ").join(", ");
+        $scope.topic = data;
+    });
 
+    channel.subscribe('medical_topic_detail', function(data) {
+        $scope.topicDetail = data;
         jQuery('#medical_topic').modal('show');
     });
 
     $('#medical_topic').on('shown.bs.modal', function (e) {
-        var data = $scope.data;
-        data.keywords = data.keywords.join(", ");
-        $scope.topic = data;
+        $('#medical_topic').animate({
+            x: '-1500px'
+        }, 1000, 'linear', function() {
+            $('#medical_topic').css('transform', '');
+            $('#medical_topic').css('position', '')
+                             .css('right', 0);
+        });
+    });
 
-        $('#medical_topic').transition({
-            duration: 500,
-            perspective: '1100px',
-            rotate3d: '1,1,0,360deg'
-        }, function(){
-            //reset the transform property
-            $(this).css('transform', '');
+    $('.medical-dismiss').on('click', function() {
+        $('#medical_topic').modal('hide');
+        $('#medical_topic').css('transform', '');
+        $('#medical_topic').css('position', '')
+                         .css('right', "-3000px");
+    });
+
+    $('.medical-praise').on('click', function() {
+        $('.praise-info').css('display', 'block');
+        $('.praise-info').fadeOut(2000, function() {
+            $('.praise-info').css('display', 'none');
         });
     });
 

@@ -2,82 +2,137 @@
 
 /* Top Topic Detail Popup */
 #medical_topic {
+    position: fixed;
+    right: -3000px;
     overflow: hidden !important;
 }
 
 #medical_modal {
-    width: 1100px;
-    margin: 70px auto;
+    width: 900px;
+    margin: 40px auto;
     padding: 40px;
+}
+
+#medical_modal .modal-content {
+    background: url("../images/illness_detail_bg.png") no-repeat;
+    background-size: 100% 100%;
+    opacity: 0.9;
 }
 
 #medical_body {
     max-height: 800px !important;
     padding: 0 !important;
-    overflow-y: none !important;
+    overflow-x: hidden;
+}
+
+.medical-header {
+    height: 30px;
+    line-height: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.medical-header span {
+    font-size: 20px !important;
+    font-weight: bolder;
+    color: #ff7400;
+}
+
+.medical-dismiss {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: url('../images/illness_close.png') no-repeat;
+    background-size: 100% 100%;
+    width: 49px;
+    height: 49px;
+    cursor: pointer;
+    z-index: 1000;
 }
 
 #medical_topic .topic-title-group {
-    height: 100px;
+    height: 70px;
     padding: 0px 40px;
 }
 
 #medical_topic .topic-title-group .topic-title {
     height: 40px;
-    background: url("../images/icon_question.png") no-repeat left;
+    background: url("../images/icon_q.png") no-repeat left;
     text-indent: 50px;
     line-height: 40px;
 }
-    
+
+#medical_topic .topic-title-group .topic-title span {
+    font-size: 20px;
+    color: #282829;
+}
+
 #medical_topic .topic-title-group .topic-keyword {
-    height: 40px;
     padding: 0 50px;
-    margin-top: -10px;
 }
     
 #medical_topic .topic-title-group .topic-keyword .keyword-caption {
     line-height: 40px;
+    font-size: 15px;
+    color: #282829;
 }
-        
+
 #medical_topic .topic-title-group .topic-keyword .keyword-list {
-    line-height: 40px;
-    margin-left: 20px;
+    line-height: 30px;
+    margin-left: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ff7400;
 }
 
 #medical_body .topic-panel {
-    margin: 0 50px 20px 50px;
+    margin: 5px 50px 5px 50px;
     border: 1px dashed;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 #medical_body .topic-panel .list-group {
     border: 0;
-    max-height: 270px;
+    max-height: 290px;
+}
+
+#medical_body .topic-panel .list-group .list-group-item {
+    background-color: #fdfffe;
+    border-bottom: 0px !important;
 }
 
 #medical_body .topic-panel .list-group .list-group-item .topic-content{
-    height: 70px;
-    line-height: 30px;
+    height: 80px;
+    line-height: 20px;
+    font-size: 13px;
+    color: #282829;
 }
 
-/* Button Group Below*/
-.medical-button {
-    height: 100px;
+#medical_topic .row {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.medical-praise {
-    text-align: right;
+#medical_topic .row > .medical-praise {
+    padding: 0 50%;
+    width: 129px;
+    height: 44px;
+    background: url('../images/Btn_praise.png') no-repeat;
+    background-position: center;
+    background-size: 100px 35px;
+    cursor: pointer;
 }
 
-.medical-praise button {
-    margin-right: 40px;
+.praise-info {
+    width: 50px;
+    height: 40px;
+    padding: 0 50px;
+    position: absolute;
+    bottom: 50px;
+    left: 321px;
+    font-size: 20px;
+    float: left;
+    color: #ff7400;
+    font-weight: bold;
+    display: none;
 }
-
-.medical-recomd {
-    text-align: left;
-}
-
-.medical-recomd button {
-    margin-left: 40px;
-}
-

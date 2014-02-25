@@ -87,3 +87,19 @@
     bottom: 100px;
     left: 22%;
 }
+
+#diet #diet_nav > li {
+    background: url("../images/time-line-dot.png") no-repeat 0 0;
+    text-indent: 1em;
+}
+
+#diet #diet_nav > li > a,
+#diet #diet_nav > li > a:hover {
+    background: none;
+    border: none;
+}
+
+#diet #diet_nav > li.active > a {
+    background: url("../images/diet-selected-category.png") no-repeat 10px 0;
+    border: none;
+}

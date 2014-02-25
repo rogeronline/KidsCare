@@ -34,7 +34,7 @@ function($scope, dataStorage, channel, dataService) {
         type: 'formula',
         sort: '0',
         order: 1,
-        top: 10
+        top: 9
     };
 
     $scope.sortKeywords = [
@@ -43,16 +43,16 @@ function($scope, dataStorage, channel, dataService) {
             name: 'All'
         },
         {
-            id: '43',
-            name: 'Inframe'
-        },
-        {
             id: '37',
             name: 'Easy to Digest'
         },
         {
             id: '52',
-            name: 'Delicious in taste'
+            name: 'Good Taste'
+        },
+        {
+            id: '43',
+            name: 'Less Internal Heat'
         }
     ];
 
@@ -76,10 +76,14 @@ function($scope, dataStorage, channel, dataService) {
             type: formData.type || 'formula',
             sort: formData.sort || null,
             order: formData.order || 1,
-            top: 10
+            top: formData.top || 5
         };
         dataService.getBrands(params, function(data) {
-            $scope.brands = data.results || [];
+            $scope.brands = _.map(data.results || [], function(brand) {
+                brand.logo = 'images/brand/' + brand.id + '.jpg';
+
+                return brand;
+            });
         });
     }
 
@@ -118,7 +122,7 @@ function($scope, dataStorage, channel, dataService) {
         var params = {
             type: formData.type || 'formula',
             sort: formData.sort || null,
-            top: 10
+            top: 5
         };
         dataService.getPosts(params, function(data) {
             $scope.posts = data.results || [];
@@ -137,7 +141,7 @@ function($scope, dataStorage, channel, dataService) {
         var params = {
             type: formData.type || 'formula',
             sort: formData.sort || null,
-            top: 10,
+            top: formData.top || 5,
             skip: $scope.posts.length
         };
 
@@ -150,7 +154,12 @@ function($scope, dataStorage, channel, dataService) {
     $scope.showMorePosts = showMorePosts;
 
     function showPost(post) {
-        jQuery('#post_detail').modal('show');
+        var params = {
+            id: post.id
+        };
+        dataService.getPost(params, function(data) {
+            channel.publish('post_detail_loaded', data);
+        });
     }
 
     $scope.showPost = showPost;

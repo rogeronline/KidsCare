@@ -56,6 +56,10 @@ Import > Existing Maven Projects
 
 ### Build
 
+Run compile and test
+
+    $ mvn clean test
+
 Build to WAR package
 
     $ mvn clean package

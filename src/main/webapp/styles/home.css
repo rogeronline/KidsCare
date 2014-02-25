@@ -102,7 +102,7 @@
     height: 61px;
     bottom: 3%;
     left: 44%;
-    background: url("../images/day-number.png") no-repeat;
+    background: url("../images/150days.png") no-repeat;
 }
 #main_pics > #leaves {
     width: 360px;
@@ -125,10 +125,10 @@
 }
 #timeAxis {
     position: absolute;
-    right: 0px;
-    top: 50px;
-    height: 96%;
-    width: 10%;
+    right: 2%;
+    top: 10%;
+    height: 88%;
+    width: 15%;
     overflow: hidden;
     background: url("../images/time-line-base.png") no-repeat 17px 6px;
     background-size: 57% 94%;
@@ -136,6 +136,7 @@
 #timeAxis > div:first-child {
     position: absolute;
     bottom: 15%;
+    left: 4%;
     height: 79%;
     width: 100%;
     overflow: hidden;
@@ -156,13 +157,20 @@
     cursor: pointer;
     background: url("../images/time-line-dot.png") no-repeat 16px 0px;
     text-indent: 2em;
-    font-size: 16px;
+    font-size: 20px;
+    width: 200px;
+}
+#timeAxis ul > li:hover {
+    text-shadow: 0 0 5px #59c2e4, 0 0 10px #59c2e4, 0 0 15px #59c2e4, 0 0 40px #59c2e4, 0 0 70px #59c2e4;
+    font-size: 25px;
 }
 #timeAxis ul > li.now {
     color: #00aeef;
-    background: url("../images/time-line-foot-print.png") no-repeat 1px 0;
+    background: url("../images/time-line-foot-print.png") no-repeat 1px 7px;
     height: 60px;
-    font-size: 20px;
+    font-size: 28px;
+    text-indent: 1.5em;
+    text-shadow: 0 0 5px #59c2e4, 0 0 10px #59c2e4, 0 0 15px #59c2e4, 0 0 40px #59c2e4, 0 0 70px #59c2e4;
 }
 #timeAxis ul > li:first-child:after {
     content: " month"
@@ -170,10 +178,20 @@
 #timeAxis ul > li:nth-child(n+1):after {
     content: " months"
 }
+
 #search_icon {
     display: none;
     cursor: pointer;
-    background: rgba(0, 0, 0, 0.2);
+    width: 70px;
+    height: 70px;
+    z-index: 2;
+}
+
+/*
+#search_icon {
+    display: none;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.5);
     width: 70px;
     height: 70px;
     border-radius: 35px;
@@ -181,27 +199,29 @@
     font-size: 17px;
     text-indent: 0.4em;
     z-index: 2;
+    color: #fff;
 }
 #search_icon.food {
     border: 5px solid rgb(65, 188, 167);
-    box-shadow: 0px 0px 5px 5px rgba(65, 188, 167, 0.2);
+    box-shadow: 0px 0px 15px 15px rgba(65, 188, 167, 0.5);
     display: block;
 }
 #search_icon.growth {
     border: 5px solid rgb(59, 211, 255);
-    box-shadow: 0px 0px 5px 5px rgba(59, 211, 255, 0.2);
+    box-shadow: 0px 0px 15px 15px rgba(59, 211, 255, 0.5);
     display: block;
 }
 #search_icon.disease {
     border: 5px solid rgb(231, 173, 0);
-    box-shadow: 0px 0px 5px 5px rgba(231, 173, 0, 0.2);
+    box-shadow: 0px 0px 15px 15px rgba(231, 173, 0, 0.5);
     display: block;
 }
 #search_icon.milestones {
     border: 5px solid rgb(59, 134, 105);
-    box-shadow: 0px 0px 5px 5px rgba(59, 134, 105, 0.2);
+    box-shadow: 0px 0px 15px 15px rgba(59, 134, 105, 0.5);
     display: block;
-}
+}*/
+
 .search-box {
     display: none;
 }
@@ -225,21 +245,27 @@
     color: #fff;
     height: 34px;
 }
-#food_search_box button {
+#food_search_btn {
     width: 50px;
     height: 35px;
     line-height: 19px;
     font-size: 20px;
+    background: url("../images/icon_search.png") no-repeat 10px 8px;
 }
-#disease_search_box button {
-    width: 100px;
-    height: 35px;
-    line-height: 19px;
-    left: 233px;
-    top: 102px;
+#disease_search_btn {
+   width: 127px;
+    
+   height: 38px;
+    line-height: 34px;
+    
+   left: 217px;
+    
+   top: 112px;
     font-size: 20px;
-    background: rgb(59, 211, 255);
-    border-radius: 20px;
+    
+   background: url("../images/icon_upload.png") no-repeat 0px 0px !important;
+    
+   padding: 0px;
 }
 #food_search_box input, #disease_search_box input {
     left: 50px;
@@ -248,8 +274,11 @@
     background-color: rgba(0, 0, 0, 0.6);
 }
 #disease_search_box img {
-    left: 300px;
-    width: 50px;
+    right: 6px;
+    bottom: 6px;
+    width: 21px;
+    height: 21px;
+    cursor: pointer;
 }
 #disease_search_box {
      box-shadow: 0 0 0 5px rgba(231, 173, 0, 0.5);
@@ -257,8 +286,8 @@
 #disease_search_box > div:first-child {
     width: 100%;
     height: 35px;
+    background: url("../images/icon_search.png") no-repeat 10px 9px, rgba(0,0,0,0.7);
     border-radius: 6px;
-    background: rgba(0,0,0,0.7);
     text-indent: 2em;
     font-size: 20px;
     line-height: 35px;
@@ -267,7 +296,7 @@
     display: none;
     top: 38px;
     width: 350px;
-    height: 140px;
+    height: 157px;
     background: rgba(255,255,255,0.9);
     box-shadow: 5px 4px 6px 4px rgba(255,255,255,0.5);
 }
@@ -306,6 +335,61 @@
     display: inline-block;
 }
 #disease_search_box input#file {
-    top: 64px;
-    left: 13px;
+    opacity: 0;
+    top: 66px;
+    left: 9px;
+    height: 39px;
+    z-index: 1;
+    font-size: 24px;
+    cursor: pointer;
+}
+#closeUpload {
+    right: 0px;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    line-height: 17px;
+    text-indent: -2px;
+    background: rgba(0,0,0,0.1);
+}
+#uploadPic {
+    background: url("../images/icon_pic.png") no-repeat 97px 7px;
+    width: 127px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 19px;
+    text-indent: 25px;
+    left: 10px;
+    top: 66px;
+    background-color: rgba(59,211,255,0.9);
+    border-radius: 18px;
+    cursor: pointer;
+}
+#fileName {
+    border: 1px solid black;
+    width: 202px;
+    height: 24px;
+    top: 72px;
+    left: 142px;
+    z-index: 1;
+}
+
+.foodSearch {
+    background: url('../images/food-search.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+.diseaseSearch {
+    background: url('../images/disease-search.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+.milestonesSearch {
+    background: url('../images/milestone-search.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+.growthSearch {
+    background: url('../images/play&toys-search.png') no-repeat;
+    background-size: 100% 100%;
 }

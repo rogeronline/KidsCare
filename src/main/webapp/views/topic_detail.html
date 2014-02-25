@@ -1,38 +1,20 @@
 <div class="modal" id="post_detail" ng-controller="TopicDetailCtrl" role="modal">
     <div class="modal-dialog" id="topic_modal">
         <div class="modal-content">
-            <div class="modal-header blue-line">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Topic Detail</h4>
-            </div>
+            <div class="post-dismiss"></div>
             <div class="modal-body" id="topic_body">
+                <div class="topic-header"><span>Topic Detail</span></div>
                 <div class="topic-title-group">
-                    <h3 class="topic-title">{{topic.title}}</h3>
-                    <!-- <h4 class="topic-keyword">
-                        <span class="keyword-caption">关键词 : </span>
-                        <span class="keyword-list">{{topic.keywords}}</span>
-                    </h4> -->
+                    <div class="topic-title"><span>{{topic.title}}</span></div>
                 </div>
                 <div class="panel panel-default topic-panel">
                     <ul class="list-group">
                         <li class="list-group-item" ng-repeat="reply in topic.replies">
-                            <div class="topic-content">{{reply.content}}</div>
-                            <!-- <div class="row">
-                                <div class="col-md-11 topic-src">来源 ： {{reply.source}}</div>
-                                <div class="col-md-1 topic-agree">{{reply.agree_num}}<img src="images/topic_agree.png"></div>
-                            </div> -->
+                            <span class="topic-content">{{reply.content}}</span>
                         </li>
                     </ul>
                 </div>
-                <!-- <div class="panel panel-default related-topics">
-                    <h3>Related Topics</h3>
-                    <ul class="list-group">
-                        <li class="list-group-item" ng-repeat="post in posts">
-                            <div class="topic-content">{{post.title}}</div>
-                        </li>
-                    </ul>
-                </div> -->
             </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+        </div>
+    </div>
+</div>

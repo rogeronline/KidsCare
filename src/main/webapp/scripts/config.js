@@ -10,7 +10,7 @@ function getContextPath() {
 var _config = {
     contextPath: '/kidscare', // "http://localhost:8080/kidscare"
     service: {
-        offline: true,
+        offline: false,
         proxy: {
             enabled: false,
             path: 'proxy' // "http://localhost:8080/demo/proxy"
@@ -118,10 +118,6 @@ app.config(['$routeProvider', function($routeProvider) {
         .when('/food', {
             templateUrl: 'views/diet.html',
             controller: 'DietCtrl'
-        })
-        .when('/milestone', {
-            templateUrl: 'views/growth.html',
-            controller: 'GrowthCtrl'
         })
         .when('/play', {
             templateUrl: 'views/intelligence.html',

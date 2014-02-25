@@ -1,0 +1,15 @@
+#intelligence #intelligence_nav > li {
+    background: url("../images/time-line-dot.png") no-repeat 0 0;
+    text-indent: 1em;
+}
+
+#intelligence #intelligence_nav > li > a,
+#intelligence #intelligence_nav > li > a:hover {
+    background: none;
+    border: none;
+}
+
+#intelligence #intelligence_nav > li.active > a {
+    background: url("../images/diet-selected-category.png") no-repeat 10px 0;
+    border: none;
+}

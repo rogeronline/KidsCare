@@ -4,7 +4,7 @@
 
 .pic-keyword {
     position: absolute;
-    bottom: 35px;
+    bottom: 15px;
     left: 42px;
     z-index: 1;
     color: #fff;
@@ -12,8 +12,7 @@
 
 .right-check {
     position: absolute;
-    bottom: 35px;
-    right: 42px;
+    bottom: 15px;
+    right: 29px;
     z-index: 1;
 }
-

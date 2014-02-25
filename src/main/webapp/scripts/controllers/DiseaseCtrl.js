@@ -47,13 +47,13 @@ function($scope, dataStorage, channel, dataService) {
                         keywords: "满身 发烧 "},
                         {src:"images/illness4.png",
                         keywords: "起皮  粗糙  脸颊 "},
-                        {src:"images/illness5.png",
+                        {src:"images/illness8.png",
                         keywords: "红点  高烧"},
                         {src:"images/illness6.png",
                         keywords: "脸 食欲低 "},
                         {src:"images/illness7.png",
                         keywords: "头 发烧 "},
-                        {src:"images/illness8.png",
+                        {src:"images/illness5.png",
                         keywords: "脸颊 眼屎 "}
         ];
        getTopics(1);

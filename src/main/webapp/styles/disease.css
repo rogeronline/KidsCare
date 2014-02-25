@@ -4,15 +4,15 @@
 
 .pic-keyword {
     position: absolute;
-    bottom: 15px;
-    left: 42px;
+    bottom: 9%;
+    left: 10%;
     z-index: 1;
     color: #fff;
 }
 
 .right-check {
     position: absolute;
-    bottom: 15px;
-    right: 29px;
+    bottom: 8%;
+    right: 8%;
     z-index: 1;
 }

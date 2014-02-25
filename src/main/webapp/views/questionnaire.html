@@ -12,13 +12,20 @@
                             <div class="question-content">{{question}}</div>
                             <div class="input-group">
                                 <div class="input-group-cb">
-                                    <input type="radio" name="questionAnswer" />&nbsp;&nbsp;Yes
+                                    <!-- <label><input type="radio" name="questionAnswer" />Yes</label> -->
+                                    <label for="radioYes">
+                                        <input type="radio" name="questionAnswer" id="radioYes"/> Yes
+                                    </label>
                                 </div>
                                 <div class="input-group-cb">
-                                    <input type="radio" name="questionAnswer" />&nbsp;&nbsp;No
+                                    <label for="radioNo">
+                                        <input type="radio" name="questionAnswer" id="radioNo"/> No
+                                    </label>
                                 </div>
                                 <div class="input-group-cb">
-                                    <input type="radio" name="questionAnswer" />&nbsp;&nbsp;Don't know
+                                    <label for="radioDon">
+                                        <input type="radio" name="questionAnswer" id="radioDon"/> Don't know
+                                    </label>
                                 </div>
                             </div>
                         </div>

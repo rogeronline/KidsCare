@@ -49,7 +49,7 @@ function($scope, dataStorage, channel, dataService) {
     });
 
     function drawGoodKeyGraph(data) {
-        var r = Raphael("good", 400, 400),
+        var r = Raphael("good", 400, 350),
             R = 140,
             param = {stroke: "#00c4ed", "stroke-width": 20};
         var titleAttr = {
@@ -62,11 +62,11 @@ function($scope, dataStorage, channel, dataService) {
             var alpha = 360 / total * value,
                 a = (90 - alpha) * Math.PI / 180,
                 x = 225 + R * Math.cos(a),
-                y = 225 - R * Math.sin(a),
+                y = 185 - R * Math.sin(a),
                 //color = "hsb(".concat(Math.round(R) / 200, ",", value / total, ", .75)");
                 //color = "#00c4ed";
                 color = lineColor;
-            var path = [["M", 225, 225 - R], ["A", R, R, 0, +(alpha > 180), 1, x, y]];
+            var path = [["M", 225, 185 - R], ["A", R, R, 0, +(alpha > 180), 1, x, y]];
             return {path: path, stroke: color};
         };
 
@@ -87,7 +87,7 @@ function($scope, dataStorage, channel, dataService) {
         //r.circle(250, 250, 60).attr({stroke: "none", fill: Raphael.hsb2rgb(15 / 200, 1, .75).hex});
         /*r.image("images/pros_bg.png", 190, 190, 120, 120);
         r.text(250, 250, "Pros").attr(titleAttr);*/
-        r.image("images/Pros.png", 175, 175, 100, 100);
+        r.image("images/Pros.png", 175, 135, 100, 100);
 
         updateVal(data[0].value / 3 * 2, 100, 140, fir, "#16cce9");
         updateVal(data[1].value / 3 * 2, 100, 120, sec, "#53d2e7");
@@ -97,7 +97,7 @@ function($scope, dataStorage, channel, dataService) {
     }
 
     function drawBadKeyGraph(data) {
-        var r = Raphael("bad", 400, 400),
+        var r = Raphael("bad", 400, 350),
             R = 140,
             param = {stroke: "#fb915c", "stroke-width": 20};
         var titleAttr = {
@@ -110,11 +110,11 @@ function($scope, dataStorage, channel, dataService) {
             var alpha = 360 / total * value,
                 a = (90 - alpha) * Math.PI / 180,
                 x = 225 + R * Math.cos(a),
-                y = 225 - R * Math.sin(a),
+                y = 185 - R * Math.sin(a),
                 //color = "hsb(".concat(Math.round(R) / 200, ",", value / total, ", .75)");
                 //color = "#fb915c";
                 color = lineColor;
-            var path = [["M", 225, 225 - R], ["A", R, R, 0, +(alpha > 180), 1, x, y]];
+            var path = [["M", 225, 185 - R], ["A", R, R, 0, +(alpha > 180), 1, x, y]];
             return {path: path, stroke: color};
         };
 
@@ -134,7 +134,7 @@ function($scope, dataStorage, channel, dataService) {
         var fiv = r.path().attr(param).attr({arc: [0, 12, R, "#ff630f"]}).attr({opacity: 0.6});
         /*r.image("images/pros_bg.png", 190, 190, 120, 120);
         r.text(250, 250, "Cons").attr(titleAttr);*/
-        r.image("images/Cons.png", 175, 175, 100, 100);
+        r.image("images/Cons.png", 175, 135, 100, 100);
 
         updateVal(data[0].value / 3 * 2, 100, 140, fir, "#f9b36b");
         updateVal(data[1].value / 3 * 2, 100, 120, sec, "#ffbb71");
@@ -156,7 +156,7 @@ function($scope, dataStorage, channel, dataService) {
         var alpha = 360 / 12 * 8,
             a = (90 - alpha) * Math.PI / 180,
             x = 225 + R * Math.cos(a),
-            y = 225 - R * Math.sin(a);
+            y = 185 - R * Math.sin(a);
         out.push(r.path().attr(pathParam).attr({arc: [8, 12, R, lineColor]}));
         out.push(r.circle(x, y, 3).attr(marksAttr));
         out.push(r.text(x, y - 19, data.value + "%").attr(percentAttr));
@@ -164,7 +164,7 @@ function($scope, dataStorage, channel, dataService) {
         var alpha = 360 / 12 * 12,
             a = (90 - alpha) * Math.PI / 180,
             x = 225 + R * Math.cos(a),
-            y = 225 - R * Math.sin(a);
+            y = 185 - R * Math.sin(a);
         out.push(r.text(x - 20, y, data.name).attr(percentAttr));
         return out;
     }

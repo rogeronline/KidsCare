@@ -3,15 +3,16 @@
 app.controller('QuestionnaireCtrl', ['$scope', '$location', 'dataStorage', 'channel', 'dataService',
 function($scope, $location, dataStorage, channel, dataService) {
 
-    $('input[name="questionAnswer"]').prettyCheckable({
+    /*$('input[name="questionAnswer"]').prettyCheckable({
         color: 'red'
-    });
+    });*/
 
     $scope.nextClick = function(){
         if($($('input:radio[name="questionAnswer"]:checked')).length == 0) {
             return;
         } else {
-            $('input:radio[name="questionAnswer"]').prettyCheckable('uncheck');
+            //$('input:radio[name="questionAnswer"]').prettyCheckable('uncheck');
+            $('input:radio[name="questionAnswer"]').attr('checked', false);
             if($scope.number == 1) {
                 $scope.number = 2;
                 $scope.question = 'Does baby have a fever?';
@@ -45,7 +46,8 @@ function($scope, $location, dataStorage, channel, dataService) {
 
     $('.question-close').on('click', function() {
         $("#questionnaire_detail").modal('hide');
-        $('input:radio[name="questionAnswer"]').prettyCheckable('uncheck');
+        //$('input:radio[name="questionAnswer"]').prettyCheckable('uncheck');
+        $('input:radio[name="questionAnswer"]').attr('checked', false);
         $(".question-tube").css("background-image", "url('images/tube1.png')");
         $scope.number = 1;
     });

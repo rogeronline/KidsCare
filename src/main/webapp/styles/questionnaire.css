@@ -5,14 +5,13 @@
 }
 
 #questionnaire_modal {
-    width: 900px;
-    margin: 70px auto;
-    padding: 40px;
+    width: 800px;
+    margin: 100px auto 0 auto;
 }
 
 #questionnaire_modal .modal-content {
     background: url("../images/question_bg_noleaf.png") no-repeat;
-    background-size: 100% 100%;
+    background-size: 100% 97%;
 }
 
 .question-close {
@@ -147,7 +146,7 @@
 
 #questionnaire_body .questionNum {
     position: absolute;
-    right: 76px;
+    right: 72px;
     bottom: 22px;
     font-size: 29px;
     color: #d9efff;

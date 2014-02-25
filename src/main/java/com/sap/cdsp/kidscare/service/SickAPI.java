@@ -77,7 +77,7 @@ public class SickAPI extends HttpServlet{
 		{
 			Connection conn = DataSource.getConnection();
 		    String sql ="select title, sym_keys, sol_keys,topic_id "+
-"from SICKTOPIC_KEYWORDS where sequence < 6";  
+"from SICKTOPIC_KEYWORDS where sequence < 6 order by sequence";  
 			
 			
 				
@@ -113,7 +113,7 @@ public class SickAPI extends HttpServlet{
 		{
 			Connection conn = DataSource.getConnection();
 		    String sql ="select title, sym_keys, sol_keys,topic_id "+ 
-"from SICKTOPIC_KEYWORDS where sequence between 6 and 10";  
+"from SICKTOPIC_KEYWORDS where sequence between 6 and 10 order by sequence";  
 			
 			
 				
@@ -149,7 +149,7 @@ public class SickAPI extends HttpServlet{
 		try 
 		{
 			Connection conn = DataSource.getConnection();
-		    String sql ="select content from SICKTOPIC where id = ?";  
+		    String sql ="select content from SICKTOPIC where id = ? order by sequence";  
 			sql = sql.replace("?",id);
 			
 				

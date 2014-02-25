@@ -22,7 +22,7 @@ function($scope, dataStorage, channel, dataService) {
             $(this).css('transform', '');
         });*/
         $('#post_detail').animate({
-            x: '-1500px'
+            x: '-1000px'
         }, 1000, 'linear', function() {
             $('#post_detail').css('transform', '');
             $('#post_detail').css('position', '')
@@ -34,7 +34,7 @@ function($scope, dataStorage, channel, dataService) {
         $('#post_detail').modal('hide');
         $('#post_detail').css('transform', '');
         $('#post_detail').css('position', '')
-                         .css('right', "-3000px");
+                         .css('right', "-2000px");
     });
 
     //--------------------------------------------------------------------------

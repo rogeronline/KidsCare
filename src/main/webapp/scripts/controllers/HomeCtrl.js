@@ -231,16 +231,16 @@ function($scope, dataStorage, channel, dataService) {
                 var cat = circle.cat;
                 switch (cat) {
                     case 'food':
-                        $('#search_icon').removeClass().toggleClass('food', true);
+                        $('#search_icon').removeClass().toggleClass('foodSearch', true);
                         break;
                     case 'disease':
-                        $('#search_icon').removeClass().toggleClass('disease', true);
+                        $('#search_icon').removeClass().toggleClass('diseaseSearch', true);
                         break;
                     case 'milestones':
-                        $('#search_icon').removeClass().toggleClass('milestones', true);
+                        $('#search_icon').removeClass().toggleClass('milestonesSearch', true);
                         break;
                     case 'growth':
-                        $('#search_icon').removeClass().toggleClass('growth', true);
+                        $('#search_icon').removeClass().toggleClass('growthSearch', true);
                         break;
                     default:
                         break;

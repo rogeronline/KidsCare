@@ -8,8 +8,8 @@
 }
 
 #milk_modal {
-    width: 1100px;
-    margin: 70px auto;
+    width: 900px;
+    margin: 40px auto;
     padding: 40px;
 }
 
@@ -21,73 +21,74 @@
 
 #milk_body {
     max-height: 800px !important;
-    overflow-x: hidden !important;
+    overflow: hidden !important;
 }
 
 .milk-header {
-    height: 50px;
-    line-height: 30px;
+    height: 40px;
+    line-height: 10px;
     text-align: center;
     margin-top: 10px;
 }
 
 .milk-header span {
-    font-size: 25px !important;
+    font-size: 20px;
     font-weight: bolder;
     color: #247b5a;
 }
 
 .milk-dismiss {
     position: absolute;
-    top: -20px;
-    right: -20px;
+    top: -15px;
+    right: -15px;
     background: url('../images/milkbrand_close.png') no-repeat;
     background-size: 100% 100%;
-    width: 59px;
-    height: 59px;
+    width: 49px;
+    height: 49px;
     cursor: pointer;
     z-index: 1000;
 }
 
 .milk-detail {
-    height: 50px;
+    height: 30px;
 }
 
 .milk-name {
     text-align: center;
-    line-height: 40px;
+    line-height: 30px;
     padding-left: 25px;
 }
 
 .milk-name span {
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
     color: #00d2b9;
 }
 
 .milk-info {
-    line-height: 22px;
+    line-height: 15px;
 }
 
 .milk-info span {
-    font-size: 20px;
+    font-size: 13px;
+    font-family: "Microsoft Yahei";
     color: #4c4e4b;
 }
 
 .milk-graph {
-    height: 500px;
+
 }
 
 .milk-graph-info {
-    width: 500px;
-    height: 500px;
+    width: 350px;
+    height: 400px;
     margin-top: -15px;
 }
 
 #good {
-    margin-left: 20px;
+    margin-left: -150px;
 }
 
 #bad {
-    margin-left: -60px;
+    
 }

@@ -198,7 +198,7 @@ function($scope, dataStorage, channel, dataService) {
     function searchEventHandler() {
         $('#food_search_btn').click(function() {
             $('#food_search_box').fadeOut();
-            $scope.canvas.onmousemove = canvasMove;
+            //$scope.canvas.onmousemove = canvasMove;
         });
         $('#disease_search_box').on('click', 'img', function(e) {
             $('#upload').show();
@@ -210,94 +210,94 @@ function($scope, dataStorage, channel, dataService) {
         $('#disease_search_box').on('click', '#closeUpload', function(e) {
             $('.search-box').hide();
             $('#upload').hide();
-            $scope.canvas.onmousemove = canvasMove;
+            //$scope.canvas.onmousemove = canvasMove;
         });
         $('#disease_search_box').on('change', '#file', function(e) {
             $('#fileName').text($(this).val());
         });
     }
 
-    function canvasMove(e) {
+
+    function detectMousePosition(e) {
         var canvas = $scope.canvas;
         var bb = canvas.getBoundingClientRect();
         var x = (e.clientX - bb.left) * canvas.width / bb.width;
         var y = (e.clientY - bb.top) * canvas.height / bb.height;
-        var i = 0, len = $scope.circleEles.length;
-        for (i; i < len; i++) {
-            var circle = $scope.circleEles[i];
+
+        var hoveredCircle = _.find($scope.circleEles, function(circle) {
             var pos = circle.pos;
-            if (Math.pow(x - pos[0], 2) + Math.pow(y - pos[1], 2) <= Math.pow(circle.radius + 2, 2)) {
-            //if (x <= pos[0] + circle.radius * 2 && x >= pos[0] && y <= pos[1] + circle.radius * 2 && y >= pos[1]) {
-                canvas.style.cursor = 'pointer';
-                var cat = circle.cat;
-                switch (cat) {
-                    case 'food':
-                        $('#search_icon').removeClass().toggleClass('foodSearch', true);
-                        break;
-                    case 'disease':
-                        $('#search_icon').removeClass().toggleClass('diseaseSearch', true);
-                        break;
-                    case 'milestones':
-                        $('#search_icon').removeClass().toggleClass('milestonesSearch', true);
-                        break;
-                    case 'growth':
-                        $('#search_icon').removeClass().toggleClass('growthSearch', true);
-                        break;
-                    default:
-                        break;
-                }
-                $('#search_icon').show().css({
-                    left: e.clientX,
-                    top: e.clientY - 100
-                }).data('circleType', cat);
-                break;
+            var isInsideCircle = Math.pow(x - pos[0], 2) + Math.pow(y - pos[1], 2) <= Math.pow(circle.radius + 2, 2);
+            return isInsideCircle;
+        });
+
+        return hoveredCircle;
+    }
+
+    function canvasMove(e) {
+        var searchIconElem = jQuery('#search_icon');
+        var isVisible = searchIconElem.is(':visible');
+
+        var hoveredCircle = detectMousePosition(e);
+
+        if (hoveredCircle) {
+            var cat = hoveredCircle.cat;
+            var searchIconClassMapping = {
+                'food': 'foodSearch',
+                'disease': 'diseaseSearch',
+                'growth': 'growthSearch'
+            };
+
+            if (!isVisible) {
+                searchIconElem.show();
+                searchIconElem.removeClass().toggleClass(searchIconClassMapping[cat], true);
             }
-        }
-        if (i >= len) {
-            canvas.style.cursor = 'default';
-            $('#search_icon').removeClass().hide();
+
+            searchIconElem.offset({
+                top: e.clientY - 60,
+                left: e.clientX + 10
+            });
+            searchIconElem.data('circleType', cat);
+        } else {
+            $scope.canvas.style.cursor = 'default';
+            if (isVisible) {
+                searchIconElem.hide();
+            }
         }
     }
 
     function canvasEventHandler() {
         var canvas = $scope.canvas;
         canvas.onmousemove = canvasMove;
+
         canvas.onmouseout = function(e) {
-            $('#search_icon').removeClass();
+            //$('#search_icon').removeClass();
         };
+
         canvas.onclick = function(e) {
-            var bb = canvas.getBoundingClientRect();
-            var x = (e.clientX - bb.left) * canvas.width / bb.width;
-            var y = (e.clientY - bb.top) * canvas.height / bb.height;
-            var i = 0, len = $scope.circleEles.length;
-            for (i; i < len; i++) {
-                var circle = $scope.circleEles[i];
-                var pos = circle.pos;
-                if (Math.pow(x - pos[0], 2) + Math.pow(y - pos[1], 2) <= Math.pow(circle.radius, 2)) {
-                //if (x <= pos[0] + circle.radius * 2 && x >= pos[0] && y <= pos[1] + circle.radius * 2 && y >= pos[1]) {
-                    var cat = circle.cat;
-                    $('#search_icon').removeClass().hide();
-                    $scope.canvas.onmousemove = null;
-                    switch(cat) {
-                        case 'food':
-                            var pos = calSearchBoxPos('food_search_box');
-                            $('#food_search_box').css({
-                                left: pos.left,
-                                top: pos.top
-                            }).fadeIn();
-                            break;
-                        case 'disease':
-                            var pos = calSearchBoxPos('disease_search_box');
-                            $('#disease_search_box').css({
-                                left: pos.left,
-                                top: pos.top
-                            }).fadeIn();
-                            break;
-                        default:
-                            $('#food_search_box').fadeIn();
-                            break;
-                    }
+            var hoveredCircle = detectMousePosition(e);
+
+            if (hoveredCircle) {
+                // hide search icon
+                jQuery('#search_icon').hide();
+
+                var cat = hoveredCircle.cat;
+                var pos = hoveredCircle.pos;
+
+                if (cat === 'food') {
+                    pos = calSearchBoxPos('food_search_box');
+                    jQuery('#food_search_box').offset({
+                        left: pos.left,
+                        top: pos.top
+                    }).fadeIn();
+                } else if (cat === 'disease') {
+                    pos = calSearchBoxPos('disease_search_box');
+                    jQuery('#disease_search_box').offset({
+                        left: pos.left,
+                        top: pos.top
+                    }).fadeIn();
                 }
+            } else {
+                jQuery('#food_search_box').fadeIn();
             }
         };
     }

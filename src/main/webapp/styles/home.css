@@ -182,7 +182,6 @@
 }
 
 #search_icon {
-    display: none;
     cursor: pointer;
     width: 70px;
     height: 70px;
@@ -376,22 +375,22 @@
     z-index: 1;
 }
 
-.foodSearch {
+#search_icon.foodSearch {
     background: url('../images/food-search.png') no-repeat;
     background-size: 100% 100%;
 }
 
-.diseaseSearch {
-    background: url('../images/disease-search.png') no-repeat;
+#search_icon.diseaseSearch {
+    background: url("../images/disease-search.png") no-repeat;
     background-size: 100% 100%;
 }
 
-.milestonesSearch {
+#search_icon.milestonesSearch {
     background: url('../images/milestone-search.png') no-repeat;
     background-size: 100% 100%;
 }
 
-.growthSearch {
+#search_icon.growthSearch {
     background: url('../images/play&toys-search.png') no-repeat;
     background-size: 100% 100%;
 }

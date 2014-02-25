@@ -8,9 +8,8 @@
 }
 
 #milk_modal {
-    width: 900px;
-    margin: 40px auto;
-    padding: 40px;
+    width: 840px;
+    margin: 100px auto 0 auto;
 }
 
 #milk_modal .modal-content {
@@ -86,9 +85,9 @@
 }
 
 #good {
-    margin-left: -150px;
+    margin-left: -20px;
 }
 
 #bad {
-    
+    margin-left: -50px;
 }

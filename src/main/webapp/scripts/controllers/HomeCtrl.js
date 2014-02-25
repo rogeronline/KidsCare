@@ -227,6 +227,7 @@ function($scope, dataStorage, channel, dataService) {
             var circle = $scope.circleEles[i];
             var pos = circle.pos;
             if (Math.pow(x - pos[0], 2) + Math.pow(y - pos[1], 2) <= Math.pow(circle.radius + 2, 2)) {
+            //if (x <= pos[0] + circle.radius * 2 && x >= pos[0] && y <= pos[1] + circle.radius * 2 && y >= pos[1]) {
                 canvas.style.cursor = 'pointer';
                 var cat = circle.cat;
                 switch (cat) {
@@ -273,8 +274,9 @@ function($scope, dataStorage, channel, dataService) {
                 var circle = $scope.circleEles[i];
                 var pos = circle.pos;
                 if (Math.pow(x - pos[0], 2) + Math.pow(y - pos[1], 2) <= Math.pow(circle.radius, 2)) {
+                //if (x <= pos[0] + circle.radius * 2 && x >= pos[0] && y <= pos[1] + circle.radius * 2 && y >= pos[1]) {
                     var cat = circle.cat;
-                    $('.search-icon').removeClass().hide();
+                    $('#search_icon').removeClass().hide();
                     $scope.canvas.onmousemove = null;
                     switch(cat) {
                         case 'food':
@@ -335,17 +337,6 @@ function($scope, dataStorage, channel, dataService) {
             }
             $('#timeList').css('bottom', offsetY + 'px');
         }, false);
-    }
-
-    function divShake(el, angle) {
-        el.animate({
-            transform: "rotate(" + angle + "deg)"
-        }, 500, function() {
-            angle = angle * -1;
-            el.animate({
-                transform: "rotate(" + angle + "deg)"
-            }, 500);
-        });
     }
 
 }]);

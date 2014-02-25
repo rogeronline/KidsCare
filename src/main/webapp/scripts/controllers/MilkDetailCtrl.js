@@ -49,7 +49,7 @@ function($scope, dataStorage, channel, dataService) {
     });
 
     function drawGoodKeyGraph(data) {
-        var r = Raphael("good", 450, 450),
+        var r = Raphael("good", 400, 400),
             R = 140,
             param = {stroke: "#00c4ed", "stroke-width": 20};
         var titleAttr = {
@@ -97,7 +97,7 @@ function($scope, dataStorage, channel, dataService) {
     }
 
     function drawBadKeyGraph(data) {
-        var r = Raphael("bad", 450, 450),
+        var r = Raphael("bad", 400, 400),
             R = 140,
             param = {stroke: "#fb915c", "stroke-width": 20};
         var titleAttr = {

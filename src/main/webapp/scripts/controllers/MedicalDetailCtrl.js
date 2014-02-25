@@ -14,20 +14,11 @@ function($scope, dataStorage, channel, dataService) {
     });
 
     $('#medical_topic').on('shown.bs.modal', function (e) {
-        $('#medical_topic').animate({
-            x: '-1500px'
-        }, 1000, 'linear', function() {
-            $('#medical_topic').css('transform', '');
-            $('#medical_topic').css('position', '')
-                             .css('right', 0);
-        });
+
     });
 
     $('.medical-dismiss').on('click', function() {
         $('#medical_topic').modal('hide');
-        $('#medical_topic').css('transform', '');
-        $('#medical_topic').css('position', '')
-                         .css('right', "-3000px");
     });
 
     $('.medical-praise').on('click', function() {

@@ -189,3 +189,16 @@ a {
     opacity: 1;
     left: 0;
 }
+
+.modal.slide-left {
+    -webkit-transition: all .5s ease-in-out;
+            transition: all .5s ease-in-out;
+
+    opacity: 0;
+    right: -1000px;
+}
+
+.modal.slide-left.in {
+    opacity: 1;
+    left: 0;
+}

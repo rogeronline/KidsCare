@@ -2,8 +2,6 @@
 
 /* Top Topic Detail Popup */
 #post_detail {
-    position: fixed;
-    right: -2000px;
     overflow: hidden !important;
 }
 

@@ -10,7 +10,7 @@ function($scope, dataStorage, channel, dataService) {
         },
         {
             id: 'toyCategory',
-            name: 'Toy Category'
+            name: 'Toy Categories'
         },
         {
             id: 'toyFeatrues',

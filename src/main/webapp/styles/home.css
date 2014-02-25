@@ -1,17 +1,19 @@
 /** home tree **/
 #tree {
     position: absolute;
-    top: 0px;
+    top: 0;
     height: 100%;
     width: 100%;
 }
+
 #tree > * {
     position: absolute;
     width: 684px;
     height: 684px;
-    left: 24%;
+    left: 15%;
     bottom: 3%;
 }
+
 #tree > #treeBody {
     border-radius: 342px;
     z-index: 1;

@@ -19,33 +19,14 @@ function($scope, dataStorage, channel, dataService) {
         data.pros = sortByPercent(data.pros);
         data.cons = sortByPercent(data.cons);
         $scope.brandInfo = data;
-        /*$('#milk_powder').transition({
-            duration: 500,
-            perspective: '4000px',
-            rotate3d: '1,1,0,360deg'
-        }, function(){
-            //reset the transform property
-            $(this).css('transform', '');
-        });*/
+
         drawGoodKeyGraph($scope.brandInfo.pros);
         drawBadKeyGraph($scope.brandInfo.cons);
-
-        /*$('#milk_powder').addClass("modal-animation");*/
-        $('#milk_powder').animate({
-            x: '1500px'
-        }, 1000, 'linear', function() {
-            $('#milk_powder').css('transform', '');
-            $('#milk_powder').css('position', '')
-                             .css('left', 0);
-        });
     });
 
     $('#milk_powder').on('hidden.bs.modal', function (e) {
-        $('#good').text("");
-        $('#bad').text("");
-        /*$('#milk_powder').removeClass("modal-animation");*/
-        $('#milk_powder').css('position', 'fixed')
-                         .css('left', '-3000px');
+        jQuery('#good').empty();
+        jQuery('#bad').empty();
     });
 
     function drawGoodKeyGraph(data) {

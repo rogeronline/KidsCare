@@ -175,3 +175,17 @@ a {
     background-repeat: repeat-y;
     background-size: 100%;
 }
+
+
+.modal.slide-right {
+    -webkit-transition: all .5s ease-in-out;
+            transition: all .5s ease-in-out;
+
+    opacity: 0;
+    left: -1000px;
+}
+
+.modal.slide-right.in {
+    opacity: 1;
+    left: 0;
+}

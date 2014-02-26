@@ -23,7 +23,7 @@ function($scope, $location, dataStorage, channel, dataService) {
             }
             if($scope.number == 2) {
                 $scope.number = 3;
-                $scope.question = 'Does the baby feed by formula?';
+                $scope.question = 'Does the baby fed by formula?';
                 $($(".question")[1]).removeClass("questionBrand").removeClass("questionBrand2");
                 $($(".question")[2]).addClass("questionBrand").addClass("questionBrand3");
                 $(".question-tube").css("background-image", "url('images/tube3.png')");
@@ -60,7 +60,7 @@ function($scope, $location, dataStorage, channel, dataService) {
 
     function refresh() {
         $scope.number = 1;
-        $scope.question = 'Are the red pots mainly on the head and face?';
+        $scope.question = 'Are the red spots mainly on the head and face?';
     }
 
     init();

@@ -45,7 +45,7 @@
     border-radius: 167px;
     left: 26%;
     top: 40%;
-    background: url("../images/5m_icon36.png") no-repeat;
+    background: url("../images/newbaby2.png") no-repeat;
 }
 .pic.five-months:nth-child(2) {
     width: 148px;  
@@ -53,7 +53,7 @@
     border-radius: 74px;  
     left: 70%;  
     top: 34%;
-    background: url("../images/5m_icon32.png") no-repeat;
+    background: url("../images/newbaby1.png") no-repeat;
 }
 .pic.five-months:nth-child(3) {
     width: 158px;
@@ -69,7 +69,7 @@
     border-radius: 90px;      
     left: 36%;      
     top: 12%;     
-    background: url("../images/5m_icon30.png") no-repeat;
+    background: url("../images/newbaby3.png") no-repeat;
     background-size: cover;
 }
 @-webkit-keyframes rotate {

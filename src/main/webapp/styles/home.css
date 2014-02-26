@@ -170,7 +170,7 @@
 #timeAxis ul > li.now {
     color: #00aeef;
     background: url("../images/time-line-foot-print.png") no-repeat 1px 7px;
-    height: 60px;
+    height: 50px;
     font-size: 22px;
     text-indent: 1.5em;
     text-shadow: 0 0 5px #59c2e4, 0 0 10px #59c2e4, 0 0 15px #59c2e4, 0 0 40px #59c2e4, 0 0 70px #59c2e4;

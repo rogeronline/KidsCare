@@ -15,7 +15,8 @@
         'scripts/controllers/TopicDetailCtrl.js',
         'scripts/controllers/DietGraphCtrl.js',
         'scripts/controllers/MedicalDetailCtrl.js',
-        'scripts/controllers/QuestionnaireCtrl.js'
+        'scripts/controllers/QuestionnaireCtrl.js',
+        'scripts/controllers/AboutCtrl.js'
     ]).wait(function() {
         angular.bootstrap(document, ['app']);
     });

@@ -131,6 +131,10 @@ app.config(['$routeProvider', function($routeProvider) {
             templateUrl: 'views/record.html',
             controller: 'RecordCtrl'
         })
+        .when('/about', {
+            templateUrl: 'views/about.html',
+            controller: 'AboutCtrl'
+        })
         .otherwise({
             redirectTo: '/'
         })

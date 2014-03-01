@@ -21,6 +21,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <skipTests>false</skipTests>
 
         <!-- Eclipse WTP: context name -->
         <web.context.name>${project.artifactId}</web.context.name>
@@ -246,30 +247,32 @@
             <version>1.2.16</version>
         </dependency>
 
-        <!-- HANA -->
+        <!-- HANA JDBC Driver -->
         <dependency>
             <groupId>com.sap.db.hdb</groupId>
             <artifactId>com.sap.db.ngdbc</artifactId>
             <version>1.50.00.355908</version>
+            <scope>runtime</scope>
         </dependency>
 
         <dependency>
             <groupId>com.sap.core.persistence.osgi</groupId>
             <artifactId>com.sap.core.persistence.osgi.hdb.platform</artifactId>
             <version>0.6.30</version>
+            <scope>runtime</scope>
         </dependency>
 
         <!-- JPA
         <dependency>
-            <groupId>org.apache.openjpa</groupId>
-            <artifactId>openjpa</artifactId>
-            <version>2.3.0</version>
-        </dependency>
-
-        <dependency>
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>org.eclipse.persistence.jpa</artifactId>
             <version>2.5.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.openjpa</groupId>
+            <artifactId>openjpa</artifactId>
+            <version>2.3.0</version>
         </dependency>
         -->
 
@@ -286,6 +289,7 @@
             <version>2.2.4</version>
         </dependency>
 
+        <!-- Python -->
         <dependency>
             <groupId>org.python</groupId>
             <artifactId>jython</artifactId>
@@ -319,6 +323,17 @@
         <finalName>${project.artifactId}</finalName>
 
         <plugins>
+
+            <!-- skip unit test-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.16</version>
+                <configuration>
+                    <skipTests>${skipTests}</skipTests>
+                </configuration>
+            </plugin>
+
             <!-- Jetty 9 for JVM 1.7 and Servlet 3.0-->
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
